@@ -24,7 +24,7 @@ func game_over() -> void:
 	$DeathSound.play()
 	
 func new_game():
-	current_score = 0
+	current_score = 5
 	$Player.start($StartPosition.position)
 	$Player.ability_enabled = false
 	$StartTimer.start()

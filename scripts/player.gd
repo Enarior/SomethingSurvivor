@@ -33,7 +33,7 @@ func _process(delta):
 			$AbilityTimer.start()
 			glow_active = true
 			glow_power = 2.0
-	
+
 	glow_power+= delta * glow_speed
 	if glow_active:
 		if (glow_power >= 2.0 and glow_speed > 0) or (glow_power <=1.0 and glow_speed <0):
@@ -62,8 +62,9 @@ func _process(delta):
 
 func _on_body_entered(body: Node2D) -> void:
 	if glow_active:
-		body.queue_free()
-		sleep_enemy.emit()
+		if body.has_method("die"):
+			body.die()
+			sleep_enemy.emit()
 	else :
 		hide()
 		hit.emit()
