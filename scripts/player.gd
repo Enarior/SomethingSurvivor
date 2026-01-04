@@ -1,0 +1,81 @@
+extends Area2D
+
+signal hit
+
+signal sleep_enemy
+
+@export var glow_power = 1.0
+@export var glow_speed = 3.0
+var glow_active = false
+
+@export var speed = 400 # How fast the player will move (pixels/sec).
+var screen_size # Size of the game window.
+
+var game_started = false
+var ability_enabled = false
+
+func _ready():
+	screen_size = get_viewport_rect().size
+	hide()
+
+func _process(delta):
+	var velocity = Vector2.ZERO
+	if Input.is_action_pressed("move_right"):
+		velocity.x += 1
+	if Input.is_action_pressed("move_left"):
+		velocity.x -= 1
+	if Input.is_action_pressed("move_up"):
+		velocity.y -= 1
+	if Input.is_action_pressed("move_down"):
+		velocity.y += 1
+	if Input.is_action_pressed("ability"):
+		if game_started and ability_enabled and not glow_active:
+			$AbilityTimer.start()
+			glow_active = true
+			glow_power = 2.0
+	
+	glow_power+= delta * glow_speed
+	if glow_active:
+		if (glow_power >= 2.0 and glow_speed > 0) or (glow_power <=1.0 and glow_speed <0):
+			glow_speed *= -1.0
+	else:
+		glow_power	= 0.0
+	$AnimatedSprite2D.get_material().set_shader_parameter("glow_power", glow_power)
+	
+	if velocity.length() > 0 :
+		velocity = velocity.normalized() * speed
+		$AnimatedSprite2D.play()
+	else:
+		$AnimatedSprite2D.stop()
+	
+	if velocity.x != 0:
+		$AnimatedSprite2D.animation = "walk"
+		$AnimatedSprite2D.flip_v = false
+		$AnimatedSprite2D.flip_h = velocity.x < 0
+	if velocity.y != 0:
+		$AnimatedSprite2D.animation = "up"
+		$AnimatedSprite2D.flip_v = velocity.y > 0
+	
+	position += velocity * delta
+	position = position.clamp(Vector2.ZERO, screen_size)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if glow_active:
+		body.queue_free()
+		sleep_enemy.emit()
+	else :
+		hide()
+		hit.emit()
+		$CollisionShape2D.set_deferred("disabled",true)
+
+func start(pos):
+	position = pos
+	show()
+	$CollisionShape2D.disabled = false
+
+
+func _on_ability_timer_timeout() -> void:
+	glow_active = false
+	glow_power	= 0.0
+	

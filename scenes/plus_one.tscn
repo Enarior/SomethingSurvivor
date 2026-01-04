@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://s8gealgs6y68"]
+
+[ext_resource type="Script" uid="uid://csi8nsfu6865l" path="res://scripts/plus_one.gd" id="1_fakji"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x5wf4"]
+load_path = "res://.godot/imported/one.png-9a01884b0d623b8e0ece0eb1b76ab7fc.ctex"
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(0.02, 0.02)
+script = ExtResource("1_fakji")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_x5wf4")
+
+[node name="PoofTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="PoofTimer" to="." method="_on_poof_timer_timeout"]

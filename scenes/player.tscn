@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://c62ame6nynrk8"]
+
+[ext_resource type="Shader" uid="uid://btyk6gfc1hkx8" path="res://shaders/player_glow.gdshader" id="1_hqtel"]
+[ext_resource type="Script" uid="uid://b67dnppl2rdf2" path="res://scripts/player.gd" id="1_sweqy"]
+[ext_resource type="Texture2D" uid="uid://b2g5bfulwmxo6" path="res://art/sheep_walk.png" id="3_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://b4h4xmcymkmwq" path="res://art/sheep_up.png" id="3_sweqy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hqtel"]
+shader = ExtResource("1_hqtel")
+shader_parameter/glow_color = Color(0.78039217, 0.6117647, 0.42745098, 0.57254905)
+shader_parameter/glow_power = 2.80000004172336
+shader_parameter/glow_shift = 4.0000000596048
+shader_parameter/glow_radius = 5.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sweqy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sweqy")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_i3pqv")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dw050"]
+radius = 27.0
+height = 68.0
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_sweqy")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_hqtel")
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_sweqy")
+animation = &"walk"
+autoplay = "up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CapsuleShape2D_dw050")
+
+[node name="AbilityTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="AbilityTimer" to="." method="_on_ability_timer_timeout"]
