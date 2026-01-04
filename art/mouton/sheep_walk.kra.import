@@ -3,12 +3,12 @@
 importer="godot-krita-importer"
 type="PackedScene"
 uid="uid://dxrs1835p2g1m"
-path="res://.godot/imported/sheep_walk.kra-edc5d867a81047cfed011e0e4e24da7d.scn"
+path="res://.godot/imported/sheep_walk.kra-014689b73105e5dfcad7c84c68547c4e.scn"
 
 [deps]
 
-source_file="res://art/sheep_walk.kra"
-dest_files=["res://.godot/imported/sheep_walk.kra-edc5d867a81047cfed011e0e4e24da7d.scn"]
+source_file="res://art/mouton/sheep_walk.kra"
+dest_files=["res://.godot/imported/sheep_walk.kra-014689b73105e5dfcad7c84c68547c4e.scn"]
 
 [params]
 

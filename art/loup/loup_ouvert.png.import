@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4h4xmcymkmwq"
-path="res://.godot/imported/sheep_up.png-bb2ff3c9121106c624e7524dcb133cbd.ctex"
+uid="uid://u2ty1kbcgay3"
+path="res://.godot/imported/loup_ouvert.png-01d7e8492ff01305cf8d06907847b1d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/sheep_up.png"
-dest_files=["res://.godot/imported/sheep_up.png-bb2ff3c9121106c624e7524dcb133cbd.ctex"]
+source_file="res://art/loup/loup_ouvert.png"
+dest_files=["res://.godot/imported/loup_ouvert.png-01d7e8492ff01305cf8d06907847b1d2.ctex"]
 
 [params]
 

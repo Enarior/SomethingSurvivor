@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dascm5p80r5ij"
-path="res://.godot/imported/loup.png-2ae2663aff0294e68a8a7fa3de91815b.ctex"
+uid="uid://b2g5bfulwmxo6"
+path="res://.godot/imported/sheep_walk.png-85099aa6f98f54417b25e1a9b80b9275.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/loup.png"
-dest_files=["res://.godot/imported/loup.png-2ae2663aff0294e68a8a7fa3de91815b.ctex"]
+source_file="res://art/mouton/sheep_walk.png"
+dest_files=["res://.godot/imported/sheep_walk.png-85099aa6f98f54417b25e1a9b80b9275.ctex"]
 
 [params]
 

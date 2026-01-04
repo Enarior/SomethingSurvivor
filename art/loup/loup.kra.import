@@ -3,12 +3,12 @@
 importer="godot-krita-importer"
 type="PackedScene"
 uid="uid://bbsuvfsylnlr0"
-path="res://.godot/imported/loup.kra-ae1ff54c294258e077acb96f09fb4eea.scn"
+path="res://.godot/imported/loup.kra-1515459b41e3d01a2278e529d352d4ac.scn"
 
 [deps]
 
-source_file="res://art/loup.kra"
-dest_files=["res://.godot/imported/loup.kra-ae1ff54c294258e077acb96f09fb4eea.scn"]
+source_file="res://art/loup/loup.kra"
+dest_files=["res://.godot/imported/loup.kra-1515459b41e3d01a2278e529d352d4ac.scn"]
 
 [params]
 

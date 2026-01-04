@@ -3,12 +3,12 @@
 importer="godot-krita-importer"
 type="PackedScene"
 uid="uid://hv5l8npeg8tv"
-path="res://.godot/imported/sheep_up.kra-57b15f3c670b8d2592c8411892e49cde.scn"
+path="res://.godot/imported/sheep_up.kra-9301d72a606e2a40a2d7aa1a3454b703.scn"
 
 [deps]
 
-source_file="res://art/sheep_up.kra"
-dest_files=["res://.godot/imported/sheep_up.kra-57b15f3c670b8d2592c8411892e49cde.scn"]
+source_file="res://art/mouton/sheep_up.kra"
+dest_files=["res://.godot/imported/sheep_up.kra-9301d72a606e2a40a2d7aa1a3454b703.scn"]
 
 [params]
 

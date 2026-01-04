@@ -2,8 +2,8 @@
 
 [ext_resource type="Shader" uid="uid://btyk6gfc1hkx8" path="res://shaders/player_glow.gdshader" id="1_hqtel"]
 [ext_resource type="Script" uid="uid://b67dnppl2rdf2" path="res://scripts/player.gd" id="1_sweqy"]
-[ext_resource type="Texture2D" uid="uid://b2g5bfulwmxo6" path="res://art/sheep_walk.png" id="3_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://b4h4xmcymkmwq" path="res://art/sheep_up.png" id="3_sweqy"]
+[ext_resource type="Texture2D" uid="uid://b2g5bfulwmxo6" path="res://art/mouton/sheep_walk.png" id="3_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://b4h4xmcymkmwq" path="res://art/mouton/sheep_up.png" id="3_sweqy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hqtel"]
 shader = ExtResource("1_hqtel")

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://028p3xwhksbk"]
 
 [ext_resource type="Script" uid="uid://biv207pmoda8d" path="res://scripts/mob.gd" id="1_ejbti"]
-[ext_resource type="Texture2D" uid="uid://dascm5p80r5ij" path="res://art/loup.png" id="6_e5eql"]
-[ext_resource type="Texture2D" uid="uid://u2ty1kbcgay3" path="res://art/loup_ouvert.png" id="7_l00qg"]
+[ext_resource type="Texture2D" uid="uid://dascm5p80r5ij" path="res://art/loup/loup.png" id="6_e5eql"]
+[ext_resource type="Texture2D" uid="uid://u2ty1kbcgay3" path="res://art/loup/loup_ouvert.png" id="7_l00qg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6v40e"]
 animations = [{
