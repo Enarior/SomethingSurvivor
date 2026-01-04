@@ -6,6 +6,7 @@
 load_path = "res://.godot/imported/one.png-9a01884b0d623b8e0ece0eb1b76ab7fc.ctex"
 
 [node name="Node2D" type="Node2D"]
+z_index = 2
 scale = Vector2(0.02, 0.02)
 script = ExtResource("1_fakji")
 
