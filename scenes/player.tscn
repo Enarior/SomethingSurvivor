@@ -52,7 +52,7 @@ z_index = 1
 shape = SubResource("CapsuleShape2D_dw050")
 
 [node name="AbilityTimer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 1.7999999999999998
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="AbilityTimer" to="." method="_on_ability_timer_timeout"]
