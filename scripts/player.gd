@@ -1,7 +1,7 @@
 extends Area2D
 
 signal hit
-
+signal ability_used
 signal sleep_enemy
 
 @export var glow_power = 1.0
@@ -9,13 +9,14 @@ signal sleep_enemy
 var velocity = Vector2()
 
 # CONST
-@export var speed = 400 # How fast the player will move (pixels/sec).
+@export var speed = 300 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
 
 # Game state
 var game_started = false
-var ability_enabled = false
-var glow_active = false
+var ability_unlocked = false
+var ability_active = false
+var ability_available = true
 
 
 func _ready():
@@ -28,7 +29,7 @@ func _process(delta):
 	get_input()
 
 	glow_power+= delta * glow_speed
-	if glow_active:
+	if ability_active:
 		if (glow_power >= 2.0 and glow_speed > 0) or (glow_power <=1.0 and glow_speed <0):
 			glow_speed *= -1.0
 	else:
@@ -63,9 +64,13 @@ func get_input():
 	if Input.is_action_pressed("move_down"):
 		velocity.y += 1
 	if Input.is_action_pressed("ability"):
-		if game_started and ability_enabled and not glow_active:
-			$AbilityTimer.start()
-			glow_active = true
+		print(game_started, ability_unlocked, ability_available)
+		if game_started and ability_unlocked and ability_available:
+			ability_used.emit($AbilityCooldownTimer.wait_time)
+			$AbilityActiveTimer.start()
+			$AbilityCooldownTimer.start()
+			ability_available = false
+			ability_active = true
 			glow_power = 2.0
 	
 func start(pos):
@@ -75,7 +80,7 @@ func start(pos):
 	
 
 func _on_body_entered(body: Node2D) -> void:
-	if glow_active:
+	if ability_active:
 		if body.has_method("die"):
 			body.die()
 			sleep_enemy.emit()
@@ -85,9 +90,10 @@ func _on_body_entered(body: Node2D) -> void:
 		$CollisionShape2D.set_deferred("disabled",true)
 
 
-
-
-func _on_ability_timer_timeout() -> void:
-	glow_active = false
+func _on_ability_active_timer_timeout() -> void:
+	ability_active = false
 	glow_power	= 0.0
-	
+
+
+func _on_ability_cooldown_timer_timeout() -> void:
+	ability_available = true

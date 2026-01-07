@@ -12,8 +12,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if ($Player.ability_enabled == false) and current_score>=5:
-		$Player.ability_enabled = true
+	if ($Player.ability_unlocked == false) and current_score>=5:
+		$Player.ability_unlocked = true
 		$HUD.show_ability_message()
 
 
@@ -24,9 +24,9 @@ func game_over() -> void:
 	$DeathSound.play()
 	
 func new_game():
-	current_score = 0
+	current_score = 5
 	$Player.start($StartPosition.position)
-	$Player.ability_enabled = false
+	$Player.ability_unlocked = false
 	$StartTimer.start()
 	
 	get_tree().call_group("mobs", "queue_free")
@@ -59,7 +59,7 @@ func _on_mob_timer_timeout():
 
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
-
+	
 func _on_score_timer_timeout() -> void:
 	current_score+=1
 	$HUD.update_score(current_score)

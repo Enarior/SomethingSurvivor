@@ -9,7 +9,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	$AbilityCooldownLabel.text = str(int($AbilityCooldownTimer.time_left)+1)
 
 func show_message(text,):
 	$Message.text = text
@@ -49,3 +49,13 @@ func _on_message_timer_timeout() -> void:
 
 func _on_ability_unlocked_timer_timeout() -> void:
 	$AbilityUnlockedLabel.hide()
+
+
+func _on_player_ability_used(ability_cooldown: int) -> void:
+	$AbilityCooldownTimer.wait_time = ability_cooldown
+	$AbilityCooldownLabel.show()
+	$AbilityCooldownTimer.start()
+	
+
+func _on_ability_cooldown_timer_timeout() -> void:
+		$AbilityCooldownLabel.hide()

@@ -24,7 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.3442809, 0.44390652, 0.745342, 1)
+color = Color(0.09113214, 0.18399036, 0.4572636, 1)
 
 [node name="Player" parent="." instance=ExtResource("4_85g3d")]
 
@@ -52,6 +52,7 @@ rotation = 1.5707964
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_ya4ey")
 
+[connection signal="ability_used" from="Player" to="HUD" method="_on_player_ability_used"]
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="sleep_enemy" from="Player" to="." method="player_hit_enemy"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
