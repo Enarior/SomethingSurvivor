@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SomethingSurvivor"
-run/main_scene="uid://bbb0nefifrnmp"
+run/main_scene="uid://23x56kh4p5xh"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [editor]
