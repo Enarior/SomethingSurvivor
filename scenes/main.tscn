@@ -1,60 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbb0nefifrnmp"]
+[gd_scene load_steps=6 format=3 uid="uid://binwdhgeo342d"]
 
-[ext_resource type="Script" uid="uid://c07nsgrrhy54r" path="res://scripts/main.gd" id="1_tefeu"]
-[ext_resource type="PackedScene" uid="uid://028p3xwhksbk" path="res://scenes/Mob.tscn" id="2_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://s8gealgs6y68" path="res://scenes/plus_one.tscn" id="3_tipki"]
-[ext_resource type="PackedScene" uid="uid://c62ame6nynrk8" path="res://scenes/player.tscn" id="4_85g3d"]
-[ext_resource type="PackedScene" uid="uid://ckyg7jm3umrv4" path="res://scenes/hud.tscn" id="5_choun"]
-[ext_resource type="AudioStream" uid="uid://bvewx4drb1jfa" path="res://art/tuto/gameover.wav" id="6_ya4ey"]
+[ext_resource type="Script" uid="uid://rlibt55nhm08" path="res://scenes/main.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://23x56kh4p5xh" path="res://scenes/intro.tscn" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bbb0nefifrnmp" path="res://scenes/game.tscn" id="3_jyhfs"]
+[ext_resource type="AudioStream" uid="uid://bk8ya2poerypg" path="res://sound/music/Intro moins vite.wav" id="4_jyhfs"]
+[ext_resource type="AudioStream" uid="uid://b3sj87mah44yb" path="res://sound/music/Compter les loups.wav" id="5_tbgi4"]
 
-[sub_resource type="Curve2D" id="Curve2D_h2yge"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1152, 0, 0, 0, 0, 0, 1152, 648, 0, 0, 0, 0, 0, 648, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1152, 0)
-}
-point_count = 5
-
-[node name="Main" type="Node"]
-script = ExtResource("1_tefeu")
-mob_scene = ExtResource("2_o6xl0")
-plus_one_scene = ExtResource("3_tipki")
-
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Control" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.09113214, 0.18399036, 0.4572636, 1)
+script = ExtResource("1_o5qli")
+intro_scene = ExtResource("2_sugp2")
+game_scene = ExtResource("3_jyhfs")
 
-[node name="Player" parent="." instance=ExtResource("4_85g3d")]
+[node name="SoundPool" type="Node" parent="."]
 
-[node name="MobTimer" type="Timer" parent="."]
+[node name="IntroAudioStreamPlayer" type="AudioStreamPlayer" parent="SoundPool"]
+stream = ExtResource("4_jyhfs")
 
-[node name="ScoreTimer" type="Timer" parent="."]
-
-[node name="StartTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
-[node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(577, 350)
-
-[node name="MobPath" type="Path2D" parent="."]
-curve = SubResource("Curve2D_h2yge")
-
-[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
-position = Vector2(1152, 0)
-rotation = 1.5707964
-
-[node name="HUD" parent="." instance=ExtResource("5_choun")]
-
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_ya4ey")
-
-[connection signal="ability_used" from="Player" to="HUD" method="_on_player_ability_used"]
-[connection signal="hit" from="Player" to="." method="game_over"]
-[connection signal="sleep_enemy" from="Player" to="." method="player_hit_enemy"]
-[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
-[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
-[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
-[connection signal="start_game" from="HUD" to="." method="new_game"]
+[node name="GameAudioStreamPlayer" type="AudioStreamPlayer" parent="SoundPool"]
+stream = ExtResource("5_tbgi4")

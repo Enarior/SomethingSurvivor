@@ -3,6 +3,8 @@ extends Control
 var children_visible_characters = 0
 var mother_visible_characters = 0
 
+signal intro_end
+
 func _ready() -> void:
 	pass
 
@@ -15,7 +17,8 @@ func _process(delta: float) -> void:
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	intro_end.emit()
+	#get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 		
 		
