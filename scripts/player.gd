@@ -64,7 +64,6 @@ func get_input():
 	if Input.is_action_pressed("move_down"):
 		velocity.y += 1
 	if Input.is_action_pressed("ability"):
-		print(game_started, ability_unlocked, ability_available)
 		if game_started and ability_unlocked and ability_available:
 			ability_used.emit($AbilityCooldownTimer.wait_time)
 			$AbilityActiveTimer.start()

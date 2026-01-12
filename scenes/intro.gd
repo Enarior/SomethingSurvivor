@@ -8,7 +8,7 @@ signal intro_end
 func _ready() -> void:
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if $Children/ChildBubble/ChildBubbleText.visible_characters == 0.1:
 		$Children/ChildAudioStreamPlayer.play()
 	
@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 		$Mother/MotherAudioStreamPlayer.play()
 
 
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+func _on_animation_player_animation_finished() -> void:
 	intro_end.emit()
 	#get_tree().change_scene_to_file("res://scenes/game.tscn")
 

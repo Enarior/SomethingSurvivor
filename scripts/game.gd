@@ -6,6 +6,7 @@ extends Node
 var current_score = 0
 
 signal game_started
+signal game_over
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,13 +14,14 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if ($Player.ability_unlocked == false) and current_score>=5:
 		$Player.ability_unlocked = true
 		$HUD.show_ability_message()
 
 
-func game_over() -> void:
+func end_game() -> void:
+	game_over.emit()
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over()
@@ -81,3 +83,7 @@ func player_hit_enemy() -> void:
 	
 	plus_one.position=$Player.position
 	add_child(plus_one)
+
+
+func _on_player_hit() -> void:
+	end_game()
