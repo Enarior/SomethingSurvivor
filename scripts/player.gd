@@ -4,31 +4,38 @@ signal hit
 signal ability_used
 signal sleep_enemy
 
-@export var glow_power = 1.0
-@export var glow_speed = 3.0
+@export var glow_power:float = 1.0
+@export var glow_speed: float = 3.0
+
+const Ability = preload("res://scripts/ability.gd")
+
+@export var speed: float = 300 # How fast the player will move (pixels/sec).
+var screen_size # Size of the game window.
 var velocity = Vector2()
 
-# CONST
-@export var speed = 300 # How fast the player will move (pixels/sec).
-var screen_size # Size of the game window.
+var wolf_ability
+var frog_ability
 
 # Game state
 var game_started = false
-var abilities = []
 var ability_active = false
-var ability_available = true
 
 
 func _ready():
 	screen_size = get_viewport_rect().size
 	hide()
+	
+	wolf_ability = Ability.new("wolf", 3.0, Color("#c79c6d92"))
+	frog_ability = Ability.new("frog", 5.0, Color("4a946792"))
 
 func _process(delta):
 	velocity = Vector2.ZERO
 	
 	get_input()
-
-	glow_power+= delta * glow_speed
+	
+	if glow_speed:
+		glow_power+= delta * glow_speed
+		
 	if ability_active:
 		if (glow_power >= 2.0 and glow_speed > 0) or (glow_power <=1.0 and glow_speed <0):
 			glow_speed *= -1.0
@@ -63,14 +70,35 @@ func get_input():
 		velocity.y -= 1
 	if Input.is_action_pressed("move_down"):
 		velocity.y += 1
-	if Input.is_action_pressed("ability"):
-		if game_started and "wolf" in abilities and ability_available:
-			ability_used.emit($AbilityCooldownTimer.wait_time)
-			$AbilityActiveTimer.start()
-			$AbilityCooldownTimer.start()
-			ability_available = false
+	if Input.is_action_pressed("ability_wolf"):
+		print("ability wolf")
+		print(game_started, wolf_ability.unlocked, wolf_ability.available)
+		if game_started and wolf_ability.unlocked and wolf_ability.available and not ability_active:
+			#ability_used.emit($WolfAbilityCooldownTimer.wait_time)
+			$WolfAbilityActiveTimer.start()
+			$WolfAbilityCooldownTimer.start()
+			wolf_ability.available = false
+			wolf_ability.active = true
 			ability_active = true
 			glow_power = 2.0
+			$AnimatedSprite2D.material.set_shader_parameter("glow_color",wolf_ability.ability_glow_color)
+	if Input.is_action_pressed("ability_frog"):
+		print("frog ability")
+		print("game_started: " + str(game_started))
+		print("frog_ability.unlocked: " + str(frog_ability.unlocked))
+		print("frog_ability.available: " + str(frog_ability.available))
+		print("ability_active" + str(ability_active))
+		
+		if game_started and frog_ability.unlocked and frog_ability.available and not ability_active:
+			#ability_used.emit($WolfAbilityCooldownTimer.wait_time)
+			$FrogAbilityActiveTimer.start()
+			$FrogAbilityCooldownTimer.start()
+			frog_ability.available = false
+			frog_ability.active = true
+			ability_active = true
+			glow_power = 2.0
+			$AnimatedSprite2D.material.set_shader_parameter("glow_color",frog_ability.ability_glow_color)
+			
 	
 func start(pos):
 	position = pos
@@ -79,7 +107,11 @@ func start(pos):
 	
 
 func _on_body_entered(body: Node2D) -> void:
-	if ability_active:
+	if wolf_ability.active and body.is_in_group("wolf") :
+		if body.has_method("die"):
+			body.die()
+			sleep_enemy.emit()
+	elif frog_ability.active and body.is_in_group("frog"):
 		if body.has_method("die"):
 			body.die()
 			sleep_enemy.emit()
@@ -89,10 +121,23 @@ func _on_body_entered(body: Node2D) -> void:
 		$CollisionShape2D.set_deferred("disabled",true)
 
 
-func _on_ability_active_timer_timeout() -> void:
+func _on_wolf_ability_active_timer_timeout() -> void:
+	wolf_ability.active = false
 	ability_active = false
+	
 	glow_power	= 0.0
 
 
-func _on_ability_cooldown_timer_timeout() -> void:
-	ability_available = true
+func _on_frog_ability_active_timer_timeout() -> void:
+	frog_ability.active = false
+	ability_active = false
+	
+	glow_power	= 0.0
+	
+	
+func _on_wolf_ability_cooldown_timer_timeout() -> void:
+	wolf_ability.available = true
+
+
+func _on_frog_ability_cooldown_timer_timeout() -> void:
+	frog_ability.available = true

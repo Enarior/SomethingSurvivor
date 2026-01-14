@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://028p3xwhksbk"]
+
+[ext_resource type="Script" uid="uid://biv207pmoda8d" path="res://scripts/mob.gd" id="1_ejbti"]
+[ext_resource type="Texture2D" uid="uid://cbe5uxf8ru85a" path="res://art/loup/loup_sleep_0.png" id="2_fx5p6"]
+[ext_resource type="Texture2D" uid="uid://brxfgscfmhrtc" path="res://art/loup/loup_sleep_1.png" id="3_l4il3"]
+[ext_resource type="Texture2D" uid="uid://dascm5p80r5ij" path="res://art/loup/loup.png" id="6_e5eql"]
+[ext_resource type="Texture2D" uid="uid://u2ty1kbcgay3" path="res://art/loup/loup_ouvert.png" id="7_l00qg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6v40e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fx5p6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l4il3")
+}],
+"loop": true,
+"name": &"sleep",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_e5eql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_l00qg")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ch7wj"]
+radius = 41.0
+height = 82.0
+
+[node name="Wolf" type="RigidBody2D" groups=["mobs", "wolf"]]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_ejbti")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_6v40e")
+animation = &"sleep"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ch7wj")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="SleepTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="SleepTimer" to="." method="_on_sleep_timer_timeout"]

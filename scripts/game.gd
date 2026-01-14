@@ -1,11 +1,14 @@
 extends Node
 
-@export var mob_scene: PackedScene
+@export var wolf_scene: PackedScene
+@export var frog_scene: PackedScene
 @export var plus_one_scene: PackedScene
 
-var current_score = 0
 const MOB_TIMER_START_TIME = 2.0
 
+
+var current_score = 0
+var active_mobs = []
 signal game_started
 signal game_over
 
@@ -17,19 +20,20 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	# Unlock wolf ability 
-	if ("wolf" not in $Player.abilities) and current_score>=5:
-		$Player.abilities.append("wolf")
+	if not $Player.wolf_ability.unlocked and current_score>=5:
+		$Player.wolf_ability.unlocked = true
 		$HUD.show_ability_message()
 	
-	# Add frogs
-	if current_score>20:
-		pass
-		# add frogs to mob list or smthing
+	# Add frogs and more mob spawn
+	if "frog" not in active_mobs and current_score>20:
+		active_mobs.append("frog")
+		$MobTimer.wait_time -= 1
 	
 	# Unlock frogs ability
-	if ("frog" not in $Player.abilities) and current_score>=25:
-		$Player.abilites.append("frog")
+	if not $Player.frog_ability.unlocked and current_score>=25:
+		$Player.frog_ability.unlocked = true
 		$HUD.show_ability_message()
+	
 
 func end_game() -> void:
 	game_over.emit()
@@ -40,10 +44,13 @@ func end_game() -> void:
 	
 func new_game():
 	game_started.emit()
-	current_score = 0
+	current_score = 20
 	$MobTimer.wait_time = MOB_TIMER_START_TIME
+	active_mobs.append("wolf")
 	$Player.start($StartPosition.position)
-	$Player.abilities = []
+	$Player.wolf_ability.unlocked = false
+	$Player.frog_ability.unlocked = false
+	
 	$StartTimer.start()
 	
 	get_tree().call_group("mobs", "queue_free")
@@ -54,7 +61,15 @@ func new_game():
 
 func _on_mob_timer_timeout():
 	# Create a new instance of the Mob scene.
-	var mob = mob_scene.instantiate()
+	var mob_name = active_mobs.pick_random()
+	
+	var mob
+	
+	if mob_name == "wolf":
+			mob = wolf_scene.instantiate()
+	elif mob_name == "frog":
+			mob = frog_scene.instantiate()
+
 
 	# Choose a random location on Path2D.
 	var mob_spawn_location = $MobPath/MobSpawnLocation

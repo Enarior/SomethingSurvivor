@@ -51,12 +51,20 @@ visible = false
 z_index = 1
 shape = SubResource("CapsuleShape2D_dw050")
 
-[node name="AbilityActiveTimer" type="Timer" parent="."]
+[node name="WolfAbilityActiveTimer" type="Timer" parent="."]
 wait_time = 1.7999999999999998
 
-[node name="AbilityCooldownTimer" type="Timer" parent="."]
+[node name="FrogAbilityActiveTimer" type="Timer" parent="."]
+wait_time = 1.7999999999999998
+
+[node name="WolfAbilityCooldownTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="FrogAbilityCooldownTimer" type="Timer" parent="."]
 wait_time = 5.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="timeout" from="AbilityActiveTimer" to="." method="_on_ability_active_timer_timeout"]
-[connection signal="timeout" from="AbilityCooldownTimer" to="." method="_on_ability_cooldown_timer_timeout"]
+[connection signal="timeout" from="WolfAbilityActiveTimer" to="." method="_on_wolf_ability_active_timer_timeout"]
+[connection signal="timeout" from="FrogAbilityActiveTimer" to="." method="_on_frog_ability_active_timer_timeout"]
+[connection signal="timeout" from="WolfAbilityCooldownTimer" to="." method="_on_wolf_ability_cooldown_timer_timeout"]
+[connection signal="timeout" from="FrogAbilityCooldownTimer" to="." method="_on_frog_ability_cooldown_timer_timeout"]

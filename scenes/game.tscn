@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbb0nefifrnmp"]
+[gd_scene load_steps=9 format=3 uid="uid://bbb0nefifrnmp"]
 
 [ext_resource type="Script" uid="uid://c07nsgrrhy54r" path="res://scripts/game.gd" id="1_u5sy4"]
-[ext_resource type="PackedScene" uid="uid://028p3xwhksbk" path="res://scenes/Mob.tscn" id="2_gee14"]
-[ext_resource type="PackedScene" uid="uid://s8gealgs6y68" path="res://scenes/plus_one.tscn" id="3_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://028p3xwhksbk" path="res://scenes/wolf.tscn" id="2_p57ef"]
+[ext_resource type="PackedScene" uid="uid://b3a7qdu1igbpd" path="res://scenes/frog.tscn" id="3_gee14"]
+[ext_resource type="PackedScene" uid="uid://s8gealgs6y68" path="res://scenes/plus_one.tscn" id="3_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://c62ame6nynrk8" path="res://scenes/player.tscn" id="4_vtaks"]
 [ext_resource type="PackedScene" uid="uid://ckyg7jm3umrv4" path="res://scenes/hud.tscn" id="5_kvpfn"]
 [ext_resource type="AudioStream" uid="uid://bvewx4drb1jfa" path="res://art/tuto/gameover.wav" id="6_dinhu"]
@@ -15,8 +16,9 @@ point_count = 5
 
 [node name="Game" type="Node"]
 script = ExtResource("1_u5sy4")
-mob_scene = ExtResource("2_gee14")
-plus_one_scene = ExtResource("3_0tnpc")
+wolf_scene = ExtResource("2_p57ef")
+frog_scene = ExtResource("3_gee14")
+plus_one_scene = ExtResource("3_u5sy4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -27,6 +29,9 @@ grow_vertical = 2
 color = Color(0.09113214, 0.18399036, 0.4572636, 1)
 
 [node name="Player" parent="." instance=ExtResource("4_vtaks")]
+glow_power = null
+glow_speed = null
+speed = null
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 2.0
