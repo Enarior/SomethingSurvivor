@@ -14,7 +14,7 @@ var screen_size # Size of the game window.
 
 # Game state
 var game_started = false
-var ability_unlocked = false
+var abilities = []
 var ability_active = false
 var ability_available = true
 
@@ -64,7 +64,7 @@ func get_input():
 	if Input.is_action_pressed("move_down"):
 		velocity.y += 1
 	if Input.is_action_pressed("ability"):
-		if game_started and ability_unlocked and ability_available:
+		if game_started and "wolf" in abilities and ability_available:
 			ability_used.emit($AbilityCooldownTimer.wait_time)
 			$AbilityActiveTimer.start()
 			$AbilityCooldownTimer.start()

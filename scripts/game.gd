@@ -4,6 +4,7 @@ extends Node
 @export var plus_one_scene: PackedScene
 
 var current_score = 0
+const MOB_TIMER_START_TIME = 2.0
 
 signal game_started
 signal game_over
@@ -15,10 +16,20 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if ($Player.ability_unlocked == false) and current_score>=5:
-		$Player.ability_unlocked = true
+	# Unlock wolf ability 
+	if ("wolf" not in $Player.abilities) and current_score>=5:
+		$Player.abilities.append("wolf")
 		$HUD.show_ability_message()
-
+	
+	# Add frogs
+	if current_score>20:
+		pass
+		# add frogs to mob list or smthing
+	
+	# Unlock frogs ability
+	if ("frog" not in $Player.abilities) and current_score>=25:
+		$Player.abilites.append("frog")
+		$HUD.show_ability_message()
 
 func end_game() -> void:
 	game_over.emit()
@@ -30,8 +41,9 @@ func end_game() -> void:
 func new_game():
 	game_started.emit()
 	current_score = 0
+	$MobTimer.wait_time = MOB_TIMER_START_TIME
 	$Player.start($StartPosition.position)
-	$Player.ability_unlocked = false
+	$Player.abilities = []
 	$StartTimer.start()
 	
 	get_tree().call_group("mobs", "queue_free")
@@ -55,7 +67,7 @@ func _on_mob_timer_timeout():
 	var direction = mob_spawn_location.rotation + PI / 2
 
 	# Add some randomness to the direction.
-	direction += randf_range(PI / 4, -PI / 4)
+	direction += randf_range(PI / 6, -PI / 6)
 	mob.rotation = direction
 
 	# Choose the velocity for the mob.
