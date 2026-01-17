@@ -29,9 +29,6 @@ grow_vertical = 2
 color = Color(0.09113214, 0.18399036, 0.4572636, 1)
 
 [node name="Player" parent="." instance=ExtResource("4_vtaks")]
-glow_power = null
-glow_speed = null
-speed = null
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -57,7 +54,6 @@ rotation = 1.5707964
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_dinhu")
 
-[connection signal="ability_used" from="Player" to="HUD" method="_on_player_ability_used"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="sleep_enemy" from="Player" to="." method="player_hit_enemy"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

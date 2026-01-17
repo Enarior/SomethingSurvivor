@@ -16,7 +16,8 @@ func show_message(text,):
 	$Message.show()
 	$MessageTimer.start()
 
-func show_ability_message():
+func show_ability_message(text:String):
+	$AbilityUnlockedLabel.text = text
 	$AbilityUnlockedLabel.show()
 	$AbilityUnlockedTimer.start()
 

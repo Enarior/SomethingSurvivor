@@ -1,7 +1,6 @@
 extends Area2D
 
 signal hit
-signal ability_used
 signal sleep_enemy
 
 @export var glow_power:float = 1.0
