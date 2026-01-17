@@ -1,0 +1,91 @@
+{
+	"categories": [
+		{
+			"uuid": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"title": "Task",
+			"color": "268cd1"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "a26d1348-b724-44a8-bcb0-93f295e7fe44",
+			"title": "Todo",
+			"tasks": [
+				"4fcb5d54-63e2-48df-b77b-d1e5e3d9a474",
+				"687f6c46-ec15-4206-a6a1-c01309ab5038",
+				"5a7c99ab-2b33-43ff-a1de-ddcab16a7d13"
+			]
+		},
+		{
+			"uuid": "eb54cc1c-8ee5-4ff3-aa1e-49bb0815e8a7",
+			"title": "Doing",
+			"tasks": []
+		},
+		{
+			"uuid": "c333759a-772d-4348-aea1-c92c363f08f4",
+			"title": "Done",
+			"tasks": [
+				"a5b5e443-fcbe-4a72-a5a4-c16404f97aae",
+				"88e1f822-722c-4ed6-9aeb-c3657b8706d5",
+				"50c01251-93d1-4ba0-973b-f18b493e8d32"
+			]
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "4fcb5d54-63e2-48df-b77b-d1e5e3d9a474",
+			"title": "Frog art",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		},
+		{
+			"uuid": "a5b5e443-fcbe-4a72-a5a4-c16404f97aae",
+			"title": "Basic frog enemy",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		},
+		{
+			"uuid": "88e1f822-722c-4ed6-9aeb-c3657b8706d5",
+			"title": "Frog ability",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		},
+		{
+			"uuid": "687f6c46-ec15-4206-a6a1-c01309ab5038",
+			"title": "Frog clunky movement",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		},
+		{
+			"uuid": "50c01251-93d1-4ba0-973b-f18b493e8d32",
+			"title": "ability hotkey message",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		},
+		{
+			"uuid": "5a7c99ab-2b33-43ff-a1de-ddcab16a7d13",
+			"title": "Fix cooldown",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"a26d1348-b724-44a8-bcb0-93f295e7fe44"
+			],
+			[
+				"eb54cc1c-8ee5-4ff3-aa1e-49bb0815e8a7"
+			],
+			[
+				"c333759a-772d-4348-aea1-c92c363f08f4"
+			]
+		]
+	}
+}
