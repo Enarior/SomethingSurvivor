@@ -59,9 +59,11 @@ wait_time = 1.7999999999999998
 
 [node name="WolfAbilityCooldownTimer" type="Timer" parent="."]
 wait_time = 3.0
+one_shot = true
 
 [node name="FrogAbilityCooldownTimer" type="Timer" parent="."]
 wait_time = 5.0
+one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="WolfAbilityActiveTimer" to="." method="_on_wolf_ability_active_timer_timeout"]

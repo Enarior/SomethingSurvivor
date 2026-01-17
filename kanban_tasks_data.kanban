@@ -13,7 +13,9 @@
 			"tasks": [
 				"4fcb5d54-63e2-48df-b77b-d1e5e3d9a474",
 				"687f6c46-ec15-4206-a6a1-c01309ab5038",
-				"5a7c99ab-2b33-43ff-a1de-ddcab16a7d13"
+				"07e55c63-3de6-4af0-a5fa-499533776c69",
+				"c00cbd7e-ee7c-4ab0-8205-6f30c99717b7",
+				"2a794313-d742-43c5-a310-2eb82b23f975"
 			]
 		},
 		{
@@ -27,7 +29,8 @@
 			"tasks": [
 				"a5b5e443-fcbe-4a72-a5a4-c16404f97aae",
 				"88e1f822-722c-4ed6-9aeb-c3657b8706d5",
-				"50c01251-93d1-4ba0-973b-f18b493e8d32"
+				"50c01251-93d1-4ba0-973b-f18b493e8d32",
+				"5a7c99ab-2b33-43ff-a1de-ddcab16a7d13"
 			]
 		}
 	],
@@ -70,6 +73,27 @@
 		{
 			"uuid": "5a7c99ab-2b33-43ff-a1de-ddcab16a7d13",
 			"title": "Fix cooldown",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		},
+		{
+			"uuid": "07e55c63-3de6-4af0-a5fa-499533776c69",
+			"title": "Cooldowns UI",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		},
+		{
+			"uuid": "c00cbd7e-ee7c-4ab0-8205-6f30c99717b7",
+			"title": "Change font",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		},
+		{
+			"uuid": "2a794313-d742-43c5-a310-2eb82b23f975",
+			"title": "Add/change sound effects",
 			"description": "",
 			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
 			"steps": []

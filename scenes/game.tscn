@@ -54,8 +54,10 @@ rotation = 1.5707964
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_dinhu")
 
+[connection signal="frog_ability_used" from="Player" to="HUD" method="_on_player_frog_ability_used"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="sleep_enemy" from="Player" to="." method="player_hit_enemy"]
+[connection signal="wolf_ability_used" from="Player" to="HUD" method="_on_player_wolf_ability_used"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

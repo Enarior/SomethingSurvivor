@@ -2,6 +2,8 @@ extends Area2D
 
 signal hit
 signal sleep_enemy
+signal wolf_ability_used
+signal frog_ability_used
 
 @export var glow_power:float = 1.0
 @export var glow_speed: float = 3.0
@@ -70,10 +72,10 @@ func get_input():
 	if Input.is_action_pressed("move_down"):
 		velocity.y += 1
 	if Input.is_action_pressed("ability_wolf"):
-		print("ability wolf")
-		print(game_started, wolf_ability.unlocked, wolf_ability.available)
+		#print("ability wolf")
+		#print(game_started, wolf_ability.unlocked, wolf_ability.available)
 		if game_started and wolf_ability.unlocked and wolf_ability.available and not ability_active:
-			#ability_used.emit($WolfAbilityCooldownTimer.wait_time)
+			wolf_ability_used.emit(wolf_ability.ability_cooldown)
 			$WolfAbilityActiveTimer.start()
 			$WolfAbilityCooldownTimer.start()
 			wolf_ability.available = false
@@ -82,14 +84,14 @@ func get_input():
 			glow_power = 2.0
 			$AnimatedSprite2D.material.set_shader_parameter("glow_color",wolf_ability.ability_glow_color)
 	if Input.is_action_pressed("ability_frog"):
-		print("frog ability")
-		print("game_started: " + str(game_started))
-		print("frog_ability.unlocked: " + str(frog_ability.unlocked))
-		print("frog_ability.available: " + str(frog_ability.available))
-		print("ability_active" + str(ability_active))
+		#print("frog ability")
+		#print("game_started: " + str(game_started))
+		#print("frog_ability.unlocked: " + str(frog_ability.unlocked))
+		#print("frog_ability.available: " + str(frog_ability.available))
+		#print("ability_active" + str(ability_active))
 		
 		if game_started and frog_ability.unlocked and frog_ability.available and not ability_active:
-			#ability_used.emit($WolfAbilityCooldownTimer.wait_time)
+			frog_ability_used.emit(frog_ability.ability_cooldown)
 			$FrogAbilityActiveTimer.start()
 			$FrogAbilityCooldownTimer.start()
 			frog_ability.available = false
