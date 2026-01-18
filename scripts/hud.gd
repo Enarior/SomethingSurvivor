@@ -10,7 +10,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if $WolfAbilityCooldown/WolfAbilityCooldownTimer.time_left > 0:
 		$WolfAbilityCooldown/WolfAbilityCooldownLabel.text = str(int($WolfAbilityCooldown/WolfAbilityCooldownTimer.time_left)+1)
 	if $FrogAbilityCooldown/FrogAbilityCooldownTimer.time_left > 0:
@@ -92,4 +92,3 @@ func _on_frog_ability_cooldown_timer_timeout() -> void:
 	
 	$FrogAbilityCooldown/FrogAbilityCooldownLabel.show()
 	$FrogAbilityCooldown/FrogAbilityCooldownTimer.stop()
-	
