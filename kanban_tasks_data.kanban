@@ -14,9 +14,9 @@
 				"4fcb5d54-63e2-48df-b77b-d1e5e3d9a474",
 				"687f6c46-ec15-4206-a6a1-c01309ab5038",
 				"07e55c63-3de6-4af0-a5fa-499533776c69",
-				"c00cbd7e-ee7c-4ab0-8205-6f30c99717b7",
 				"2a794313-d742-43c5-a310-2eb82b23f975",
-				"f838d0b2-e6d0-49d6-a852-54270f462e11"
+				"f838d0b2-e6d0-49d6-a852-54270f462e11",
+				"bfc799a4-a7c4-47b1-9e19-830d2115afcc"
 			]
 		},
 		{
@@ -31,7 +31,8 @@
 				"a5b5e443-fcbe-4a72-a5a4-c16404f97aae",
 				"88e1f822-722c-4ed6-9aeb-c3657b8706d5",
 				"50c01251-93d1-4ba0-973b-f18b493e8d32",
-				"5a7c99ab-2b33-43ff-a1de-ddcab16a7d13"
+				"5a7c99ab-2b33-43ff-a1de-ddcab16a7d13",
+				"c00cbd7e-ee7c-4ab0-8205-6f30c99717b7"
 			]
 		}
 	],
@@ -102,6 +103,13 @@
 		{
 			"uuid": "f838d0b2-e6d0-49d6-a852-54270f462e11",
 			"title": "Win condition",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		},
+		{
+			"uuid": "bfc799a4-a7c4-47b1-9e19-830d2115afcc",
+			"title": "Add \"use arrow keys to move\" message",
 			"description": "",
 			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
 			"steps": []
