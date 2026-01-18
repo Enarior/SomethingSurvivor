@@ -2,7 +2,8 @@ extends CanvasLayer
 
 signal start_game
 
-var bar_percentage = 100
+var wolf_bar_percentage = 100
+var frog_bar_percentage = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,14 +17,19 @@ func _process(_delta: float) -> void:
 	if $FrogAbilityCooldown/FrogAbilityCooldownTimer.time_left > 0:
 		$FrogAbilityCooldown/FrogAbilityCooldownLabel.text = str(int($FrogAbilityCooldown/FrogAbilityCooldownTimer.time_left)+1)
 	
-	bar_percentage = 100 - ($WolfAbilityCooldown/WolfAbilityCooldownTimer.time_left*100) / $WolfAbilityCooldown/WolfAbilityCooldownTimer.wait_time 
-	$WolfAbilityCooldown/WolfAbilityCooldownProgressBar.value = bar_percentage
-	if bar_percentage<100:
-		print(bar_percentage)
-		print($WolfAbilityCooldown/WolfAbilitySprite.modulate.a)
+	wolf_bar_percentage = 100 - ($WolfAbilityCooldown/WolfAbilityCooldownTimer.time_left*100) / $WolfAbilityCooldown/WolfAbilityCooldownTimer.wait_time 
+	$WolfAbilityCooldown/WolfAbilityCooldownProgressBar.value = wolf_bar_percentage
+	if wolf_bar_percentage<100:
 		$WolfAbilityCooldown/WolfAbilitySprite.modulate.a = 0.2
 	else:
 		$WolfAbilityCooldown/WolfAbilitySprite.modulate.a = 1
+		
+	frog_bar_percentage = 100 - ($FrogAbilityCooldown/FrogAbilityCooldownTimer.time_left*100) / $FrogAbilityCooldown/FrogAbilityCooldownTimer.wait_time 
+	$FrogAbilityCooldown/FrogAbilityCooldownProgressBar.value = frog_bar_percentage
+	if frog_bar_percentage<100:
+		$FrogAbilityCooldown/FrogAbilitySprite.modulate.a = 0.2
+	else:
+		$FrogAbilityCooldown/FrogAbilitySprite.modulate.a = 1
 		
 func show_message(text,):
 	$Message.text = text
@@ -90,5 +96,5 @@ func _on_wolf_ability_cooldown_timer_timeout() -> void:
 func _on_frog_ability_cooldown_timer_timeout() -> void:
 	print("frog timeout")
 	
-	$FrogAbilityCooldown/FrogAbilityCooldownLabel.show()
+	$FrogAbilityCooldown/FrogAbilityCooldownLabel.hide()
 	$FrogAbilityCooldown/FrogAbilityCooldownTimer.stop()

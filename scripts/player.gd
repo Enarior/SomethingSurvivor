@@ -84,13 +84,14 @@ func get_input():
 			glow_power = 2.0
 			$AnimatedSprite2D.material.set_shader_parameter("glow_color",wolf_ability.ability_glow_color)
 	if Input.is_action_pressed("ability_frog"):
-		#print("frog ability")
+		print("frog ability")
 		#print("game_started: " + str(game_started))
 		#print("frog_ability.unlocked: " + str(frog_ability.unlocked))
 		#print("frog_ability.available: " + str(frog_ability.available))
 		#print("ability_active" + str(ability_active))
 		
 		if game_started and frog_ability.unlocked and frog_ability.available and not ability_active:
+			print("frog ability USED")
 			frog_ability_used.emit(frog_ability.ability_cooldown)
 			$FrogAbilityActiveTimer.start()
 			$FrogAbilityCooldownTimer.start()

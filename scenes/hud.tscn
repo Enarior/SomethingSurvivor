@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckyg7jm3umrv4"]
+[gd_scene load_steps=8 format=3 uid="uid://ckyg7jm3umrv4"]
 
 [ext_resource type="FontFile" uid="uid://dche5uxxdw2a3" path="res://fonts/Xolonium-Regular.ttf" id="1_37p78"]
 [ext_resource type="Script" uid="uid://beomr1vb4hvkj" path="res://scripts/hud.gd" id="1_64ctp"]
 [ext_resource type="FontFile" uid="uid://bixi67mwwgn6m" path="res://fonts/LoveDays-2v7Oe.ttf" id="3_5ysmq"]
 [ext_resource type="Texture2D" uid="uid://dascm5p80r5ij" path="res://art/loup/loup.png" id="4_6fi6k"]
+[ext_resource type="Texture2D" uid="uid://7jnhpalbfl2i" path="res://art/frog/frog1.png" id="5_uo2fv"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_64ctp"]
 action = &"start_game"
@@ -98,6 +99,7 @@ wait_time = 3.0
 position = Vector2(17, 586)
 
 [node name="WolfAbilityCooldownTimer" type="Timer" parent="WolfAbilityCooldown"]
+one_shot = true
 
 [node name="WolfAbilityCooldownProgressBar" type="ProgressBar" parent="WolfAbilityCooldown"]
 anchors_preset = 8
@@ -111,6 +113,7 @@ offset_right = 67.0
 offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
+fill_mode = 3
 show_percentage = false
 
 [node name="WolfAbilitySprite" type="Sprite2D" parent="WolfAbilityCooldown"]
@@ -119,6 +122,7 @@ scale = Vector2(0.09683098, 0.094047606)
 texture = ExtResource("4_6fi6k")
 
 [node name="WolfAbilityCooldownLabel" type="Label" parent="WolfAbilityCooldown"]
+visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -137,26 +141,53 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="FrogAbilityCooldown" type="Node2D" parent="."]
+position = Vector2(112, 589)
 
 [node name="FrogAbilityCooldownTimer" type="Timer" parent="FrogAbilityCooldown"]
+one_shot = true
+
+[node name="FrogAbilityCooldownProgressBar" type="ProgressBar" parent="FrogAbilityCooldown"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -16.0
+offset_right = 67.0
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 3
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="FrogAbilitySprite" type="Sprite2D" parent="FrogAbilityCooldown"]
+position = Vector2(32.75594, 14.249987)
+scale = Vector2(0.066882916, 0.05810547)
+texture = ExtResource("5_uo2fv")
 
 [node name="FrogAbilityCooldownLabel" type="Label" parent="FrogAbilityCooldown"]
-anchors_preset = 2
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 73.0
-offset_top = 594.0
-offset_right = 113.0
-offset_bottom = 633.0
+offset_left = 12.0
+offset_top = -6.0
+offset_right = 52.0
+offset_bottom = 33.0
+grow_horizontal = 0
 grow_vertical = 0
-theme_override_colors/font_color = Color(4.813075e-08, 0.6607219, 0.3659703, 1)
+theme_override_colors/font_color = Color(0.6871783, 0.60317487, 0.05966848, 1)
 theme_override_fonts/font = ExtResource("1_37p78")
 theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
 [connection signal="timeout" from="AbilityUnlockedTimer" to="." method="_on_ability_unlocked_timer_timeout"]
 [connection signal="timeout" from="WolfAbilityCooldown/WolfAbilityCooldownTimer" to="." method="_on_wolf_ability_cooldown_timer_timeout"]
-[connection signal="timeout" from="FrogAbilityCooldown/FrogAbilityCooldownTimer" to="." method="_on_frog_ability_cooldown_timer_timeout"]
