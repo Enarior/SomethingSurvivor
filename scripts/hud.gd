@@ -2,6 +2,8 @@ extends CanvasLayer
 
 signal start_game
 
+var bar_percentage = 100
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,7 +15,16 @@ func _process(delta: float) -> void:
 		$WolfAbilityCooldown/WolfAbilityCooldownLabel.text = str(int($WolfAbilityCooldown/WolfAbilityCooldownTimer.time_left)+1)
 	if $FrogAbilityCooldown/FrogAbilityCooldownTimer.time_left > 0:
 		$FrogAbilityCooldown/FrogAbilityCooldownLabel.text = str(int($FrogAbilityCooldown/FrogAbilityCooldownTimer.time_left)+1)
-
+	
+	bar_percentage = 100 - ($WolfAbilityCooldown/WolfAbilityCooldownTimer.time_left*100) / $WolfAbilityCooldown/WolfAbilityCooldownTimer.wait_time 
+	$WolfAbilityCooldown/WolfAbilityCooldownProgressBar.value = bar_percentage
+	if bar_percentage<100:
+		print(bar_percentage)
+		print($WolfAbilityCooldown/WolfAbilitySprite.modulate.a)
+		$WolfAbilityCooldown/WolfAbilitySprite.modulate.a = 0.2
+	else:
+		$WolfAbilityCooldown/WolfAbilitySprite.modulate.a = 1
+		
 func show_message(text,):
 	$Message.text = text
 	$Message.show()

@@ -21,6 +21,8 @@ game_scene = ExtResource("3_jyhfs")
 
 [node name="IntroAudioStreamPlayer" type="AudioStreamPlayer" parent="SoundPool"]
 stream = ExtResource("4_jyhfs")
+volume_db = -10.0
 
 [node name="GameAudioStreamPlayer" type="AudioStreamPlayer" parent="SoundPool"]
 stream = ExtResource("5_tbgi4")
+volume_db = -10.0

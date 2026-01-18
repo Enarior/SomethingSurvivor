@@ -5,7 +5,9 @@ extends Control
 
 var intro
 var game
-var play_intro = true
+
+# debug
+var play_intro = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
