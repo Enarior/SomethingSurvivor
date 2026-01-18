@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://binwdhgeo342d"]
 
-[ext_resource type="Script" uid="uid://rlibt55nhm08" path="res://scenes/main.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://rlibt55nhm08" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://23x56kh4p5xh" path="res://scenes/intro.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bbb0nefifrnmp" path="res://scenes/game.tscn" id="3_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://bk8ya2poerypg" path="res://sound/music/Intro moins vite.wav" id="4_jyhfs"]

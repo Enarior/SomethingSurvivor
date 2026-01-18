@@ -5,7 +5,7 @@ extends Control
 
 var intro
 var game
-var play_intro = false
+var play_intro = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,11 +35,11 @@ func _on_intro_intro_end():
 	add_child(game)
 	
 	game.game_started.connect(_on_game_game_started)
+	game.game_over.connect(_on_game_game_over)
 
 func _on_game_game_started():
 	audio_transition($SoundPool/IntroAudioStreamPlayer, $SoundPool/GameAudioStreamPlayer)
 
-		
 		
 func audio_transition(current_audio_stream_player: AudioStreamPlayer, new_audio_stream_player: AudioStreamPlayer):
 	# Fade-out / Fade-in audio transition

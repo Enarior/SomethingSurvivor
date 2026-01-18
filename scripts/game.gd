@@ -45,7 +45,7 @@ func end_game() -> void:
 	
 func new_game():
 	game_started.emit()
-	current_score = 20
+	current_score = 0
 	$MobTimer.wait_time = MOB_TIMER_START_TIME
 	active_mobs.append("wolf")
 	$Player.start($StartPosition.position)
