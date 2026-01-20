@@ -163,8 +163,8 @@ show_percentage = false
 metadata/_edit_use_anchors_ = true
 
 [node name="FrogAbilitySprite" type="Sprite2D" parent="FrogAbilityCooldown"]
-position = Vector2(32.75594, 14.249987)
-scale = Vector2(0.066882916, 0.05810547)
+position = Vector2(33.500004, 13.99999)
+scale = Vector2(0.08367628, 0.09416199)
 texture = ExtResource("5_uo2fv")
 
 [node name="FrogAbilityCooldownLabel" type="Label" parent="FrogAbilityCooldown"]
@@ -180,7 +180,7 @@ offset_right = 52.0
 offset_bottom = 33.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_colors/font_color = Color(0.6871783, 0.60317487, 0.05966848, 1)
+theme_override_colors/font_color = Color(0, 0.41960785, 0.02745098, 1)
 theme_override_fonts/font = ExtResource("1_37p78")
 theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
