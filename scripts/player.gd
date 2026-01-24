@@ -10,7 +10,7 @@ signal frog_ability_used
 
 const Ability = preload("res://scripts/ability.gd")
 
-@export var speed: float = 300 # How fast the player will move (pixels/sec).
+@export var speed: float = 250 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
 var velocity = Vector2()
 
