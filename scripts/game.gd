@@ -5,7 +5,8 @@ extends Node
 @export var plus_one_scene: PackedScene
 
 const MOB_TIMER_START_TIME = 2.0
-
+const MOB_MIN_VELOCITY = 200
+const MOB_MAX_VELOCITY = 300
 
 var current_score = 0
 var active_mobs = []
@@ -87,7 +88,7 @@ func _on_mob_timer_timeout():
 	mob.rotation = direction
 
 	# Choose the velocity for the mob.
-	var velocity = Vector2(randf_range(150.0, 250.0), 0.0)
+	var velocity = Vector2(randf_range(MOB_MIN_VELOCITY, MOB_MAX_VELOCITY), 0.0)
 	mob.linear_velocity = velocity.rotated(direction)
 
 	# Spawn the mob by adding it to the Main scene.
