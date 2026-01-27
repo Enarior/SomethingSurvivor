@@ -14,8 +14,7 @@
 				"f838d0b2-e6d0-49d6-a852-54270f462e11",
 				"2a794313-d742-43c5-a310-2eb82b23f975",
 				"d1c93ee0-895c-4a2d-90f2-09851d2b372a",
-				"e1e0ec1c-6bfb-4a03-b872-fd90e04899fc",
-				"c6823b1b-c1e7-4371-97e6-1a0a1b6a3c71"
+				"adfbc981-1760-4824-804b-72e195d95799"
 			]
 		},
 		{
@@ -23,7 +22,7 @@
 			"title": "Doing",
 			"tasks": [
 				"e0f6c496-5ea4-413b-8aa9-1c7ba8611b82",
-				"bfc799a4-a7c4-47b1-9e19-830d2115afcc"
+				"c6823b1b-c1e7-4371-97e6-1a0a1b6a3c71"
 			]
 		},
 		{
@@ -38,7 +37,8 @@
 				"4fcb5d54-63e2-48df-b77b-d1e5e3d9a474",
 				"07e55c63-3de6-4af0-a5fa-499533776c69",
 				"687f6c46-ec15-4206-a6a1-c01309ab5038",
-				"76a50736-9b0c-403c-b887-534199b9641d"
+				"76a50736-9b0c-403c-b887-534199b9641d",
+				"bfc799a4-a7c4-47b1-9e19-830d2115afcc"
 			]
 		}
 	],
@@ -135,13 +135,6 @@
 			"steps": []
 		},
 		{
-			"uuid": "e1e0ec1c-6bfb-4a03-b872-fd90e04899fc",
-			"title": "Ability shine larger + speed increase",
-			"description": "",
-			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
-			"steps": []
-		},
-		{
 			"uuid": "c6823b1b-c1e7-4371-97e6-1a0a1b6a3c71",
 			"title": "ART : Frog Sleep",
 			"description": "",
@@ -151,6 +144,13 @@
 		{
 			"uuid": "76a50736-9b0c-403c-b887-534199b9641d",
 			"title": "Refactor HUD code",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		},
+		{
+			"uuid": "adfbc981-1760-4824-804b-72e195d95799",
+			"title": "Gameplay : upgrades (Ability shine larger, speed increase, cooldown decrease)",
 			"description": "",
 			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
 			"steps": []

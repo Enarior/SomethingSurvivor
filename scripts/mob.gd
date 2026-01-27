@@ -15,6 +15,10 @@ func _on_sleep_timer_timeout() -> void:
 	queue_free()
 
 func die():
-	self.sleeping = true
+	if self.is_in_group("frog"):
+		$Movement/MovementTimer.stop()
+		
+	self.linear_velocity = Vector2(0.0,0.0)
+	#self.sleeping = true
 	$SleepTimer.start()
 	$AnimatedSprite2D.animation = "sleep"

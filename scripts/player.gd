@@ -109,12 +109,14 @@ func start(pos):
 	
 
 func _on_body_entered(body: Node2D) -> void:
-	if wolf_ability.active and body.is_in_group("wolf") :
+	if wolf_ability.active and body.is_in_group("wolf"):
 		if body.has_method("die"):
 			body.die()
 			sleep_enemy.emit()
 	elif frog_ability.active and body.is_in_group("frog"):
 		if body.has_method("die"):
+			body.get_node("Movement").queue_free() # dirty
+			body.get_node("AnimatedSprite2D").play() # dirty
 			body.die()
 			sleep_enemy.emit()
 	else :
