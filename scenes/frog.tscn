@@ -46,8 +46,6 @@ metadata/_edit_group_ = true
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_6v40e")
 animation = &"sleep"
-frame = 1
-frame_progress = 0.23536961
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -3)
