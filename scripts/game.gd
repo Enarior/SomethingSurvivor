@@ -58,7 +58,9 @@ func new_game():
 	get_tree().call_group("mobs", "queue_free")
 	
 	$HUD.update_score(current_score)
-	$HUD.show_ready_message()	
+	$HUD.show_ready_message()
+	$HUD.show_hint("Use arrow keys to move !")
+	
 
 
 func _on_mob_timer_timeout():
