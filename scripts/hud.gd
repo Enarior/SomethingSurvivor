@@ -36,10 +36,10 @@ func show_message(text,):
 	$Message.show()
 	$MessageTimer.start()
 
-func show_ability_message(text:String):
-	$AbilityUnlockedLabel.text = text
-	$AbilityUnlockedLabel.show()
-	$AbilityUnlockedTimer.start()
+func show_hint(text:String):
+	$Hint/HintLabel.text = text
+	$Hint.show()
+	$Hint/HintTimer.start()
 
 func show_game_over():
 	show_message(("Game Over..."))
@@ -69,7 +69,7 @@ func _on_message_timer_timeout() -> void:
 
 
 func _on_ability_unlocked_timer_timeout() -> void:
-	$AbilityUnlockedLabel.hide()
+	$Hint.hide()
 
 func _on_player_frog_ability_used(ability_cooldown: int) -> void:
 	print("frog used")
