@@ -24,6 +24,7 @@ func _process(_delta: float) -> void:
 	if not $Player.wolf_ability.unlocked and current_score>=5:
 		$Player.wolf_ability.unlocked = true
 		$HUD.show_hint("Press A to send wolves to sleep !")
+		$HUD/WolfAbilityCooldown.show()
 	
 	# Add frogs and more mob spawn
 	if "frog" not in active_mobs and current_score>20:
@@ -34,6 +35,8 @@ func _process(_delta: float) -> void:
 	if not $Player.frog_ability.unlocked and current_score>=25:
 		$Player.frog_ability.unlocked = true
 		$HUD.show_hint("Press E to send frogs to sleep !")
+		$HUD/FrogAbilityCooldown.show()
+		
 
 	
 
@@ -46,7 +49,7 @@ func end_game() -> void:
 	
 func new_game():
 	game_started.emit()
-	current_score = 50
+	current_score = 0
 	$MobTimer.wait_time = MOB_TIMER_START_TIME
 	active_mobs.append("wolf")
 	$Player.start($StartPosition.position)

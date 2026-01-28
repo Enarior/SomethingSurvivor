@@ -40,7 +40,8 @@
 				"76a50736-9b0c-403c-b887-534199b9641d",
 				"bfc799a4-a7c4-47b1-9e19-830d2115afcc",
 				"c80daac9-808e-4c77-ba94-0e7477bd3d80",
-				"c6823b1b-c1e7-4371-97e6-1a0a1b6a3c71"
+				"c6823b1b-c1e7-4371-97e6-1a0a1b6a3c71",
+				"00f090d3-0563-4d97-9813-552516ce1407"
 			]
 		}
 	],
@@ -167,6 +168,13 @@
 		{
 			"uuid": "c80daac9-808e-4c77-ba94-0e7477bd3d80",
 			"title": "BUG : can score two times when sleeping mob (disable collision)",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		},
+		{
+			"uuid": "00f090d3-0563-4d97-9813-552516ce1407",
+			"title": "UI : ability icons appear when unlocked",
 			"description": "",
 			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
 			"steps": []
