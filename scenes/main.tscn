@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bk8ya2poerypg" path="res://sound/music/Intro moins vite.wav" id="4_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://b3sj87mah44yb" path="res://sound/music/Compter les loups.wav" id="5_tbgi4"]
 
-[node name="Control" type="Control"]
+[node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

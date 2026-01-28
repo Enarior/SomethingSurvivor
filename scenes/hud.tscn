@@ -51,25 +51,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="StartButton" type="Button" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -89.25
-offset_top = -128.0
-offset_right = 89.25
-offset_bottom = -24.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("3_5ysmq")
-theme_override_font_sizes/font_size = 64
-shortcut = SubResource("Shortcut_8sq4i")
-text = "Start"
-
 [node name="MessageTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.5
 one_shot = true
 
 [node name="WolfAbilityCooldown" type="Node2D" parent="."]
@@ -217,71 +200,47 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ScorePanel" type="Control" parent="."]
+[node name="Stars" type="Control" parent="."]
 visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -129.0
+offset_bottom = -193.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="YourScoreLabel" type="Label" parent="ScorePanel"]
-layout_mode = 1
-anchors_preset = 8
+[node name="Star1" parent="Stars" instance=ExtResource("6_047uy")]
+position = Vector2(320, 352)
+scale = Vector2(0.3, 0.3)
+
+[node name="Star2" parent="Stars" instance=ExtResource("6_047uy")]
+position = Vector2(570, 352)
+scale = Vector2(0.3, 0.3)
+
+[node name="Star3" parent="Stars" instance=ExtResource("6_047uy")]
+position = Vector2(820, 352)
+scale = Vector2(0.3, 0.3)
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -632.0
-offset_top = -151.0
-offset_right = 520.0
-offset_bottom = 8.0
+anchor_bottom = 1.0
+offset_left = -89.25
+offset_top = -150.0
+offset_right = 89.25
+offset_bottom = -46.0
 grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_5ysmq")
 theme_override_font_sizes/font_size = 64
-text = "Your score :"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
+shortcut = SubResource("Shortcut_8sq4i")
+text = "Start"
 
-[node name="ScoreLabel" type="Label" parent="ScorePanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 13.0
-offset_top = -114.0
-offset_right = 313.0
-offset_bottom = 81.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("3_5ysmq")
-theme_override_font_sizes/font_size = 64
-text = "50
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Star1" parent="ScorePanel" instance=ExtResource("6_047uy")]
-position = Vector2(570, 398.00003)
-scale = Vector2(0.4, 0.4)
-
-[node name="Star2" parent="ScorePanel" instance=ExtResource("6_047uy")]
-position = Vector2(270.00003, 398.00003)
-scale = Vector2(0.4, 0.4)
-
-[node name="Star3" parent="ScorePanel" instance=ExtResource("6_047uy")]
-position = Vector2(870, 398.00003)
-scale = Vector2(0.4, 0.4)
-
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
 [connection signal="timeout" from="WolfAbilityCooldown/WolfAbilityCooldownTimer" to="." method="_on_wolf_ability_cooldown_timer_timeout"]
 [connection signal="timeout" from="Hint/HintTimer" to="." method="_on_ability_unlocked_timer_timeout"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

@@ -44,7 +44,7 @@ func end_game() -> void:
 	game_over.emit()
 	$ScoreTimer.stop()
 	$MobTimer.stop()
-	$HUD.show_game_over()
+	$HUD.show_game_over(current_score)
 	$DeathSound.play()
 	
 func new_game():
@@ -62,6 +62,8 @@ func new_game():
 	
 	$HUD.update_score(current_score)
 	$HUD.show_ready_message()
+	await get_tree().create_timer(1.0).timeout
+
 	$HUD.show_hint("Use arrow keys to move !")
 	
 

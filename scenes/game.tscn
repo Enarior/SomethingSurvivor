@@ -40,7 +40,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(577, 350)
+position = Vector2(577, 320)
 
 [node name="MobPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_h2yge")
