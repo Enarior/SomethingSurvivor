@@ -15,8 +15,8 @@
 				"d1c93ee0-895c-4a2d-90f2-09851d2b372a",
 				"adfbc981-1760-4824-804b-72e195d95799",
 				"b9c80b27-d7a9-44d1-afb2-b04aa7fa19b8",
-				"f426cc7a-347c-4b06-9785-7ba98ec5bdad",
-				"207df404-9f7e-42cc-893b-c4e69568ebfc"
+				"207df404-9f7e-42cc-893b-c4e69568ebfc",
+				"5c3f7605-6dea-4d98-b614-b139815cb44d"
 			]
 		},
 		{
@@ -48,7 +48,9 @@
 				"28d8caa0-47fd-4709-9fdb-7d2eb597f08f",
 				"4175baa6-1d41-472c-ab66-ab850a3e8f74",
 				"fa7a87e9-f9db-4bf3-aa09-e26262c10d02",
-				"56b023df-6679-448f-8819-58569891699f"
+				"56b023df-6679-448f-8819-58569891699f",
+				"7eb6c791-c749-4295-8dd6-9d52ba0daec8",
+				"f426cc7a-347c-4b06-9785-7ba98ec5bdad"
 			]
 		}
 	],
@@ -231,6 +233,20 @@
 		{
 			"uuid": "207df404-9f7e-42cc-893b-c4e69568ebfc",
 			"title": "Export models",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		},
+		{
+			"uuid": "7eb6c791-c749-4295-8dd6-9d52ba0daec8",
+			"title": "Hide cooldown icons when game over",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		},
+		{
+			"uuid": "5c3f7605-6dea-4d98-b614-b139815cb44d",
+			"title": "ART : intro background",
 			"description": "",
 			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
 			"steps": []

@@ -57,6 +57,9 @@ func show_score(score: int):
 
 func show_game_over(score: int):
 	$ScoreLabel.hide()
+	$WolfAbilityCooldown.hide()
+	$FrogAbilityCooldown.hide()
+	
 	show_message("Game Over...", 2.0)
 	await $MessageTimer.timeout
 	
