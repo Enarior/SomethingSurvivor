@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckyg7jm3umrv4"]
+[gd_scene load_steps=9 format=3 uid="uid://ckyg7jm3umrv4"]
 
 [ext_resource type="FontFile" uid="uid://dche5uxxdw2a3" path="res://fonts/Xolonium-Regular.ttf" id="1_37p78"]
 [ext_resource type="Script" uid="uid://beomr1vb4hvkj" path="res://scripts/hud.gd" id="1_64ctp"]
 [ext_resource type="FontFile" uid="uid://bixi67mwwgn6m" path="res://fonts/LoveDays-2v7Oe.ttf" id="3_5ysmq"]
 [ext_resource type="Texture2D" uid="uid://dascm5p80r5ij" path="res://art/loup/loup.png" id="4_6fi6k"]
 [ext_resource type="Texture2D" uid="uid://7jnhpalbfl2i" path="res://art/frog/frog1.png" id="5_uo2fv"]
+[ext_resource type="PackedScene" uid="uid://fjh24a22xub6" path="res://scenes/star.tscn" id="6_047uy"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_64ctp"]
 action = &"start_game"
@@ -37,9 +38,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -576.0
-offset_top = -153.0
+offset_top = -241.0
 offset_right = 576.0
-offset_bottom = 6.0
+offset_bottom = -82.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -57,9 +58,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -89.25
-offset_top = -252.0
+offset_top = -128.0
 offset_right = 89.25
-offset_bottom = -148.0
+offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_5ysmq")
@@ -215,6 +216,70 @@ wait_time = 3.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="ScorePanel" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="YourScoreLabel" type="Label" parent="ScorePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -632.0
+offset_top = -151.0
+offset_right = 520.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_5ysmq")
+theme_override_font_sizes/font_size = 64
+text = "Your score :"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="ScorePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 13.0
+offset_top = -114.0
+offset_right = 313.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_5ysmq")
+theme_override_font_sizes/font_size = 64
+text = "50
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Star1" parent="ScorePanel" instance=ExtResource("6_047uy")]
+position = Vector2(570, 398.00003)
+scale = Vector2(0.4, 0.4)
+
+[node name="Star2" parent="ScorePanel" instance=ExtResource("6_047uy")]
+position = Vector2(270.00003, 398.00003)
+scale = Vector2(0.4, 0.4)
+
+[node name="Star3" parent="ScorePanel" instance=ExtResource("6_047uy")]
+position = Vector2(870, 398.00003)
+scale = Vector2(0.4, 0.4)
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]

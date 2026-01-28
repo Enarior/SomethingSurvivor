@@ -22,7 +22,8 @@
 			"uuid": "eb54cc1c-8ee5-4ff3-aa1e-49bb0815e8a7",
 			"title": "Doing",
 			"tasks": [
-				"e0f6c496-5ea4-413b-8aa9-1c7ba8611b82"
+				"e0f6c496-5ea4-413b-8aa9-1c7ba8611b82",
+				"4175baa6-1d41-472c-ab66-ab850a3e8f74"
 			]
 		},
 		{
@@ -113,7 +114,7 @@
 		},
 		{
 			"uuid": "f838d0b2-e6d0-49d6-a852-54270f462e11",
-			"title": "Win condition",
+			"title": "Score",
 			"description": "",
 			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
 			"steps": []
@@ -191,6 +192,13 @@
 		{
 			"uuid": "28d8caa0-47fd-4709-9fdb-7d2eb597f08f",
 			"title": "Redo sound transition",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		},
+		{
+			"uuid": "4175baa6-1d41-472c-ab66-ab850a3e8f74",
+			"title": "ART : Star",
 			"description": "",
 			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
 			"steps": []
