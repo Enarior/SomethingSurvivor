@@ -16,7 +16,8 @@
 				"adfbc981-1760-4824-804b-72e195d95799",
 				"b9c80b27-d7a9-44d1-afb2-b04aa7fa19b8",
 				"207df404-9f7e-42cc-893b-c4e69568ebfc",
-				"5c3f7605-6dea-4d98-b614-b139815cb44d"
+				"5c3f7605-6dea-4d98-b614-b139815cb44d",
+				"f2df9dcc-cbc6-40b1-acdb-d1599af18647"
 			]
 		},
 		{
@@ -232,10 +233,15 @@
 		},
 		{
 			"uuid": "207df404-9f7e-42cc-893b-c4e69568ebfc",
-			"title": "Export models",
+			"title": "Export models + test export",
 			"description": "",
 			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
-			"steps": []
+			"steps": [
+				{
+					"details": "aze",
+					"done": true
+				}
+			]
 		},
 		{
 			"uuid": "7eb6c791-c749-4295-8dd6-9d52ba0daec8",
@@ -247,6 +253,13 @@
 		{
 			"uuid": "5c3f7605-6dea-4d98-b614-b139815cb44d",
 			"title": "ART : intro background",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		},
+		{
+			"uuid": "f2df9dcc-cbc6-40b1-acdb-d1599af18647",
+			"title": "GAMEPLAY : avoid weird spaws",
 			"description": "",
 			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
 			"steps": []
