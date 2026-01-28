@@ -74,7 +74,7 @@ func get_input():
 	if Input.is_action_pressed("ability_wolf"):
 		#print("ability wolf")
 		#print(game_started, wolf_ability.unlocked, wolf_ability.available)
-		if game_started and wolf_ability.unlocked and wolf_ability.available and not ability_active:
+		if game_started and wolf_ability.unlocked and wolf_ability.available:
 			wolf_ability_used.emit(wolf_ability.ability_cooldown)
 			$WolfAbilityActiveTimer.start()
 			$WolfAbilityCooldownTimer.start()
@@ -90,7 +90,7 @@ func get_input():
 		#print("frog_ability.available: " + str(frog_ability.available))
 		#print("ability_active" + str(ability_active))
 		
-		if game_started and frog_ability.unlocked and frog_ability.available and not ability_active:
+		if game_started and frog_ability.unlocked and frog_ability.available:
 			print("frog ability USED")
 			frog_ability_used.emit(frog_ability.ability_cooldown)
 			$FrogAbilityActiveTimer.start()
