@@ -45,7 +45,7 @@ func _on_game_game_started():
 		
 func audio_transition(current_audio_stream_player: AudioStreamPlayer, new_audio_stream_player: AudioStreamPlayer):
 	# Fade-out / Fade-in audio transition
-	var tween = get_tree().create_tween()
+	var tween = create_tween()
 	
 	tween.tween_property(current_audio_stream_player, "volume_db",-60.0, 4)
 	new_audio_stream_player.volume_db = -50.0

@@ -112,7 +112,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if wolf_ability.active and body.is_in_group("wolf"):
 		if body.has_method("die"):
 			body.die()
-			body.get_node("CollisionShape2D").disabled = true
+			body.get_node("CollisionShape2D").set_deferred("disabled",true)
 			sleep_enemy.emit()
 	elif frog_ability.active and body.is_in_group("frog"):
 		if body.has_method("die"):

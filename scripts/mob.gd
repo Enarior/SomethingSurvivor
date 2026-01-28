@@ -17,7 +17,10 @@ func _on_sleep_timer_timeout() -> void:
 func die():
 	if self.is_in_group("frog"):
 		$Movement/MovementTimer.stop()
-		
+	
+	var tween = create_tween()
+	
+	tween.tween_property($AnimatedSprite2D, "modulate:a",0.25, $SleepTimer.wait_time)
 	self.linear_velocity = Vector2(0.0,0.0)
 	#self.sleeping = true
 	$SleepTimer.start()

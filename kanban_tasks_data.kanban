@@ -15,7 +15,8 @@
 				"2a794313-d742-43c5-a310-2eb82b23f975",
 				"d1c93ee0-895c-4a2d-90f2-09851d2b372a",
 				"adfbc981-1760-4824-804b-72e195d95799",
-				"69438368-fe93-4cb8-8af2-8b460f684252"
+				"b9c80b27-d7a9-44d1-afb2-b04aa7fa19b8",
+				"28d8caa0-47fd-4709-9fdb-7d2eb597f08f"
 			]
 		},
 		{
@@ -37,11 +38,12 @@
 				"4fcb5d54-63e2-48df-b77b-d1e5e3d9a474",
 				"07e55c63-3de6-4af0-a5fa-499533776c69",
 				"687f6c46-ec15-4206-a6a1-c01309ab5038",
+				"c6823b1b-c1e7-4371-97e6-1a0a1b6a3c71",
 				"76a50736-9b0c-403c-b887-534199b9641d",
 				"bfc799a4-a7c4-47b1-9e19-830d2115afcc",
 				"c80daac9-808e-4c77-ba94-0e7477bd3d80",
-				"c6823b1b-c1e7-4371-97e6-1a0a1b6a3c71",
-				"00f090d3-0563-4d97-9813-552516ce1407"
+				"00f090d3-0563-4d97-9813-552516ce1407",
+				"69438368-fe93-4cb8-8af2-8b460f684252"
 			]
 		}
 	],
@@ -175,6 +177,20 @@
 		{
 			"uuid": "00f090d3-0563-4d97-9813-552516ce1407",
 			"title": "UI : ability icons appear when unlocked",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		},
+		{
+			"uuid": "b9c80b27-d7a9-44d1-afb2-b04aa7fa19b8",
+			"title": "ART : Ability unlocked animation",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		},
+		{
+			"uuid": "28d8caa0-47fd-4709-9fdb-7d2eb597f08f",
+			"title": "Redo sound transition",
 			"description": "",
 			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
 			"steps": []
