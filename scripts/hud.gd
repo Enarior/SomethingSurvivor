@@ -48,10 +48,10 @@ func show_score(score: int):
 	if score>0:
 		$Stars/Star1.show()
 
-	if score>50:
+	if score>25:
 		$Stars/Star2.show()
 
-	if score>100:
+	if score>50:
 		$Stars/Star3.show()
 
 
@@ -90,6 +90,8 @@ func _on_start_button_pressed():
 	$Stars/Star1.hide()
 	$Stars/Star2.hide()
 	$Stars/Star3.hide()
+	
+	$ScoreLabel.show()
 	start_game.emit()
 	
 
