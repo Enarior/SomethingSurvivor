@@ -22,7 +22,8 @@
 			"uuid": "eb54cc1c-8ee5-4ff3-aa1e-49bb0815e8a7",
 			"title": "Doing",
 			"tasks": [
-				"e0f6c496-5ea4-413b-8aa9-1c7ba8611b82"
+				"e0f6c496-5ea4-413b-8aa9-1c7ba8611b82",
+				"fa7a87e9-f9db-4bf3-aa09-e26262c10d02"
 			]
 		},
 		{
@@ -207,6 +208,13 @@
 		{
 			"uuid": "f426cc7a-347c-4b06-9785-7ba98ec5bdad",
 			"title": "First time don't show menu",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		},
+		{
+			"uuid": "fa7a87e9-f9db-4bf3-aa09-e26262c10d02",
+			"title": "GAMEPLAY : frogs should give +2 and time every 2scd",
 			"description": "",
 			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
 			"steps": []

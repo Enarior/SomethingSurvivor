@@ -3,6 +3,7 @@ extends Node
 @export var wolf_scene: PackedScene
 @export var frog_scene: PackedScene
 @export var plus_one_scene: PackedScene
+@export var plus_two_scene: PackedScene
 
 const MOB_TIMER_START_TIME = 2.0
 const MOB_MIN_VELOCITY = 200
@@ -49,7 +50,7 @@ func end_game() -> void:
 	
 func new_game():
 	game_started.emit()
-	current_score = 0
+	current_score = 20
 	$MobTimer.wait_time = MOB_TIMER_START_TIME
 	active_mobs.append("wolf")
 	$Player.start($StartPosition.position)
@@ -112,13 +113,19 @@ func _on_start_timer_timeout() -> void:
 	$Player.game_started = true
 	
 
-func player_hit_enemy() -> void:
-	current_score+=1
+func player_hit_enemy(enemy_type:String) -> void:
+	if enemy_type == "wolf":
+		current_score+=1
+		var plus_one = plus_one_scene.instantiate()
+		plus_one.position=$Player.position
+		add_child(plus_one)
+	if enemy_type == "frog":
+		current_score+=2	
+		var plus_two = plus_two_scene.instantiate()
+		plus_two.position=$Player.position
+		add_child(plus_two)
 	$HUD.update_score(current_score)
-	var plus_one = plus_one_scene.instantiate()
-	
-	plus_one.position=$Player.position
-	add_child(plus_one)
+
 
 
 func _on_player_hit() -> void:

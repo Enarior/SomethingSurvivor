@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbb0nefifrnmp"]
+[gd_scene load_steps=10 format=3 uid="uid://bbb0nefifrnmp"]
 
 [ext_resource type="Script" uid="uid://c07nsgrrhy54r" path="res://scripts/game.gd" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://028p3xwhksbk" path="res://scenes/wolf.tscn" id="2_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b3a7qdu1igbpd" path="res://scenes/frog.tscn" id="3_gee14"]
 [ext_resource type="PackedScene" uid="uid://s8gealgs6y68" path="res://scenes/plus_one.tscn" id="3_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://c62ame6nynrk8" path="res://scenes/player.tscn" id="4_vtaks"]
+[ext_resource type="PackedScene" uid="uid://cmajorh85pcri" path="res://scenes/plus_two.tscn" id="5_gee14"]
 [ext_resource type="PackedScene" uid="uid://ckyg7jm3umrv4" path="res://scenes/hud.tscn" id="5_kvpfn"]
 [ext_resource type="AudioStream" uid="uid://bvewx4drb1jfa" path="res://art/tuto/gameover.wav" id="6_dinhu"]
 
@@ -19,6 +20,7 @@ script = ExtResource("1_u5sy4")
 wolf_scene = ExtResource("2_p57ef")
 frog_scene = ExtResource("3_gee14")
 plus_one_scene = ExtResource("3_u5sy4")
+plus_two_scene = ExtResource("5_gee14")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -34,6 +36,7 @@ color = Color(0.09113214, 0.18399036, 0.4572636, 1)
 wait_time = 2.0
 
 [node name="ScoreTimer" type="Timer" parent="."]
+wait_time = 2.0
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0

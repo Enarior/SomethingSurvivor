@@ -113,14 +113,14 @@ func _on_body_entered(body: Node2D) -> void:
 		if body.has_method("die"):
 			body.die()
 			body.get_node("CollisionShape2D").set_deferred("disabled",true)
-			sleep_enemy.emit()
+			sleep_enemy.emit("wolf")
 	elif frog_ability.active and body.is_in_group("frog"):
 		if body.has_method("die"):
 			body.get_node("Movement").queue_free() # dirty
 			body.get_node("AnimatedSprite2D").play() # dirty
 			body.die()
-			body.get_node("CollisionShape2D").disabled = true
-			sleep_enemy.emit()
+			body.get_node("CollisionShape2D").set_deferred("disabled", true)
+			sleep_enemy.emit("frog")
 	else :
 		hide()
 		hit.emit()

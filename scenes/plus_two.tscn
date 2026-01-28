@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmajorh85pcri"]
+
+[ext_resource type="Script" uid="uid://csi8nsfu6865l" path="res://scripts/plus.gd" id="1_dhlbj"]
+[ext_resource type="Texture2D" uid="uid://b1l1dvfvu6q3m" path="res://art/plus/plus_two.png" id="2_bclty"]
+
+[node name="Node2D" type="Node2D"]
+z_index = 2
+scale = Vector2(0.02, 0.02)
+script = ExtResource("1_dhlbj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(7, 7)
+texture = ExtResource("2_bclty")
+
+[node name="PoofTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="PoofTimer" to="." method="_on_poof_timer_timeout"]
