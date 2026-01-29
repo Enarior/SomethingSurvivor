@@ -83,8 +83,14 @@ func _on_mob_timer_timeout():
 			mob = frog_scene.instantiate()
 
 
+	# Choose a random Path2D
+	
+	var mob_paths = $MobPath.get_children()
+	var mob_path = mob_paths[randi() % mob_paths.size()]
+	print(mob_path.name)
+	
 	# Choose a random location on Path2D.
-	var mob_spawn_location = $MobPath/MobSpawnLocation
+	var mob_spawn_location = mob_path.get_node("MobSpawnLocation")
 	mob_spawn_location.progress_ratio = randf()
 		
 	# Set the mob's position to the random location.
