@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbb0nefifrnmp"]
+[gd_scene load_steps=15 format=3 uid="uid://bbb0nefifrnmp"]
 
 [ext_resource type="Script" uid="uid://c07nsgrrhy54r" path="res://scripts/game.gd" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://028p3xwhksbk" path="res://scenes/wolf.tscn" id="2_p57ef"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c62ame6nynrk8" path="res://scenes/player.tscn" id="4_vtaks"]
 [ext_resource type="PackedScene" uid="uid://cmajorh85pcri" path="res://scenes/plus_two.tscn" id="5_gee14"]
 [ext_resource type="PackedScene" uid="uid://ckyg7jm3umrv4" path="res://scenes/hud.tscn" id="5_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://cnxr54lesy8pe" path="res://scenes/upgrade.tscn" id="6_0tnpc"]
 [ext_resource type="AudioStream" uid="uid://bvewx4drb1jfa" path="res://art/tuto/gameover.wav" id="6_dinhu"]
 
 [sub_resource type="Curve2D" id="Curve2D_h2yge"]
@@ -33,12 +34,19 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="Curve2D" id="Curve2D_kvpfn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 84, 47, 0, 0, 0, 0, 1043, 44, 0, 0, 0, 0, 91, 123, 0, 0, 0, 0, 1034, 157, 0, 0, 0, 0, 88, 236, 0, 0, 0, 0, 1032, 272, 0, 0, 0, 0, 91, 346, 0, 0, 0, 0, 1032, 384, 0, 0, 0, 0, 90, 438, 0, 0, 0, 0, 1029, 482, 0, 0, 0, 0, 95, 531, 0, 0, 0, 0, 1031, 567)
+}
+point_count = 12
+
 [node name="Game" type="Node"]
 script = ExtResource("1_u5sy4")
 wolf_scene = ExtResource("2_p57ef")
 frog_scene = ExtResource("3_gee14")
 plus_one_scene = ExtResource("3_u5sy4")
 plus_two_scene = ExtResource("5_gee14")
+upgrade_scene = ExtResource("6_0tnpc")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -96,6 +104,13 @@ curve = SubResource("Curve2D_gee14")
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath/MobPath4"]
 position = Vector2(-3, 536)
 rotation = -1.5663911
+
+[node name="UpgradeSpawn" type="Path2D" parent="."]
+curve = SubResource("Curve2D_kvpfn")
+
+[node name="UpgradeSpawnLocation" type="PathFollow2D" parent="UpgradeSpawn"]
+position = Vector2(84, 47)
+rotation = -0.0031282485
 
 [connection signal="frog_ability_used" from="Player" to="HUD" method="_on_player_frog_ability_used"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]

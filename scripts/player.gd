@@ -26,8 +26,8 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	hide()
 	
-	wolf_ability = Ability.new("wolf", 3.0, Color("#c79c6d92"))
-	frog_ability = Ability.new("frog", 5.0, Color("4a946792"))
+	wolf_ability = Ability.new("wolf", 3.0, Color("#c79c6d92"), ["cooldown", "speed", "duration", "hitbox", "score"])
+	frog_ability = Ability.new("frog", 5.0, Color("4a946792"), ["cooldown", "speed", "duration", "hitbox", "score"])
 
 func _process(delta):
 	velocity = Vector2.ZERO
@@ -75,14 +75,14 @@ func get_input():
 		#print("ability wolf")
 		#print(game_started, wolf_ability.unlocked, wolf_ability.available)
 		if game_started and wolf_ability.unlocked and wolf_ability.available:
-			wolf_ability_used.emit(wolf_ability.ability_cooldown)
+			wolf_ability_used.emit(wolf_ability.cooldown)
 			$WolfAbilityActiveTimer.start()
 			$WolfAbilityCooldownTimer.start()
 			wolf_ability.available = false
 			wolf_ability.active = true
 			ability_active = true
 			glow_power = 2.0
-			$AnimatedSprite2D.material.set_shader_parameter("glow_color",wolf_ability.ability_glow_color)
+			$AnimatedSprite2D.material.set_shader_parameter("glow_color",wolf_ability.glow_color)
 	if Input.is_action_pressed("ability_frog"):
 		print("frog ability")
 		#print("game_started: " + str(game_started))
@@ -92,14 +92,14 @@ func get_input():
 		
 		if game_started and frog_ability.unlocked and frog_ability.available:
 			print("frog ability USED")
-			frog_ability_used.emit(frog_ability.ability_cooldown)
+			frog_ability_used.emit(frog_ability.cooldown)
 			$FrogAbilityActiveTimer.start()
 			$FrogAbilityCooldownTimer.start()
 			frog_ability.available = false
 			frog_ability.active = true
 			ability_active = true
 			glow_power = 2.0
-			$AnimatedSprite2D.material.set_shader_parameter("glow_color",frog_ability.ability_glow_color)
+			$AnimatedSprite2D.material.set_shader_parameter("glow_color",frog_ability.glow_color)
 			
 	
 func start(pos):

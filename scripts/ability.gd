@@ -1,15 +1,19 @@
 class_name Ability extends Node
 
 var ability_name = ""
-var ability_cooldown = 0.0
-var ability_glow_color = Color()
+var cooldown = 0.0
+var glow_color = Color()
+var upgrades = []
 
 var available = true
 var unlocked = false
 var active = false
+var active_upgrades = []
 
-func _init(ability_name:String, ability_cooldown: float, ability_glow_color: Color):
+
+func _init(ability_name:String, cooldown: float, glow_color: Color, upgrades: Array):
 	self.ability_name = ability_name
-	self.ability_cooldown = ability_cooldown
-	self.ability_glow_color = ability_glow_color
+	self.cooldown = cooldown
+	self.glow_color = glow_color
+	self.upgrades = upgrades
 	

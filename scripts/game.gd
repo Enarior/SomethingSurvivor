@@ -4,6 +4,7 @@ extends Node
 @export var frog_scene: PackedScene
 @export var plus_one_scene: PackedScene
 @export var plus_two_scene: PackedScene
+@export var upgrade_scene : PackedScene
 
 const MOB_TIMER_START_TIME = 2.0
 const MOB_MIN_VELOCITY = 200
@@ -28,6 +29,19 @@ func _process(_delta: float) -> void:
 		$HUD.show_hint("Press A to send wolves to sleep !")
 		$HUD/WolfAbilityCooldown.show()
 	
+	# Spawn wolf ability upgrade
+	if $Player.wolf_ability.active_upgrades.size() == 0 and current_score>=15:
+		var wolf_upgrade = upgrade_scene.instantiate()
+		var wolf_upgrade_spawn_location = $UpgradeSpawn.get_node("UpgradeSpawnLocation")
+		wolf_upgrade_spawn_location.progress_ratio = randf()
+	
+		wolf_upgrade.position = wolf_upgrade_spawn_location.position
+		add_child(wolf_upgrade)
+		
+		$Player.wolf_ability.active_upgrades = ["test"]
+		print("spawn wolf upgrade")
+		print(wolf_upgrade.position)
+	
 	# Add frogs and more mob spawn
 	if "frog" not in active_mobs and current_score>20:
 		active_mobs.append("frog")
@@ -51,7 +65,7 @@ func end_game() -> void:
 	
 func new_game():
 	game_started.emit()
-	current_score = 0
+	current_score = 15
 	$MobTimer.wait_time = MOB_TIMER_START_TIME
 	active_mobs.append("wolf")
 	$Player.start($StartPosition.position)
@@ -87,7 +101,6 @@ func _on_mob_timer_timeout():
 	
 	var mob_paths = $MobPath.get_children()
 	var mob_path = mob_paths[randi() % mob_paths.size()]
-	print(mob_path.name)
 	
 	# Choose a random location on Path2D.
 	var mob_spawn_location = mob_path.get_node("MobSpawnLocation")
