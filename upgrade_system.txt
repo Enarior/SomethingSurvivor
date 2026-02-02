@@ -1,0 +1,16 @@
+3 upgrades
+
+20 40 80
+or at random ?
+
+list of availabe upgrades (update when unlocking ability)
+
+pick up : pause the game, send signal to game.tscn which chooses two random available upgrades. Update varaibles after pick up (need to clean up player/game code to use variables)
+
+
+upgrade scene holds no knowledge, everything in player/game or seperate upgrade script.
+
+Upgrades :
+- player speed
+- Ability X cooldown/hitbox/points/speed/duration
+- +1 life (lots of work)

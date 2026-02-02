@@ -112,6 +112,7 @@ curve = SubResource("Curve2D_kvpfn")
 position = Vector2(84, 47)
 rotation = -0.0031282485
 
+[connection signal="ability_picked_up" from="Player" to="." method="_on_player_ability_picked_up"]
 [connection signal="frog_ability_used" from="Player" to="HUD" method="_on_player_frog_ability_used"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="sleep_enemy" from="Player" to="." method="player_hit_enemy"]

@@ -4,13 +4,15 @@ signal hit
 signal sleep_enemy
 signal wolf_ability_used
 signal frog_ability_used
+signal ability_picked_up
 
 @export var glow_power:float = 1.0
 @export var glow_speed: float = 3.0
 
 const Ability = preload("res://scripts/ability.gd")
+const Config = preload("res://scripts/config.gd")
 
-@export var speed: float = 250 # How fast the player will move (pixels/sec).
+var speed
 var screen_size # Size of the game window.
 var velocity = Vector2()
 
@@ -24,10 +26,21 @@ var ability_active = false
 
 func _ready():
 	screen_size = get_viewport_rect().size
+	speed = Config.player_speed	
 	hide()
 	
-	wolf_ability = Ability.new("wolf", 3.0, Color("#c79c6d92"), ["cooldown", "speed", "duration", "hitbox", "score"])
-	frog_ability = Ability.new("frog", 5.0, Color("4a946792"), ["cooldown", "speed", "duration", "hitbox", "score"])
+	wolf_ability = Ability.new(	Config.wolf_ability_name,
+								Config.wolf_ability_cooldown,
+								Config.wolf_ability_duration,
+								Config.wolf_ability_speed,
+								Config.wolf_ability_hitbox_modifier,
+								Config.wolf_ability_color)
+	frog_ability = Ability.new(	Config.frog_ability_name,
+								Config.frog_ability_cooldown,
+								Config.frog_ability_duration,
+								Config.frog_ability_speed,
+								Config.frog_ability_hitbox_modifier,
+								Config.frog_ability_color)
 
 func _process(delta):
 	velocity = Vector2.ZERO
@@ -72,8 +85,6 @@ func get_input():
 	if Input.is_action_pressed("move_down"):
 		velocity.y += 1
 	if Input.is_action_pressed("ability_wolf"):
-		#print("ability wolf")
-		#print(game_started, wolf_ability.unlocked, wolf_ability.available)
 		if game_started and wolf_ability.unlocked and wolf_ability.available:
 			wolf_ability_used.emit(wolf_ability.cooldown)
 			$WolfAbilityActiveTimer.start()
@@ -85,11 +96,7 @@ func get_input():
 			$AnimatedSprite2D.material.set_shader_parameter("glow_color",wolf_ability.glow_color)
 	if Input.is_action_pressed("ability_frog"):
 		print("frog ability")
-		#print("game_started: " + str(game_started))
-		#print("frog_ability.unlocked: " + str(frog_ability.unlocked))
-		#print("frog_ability.available: " + str(frog_ability.available))
-		#print("ability_active" + str(ability_active))
-		
+
 		if game_started and frog_ability.unlocked and frog_ability.available:
 			print("frog ability USED")
 			frog_ability_used.emit(frog_ability.cooldown)
@@ -121,6 +128,8 @@ func _on_body_entered(body: Node2D) -> void:
 			body.die()
 			body.get_node("CollisionShape2D").set_deferred("disabled", true)
 			sleep_enemy.emit("frog")
+	elif body.is_in_group("upgrade"):
+		ability_picked_up.emit()
 	else :
 		hide()
 		hit.emit()

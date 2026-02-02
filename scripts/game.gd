@@ -14,6 +14,7 @@ var current_score = 0
 var active_mobs = []
 signal game_started
 signal game_over
+var active_upgrades = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,7 +31,7 @@ func _process(_delta: float) -> void:
 		$HUD/WolfAbilityCooldown.show()
 	
 	# Spawn wolf ability upgrade
-	if $Player.wolf_ability.active_upgrades.size() == 0 and current_score>=15:
+	if active_upgrades == 0 and current_score>=15:
 		var wolf_upgrade = upgrade_scene.instantiate()
 		var wolf_upgrade_spawn_location = $UpgradeSpawn.get_node("UpgradeSpawnLocation")
 		wolf_upgrade_spawn_location.progress_ratio = randf()
@@ -38,9 +39,7 @@ func _process(_delta: float) -> void:
 		wolf_upgrade.position = wolf_upgrade_spawn_location.position
 		add_child(wolf_upgrade)
 		
-		$Player.wolf_ability.active_upgrades = ["test"]
-		print("spawn wolf upgrade")
-		print(wolf_upgrade.position)
+		active_upgrades += 1
 	
 	# Add frogs and more mob spawn
 	if "frog" not in active_mobs and current_score>20:
@@ -151,3 +150,9 @@ func player_hit_enemy(enemy_type:String) -> void:
 
 func _on_player_hit() -> void:
 	end_game()
+
+
+func _on_player_ability_picked_up() -> void:
+	# Update variables
+	# Remove upgrade from available upgrades
+	pass # Replace with function body.
