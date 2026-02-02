@@ -30,16 +30,16 @@ func _ready():
 	hide()
 	
 	wolf_ability = Ability.new(	Config.wolf_ability_name,
-								Config.wolf_ability_cooldown,
-								Config.wolf_ability_duration,
-								Config.wolf_ability_speed,
-								Config.wolf_ability_hitbox_modifier,
+								Config.wolf_ability_cooldown_default,
+								Config.wolf_ability_duration_default,
+								Config.wolf_ability_speed_default,
+								Config.wolf_ability_hitbox_modifier_default,
 								Config.wolf_ability_color)
 	frog_ability = Ability.new(	Config.frog_ability_name,
-								Config.frog_ability_cooldown,
-								Config.frog_ability_duration,
-								Config.frog_ability_speed,
-								Config.frog_ability_hitbox_modifier,
+								Config.frog_ability_cooldown_default,
+								Config.frog_ability_duration_default,
+								Config.frog_ability_speed_default,
+								Config.frog_ability_hitbox_modifier_default,
 								Config.frog_ability_color)
 
 func _process(delta):
