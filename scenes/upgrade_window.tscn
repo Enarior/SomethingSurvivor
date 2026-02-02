@@ -1,8 +1,13 @@
-[gd_scene format=3 uid="uid://defklb2dlb2ex"]
+[gd_scene load_steps=2 format=3 uid="uid://defklb2dlb2ex"]
+
+[ext_resource type="Script" uid="uid://bta2dmeh7bjm7" path="res://scenes/upgrade_window.gd" id="1_a66l8"]
 
 [node name="UpgradeWindow" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_a66l8")
 
 [node name="LeftUpgradeButton" type="Button" parent="."]
+process_mode = 2
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -14,6 +19,7 @@ grow_vertical = 2
 text = "Left"
 
 [node name="RightUpgradeButton" type="Button" parent="."]
+process_mode = 2
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -23,3 +29,5 @@ offset_right = 729.0
 offset_bottom = 36.5
 grow_vertical = 2
 text = "Right"
+
+[connection signal="pressed" from="LeftUpgradeButton" to="." method="_on_left_upgrade_button_pressed"]

@@ -5,6 +5,7 @@ extends Node
 @export var plus_one_scene: PackedScene
 @export var plus_two_scene: PackedScene
 @export var upgrade_scene : PackedScene
+@export var upgrade_window_scene : PackedScene
 
 const MOB_TIMER_START_TIME = 2.0
 const MOB_MIN_VELOCITY = 200
@@ -153,6 +154,10 @@ func _on_player_hit() -> void:
 
 
 func _on_player_ability_picked_up() -> void:
+	# Spawn choice window
+	get_tree().paused = true
+	var upgrade_window = upgrade_window_scene.instantiate()
+	add_child(upgrade_window)
 	# Update variables
 	# Remove upgrade from available upgrades
 	pass # Replace with function body.

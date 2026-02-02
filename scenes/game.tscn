@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b3a7qdu1igbpd" path="res://scenes/frog.tscn" id="3_gee14"]
 [ext_resource type="PackedScene" uid="uid://s8gealgs6y68" path="res://scenes/plus_one.tscn" id="3_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://c62ame6nynrk8" path="res://scenes/player.tscn" id="4_vtaks"]
-[ext_resource type="PackedScene" uid="uid://cmajorh85pcri" path="res://scenes/plus_two.tscn" id="5_gee14"]
+[ext_resource type="PackedScene" uid="uid://defklb2dlb2ex" path="res://scenes/upgrade_window.tscn" id="5_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://ckyg7jm3umrv4" path="res://scenes/hud.tscn" id="5_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://cnxr54lesy8pe" path="res://scenes/upgrade.tscn" id="6_0tnpc"]
 [ext_resource type="AudioStream" uid="uid://bvewx4drb1jfa" path="res://art/tuto/gameover.wav" id="6_dinhu"]
@@ -45,8 +45,9 @@ script = ExtResource("1_u5sy4")
 wolf_scene = ExtResource("2_p57ef")
 frog_scene = ExtResource("3_gee14")
 plus_one_scene = ExtResource("3_u5sy4")
-plus_two_scene = ExtResource("5_gee14")
+plus_two_scene = ExtResource("5_0tnpc")
 upgrade_scene = ExtResource("6_0tnpc")
+upgrade_window_scene = ExtResource("5_0tnpc")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15

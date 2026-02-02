@@ -116,6 +116,7 @@ func start(pos):
 	
 
 func _on_body_entered(body: Node2D) -> void:
+	print(body.get_groups())
 	if wolf_ability.active and body.is_in_group("wolf"):
 		if body.has_method("die"):
 			body.die()
@@ -130,6 +131,7 @@ func _on_body_entered(body: Node2D) -> void:
 			sleep_enemy.emit("frog")
 	elif body.is_in_group("upgrade"):
 		ability_picked_up.emit()
+		body.queue_free()
 	else :
 		hide()
 		hit.emit()

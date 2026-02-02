@@ -178,6 +178,10 @@
 				{
 					"details": "Different upgrades",
 					"done": false
+				},
+				{
+					"details": "balance values",
+					"done": false
 				}
 			]
 		},
