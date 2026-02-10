@@ -25,7 +25,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	# Unlock wolf ability 
-	if not $Player.wolf_ability.unlocked and current_score>=5:
+	if not $Player.wolf_ability.unlocked and current_score>=3:
 		$Player.wolf_ability.unlocked = true
 		$HUD.show_hint("Press A to send wolves to sleep !")
 		$HUD/WolfAbilityCooldown.show()
