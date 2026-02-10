@@ -7,7 +7,7 @@ var intro
 var game
 
 # debug
-var play_intro = false
+var play_intro = true
 
 const MAX_VOLUME = -10.0
 
@@ -21,12 +21,7 @@ func _ready() -> void:
 		
 		intro.intro_end.connect(_on_intro_intro_end)
 	else:
-		game = game_scene.instantiate()
-		add_child(game)
-	
-		game.game_started.connect(_on_game_game_started)
-		game.game_over.connect(_on_game_game_over)
-		
+		start_game_scene()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,11 +30,7 @@ func _process(_delta: float) -> void:
 
 func _on_intro_intro_end():
 	intro.queue_free()
-	game = game_scene.instantiate()
-	add_child(game)
-	
-	game.game_started.connect(_on_game_game_started)
-	game.game_over.connect(_on_game_game_over)
+	start_game_scene()
 
 func _on_game_game_started():
 	audio_transition($SoundPool/IntroAudioStreamPlayer, $SoundPool/GameAudioStreamPlayer)
@@ -53,6 +44,15 @@ func audio_transition(current_audio_stream_player: AudioStreamPlayer, new_audio_
 	new_audio_stream_player.volume_db = -40
 	new_audio_stream_player.play()
 	tween.tween_property(new_audio_stream_player, "volume_db",MAX_VOLUME, 0.5)
+
+func start_game_scene():
+	game = game_scene.instantiate()
+	add_child(game)
+	
+	game.game_started.connect(_on_game_game_started)
+	game.game_over.connect(_on_game_game_over)
+	
+	game.new_game()
 	
 func _on_game_game_over():
 		audio_transition($SoundPool/GameAudioStreamPlayer, $SoundPool/IntroAudioStreamPlayer)

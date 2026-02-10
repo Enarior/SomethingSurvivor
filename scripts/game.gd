@@ -19,7 +19,6 @@ var active_upgrades = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	new_game()
 	pass
 
 
@@ -65,7 +64,7 @@ func end_game() -> void:
 	
 func new_game():
 	game_started.emit()
-	current_score = 15
+	current_score = 0
 	$MobTimer.wait_time = MOB_TIMER_START_TIME
 	active_mobs.append("wolf")
 	$Player.start($StartPosition.position)
@@ -76,6 +75,7 @@ func new_game():
 	
 	get_tree().call_group("mobs", "queue_free")
 	
+	$HUD/StartButton.hide()
 	$HUD/ScoreLabel.show()
 	$HUD.update_score(current_score)
 	$HUD.show_ready_message()

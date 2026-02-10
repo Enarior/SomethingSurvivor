@@ -33,7 +33,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Message" type="Label" parent="."]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -214,14 +213,17 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Star1" parent="Stars" instance=ExtResource("6_047uy")]
+visible = false
 position = Vector2(320, 352)
 scale = Vector2(0.3, 0.3)
 
 [node name="Star2" parent="Stars" instance=ExtResource("6_047uy")]
+visible = false
 position = Vector2(570, 352)
 scale = Vector2(0.3, 0.3)
 
 [node name="Star3" parent="Stars" instance=ExtResource("6_047uy")]
+visible = false
 position = Vector2(820, 352)
 scale = Vector2(0.3, 0.3)
 

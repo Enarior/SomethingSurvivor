@@ -43,6 +43,7 @@ func show_hint(text:String):
 	$Hint/HintTimer.start()
 
 func show_score(score: int):
+	print(score)
 	$Stars.show()
 
 	if score>0:
