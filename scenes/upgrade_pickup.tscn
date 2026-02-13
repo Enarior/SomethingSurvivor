@@ -1,6 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://w2x4s41ifsru"]
-
-[ext_resource type="Script" uid="uid://chs5jghpf6qhq" path="res://scripts/upgrade.gd" id="1_i6a16"]
+[gd_scene load_steps=2 format=3 uid="uid://cnxr54lesy8pe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dfbal"]
 size = Vector2(40, 40)
@@ -8,7 +6,6 @@ size = Vector2(40, 40)
 [node name="RigidBody2D" type="RigidBody2D" groups=["upgrade"]]
 collision_mask = 0
 gravity_scale = 0.0
-script = ExtResource("1_i6a16")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 8

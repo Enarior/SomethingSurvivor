@@ -4,8 +4,11 @@ extends Node
 @export var frog_scene: PackedScene
 @export var plus_one_scene: PackedScene
 @export var plus_two_scene: PackedScene
+@export var upgrade_pickup_scene : PackedScene
 @export var upgrade_scene : PackedScene
 @export var upgrade_window_scene : PackedScene
+
+const Upgrade = preload("res://scripts/upgrade.gd")
 
 const MOB_TIMER_START_TIME = 2.0
 const MOB_MIN_VELOCITY = 200
@@ -15,10 +18,11 @@ var current_score = 0
 var active_mobs = []
 signal game_started
 signal game_over
-var active_upgrades = 0
+var upgrades = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	init_upgrades()
 	pass
 
 
@@ -31,15 +35,14 @@ func _process(_delta: float) -> void:
 		$HUD/WolfAbilityCooldown.show()
 	
 	# Spawn wolf ability upgrade
-	if active_upgrades == 0 and current_score>=15:
-		var wolf_upgrade = upgrade_scene.instantiate()
-		var wolf_upgrade_spawn_location = $UpgradeSpawn.get_node("UpgradeSpawnLocation")
-		wolf_upgrade_spawn_location.progress_ratio = randf()
+	if current_score>=15:
+		var wolf_upgrade_pickup = upgrade_pickup_scene.instantiate()
+		var wolf_upgrade_pickup_spawn_location = $UpgradeSpawn.get_node("UpgradeSpawnLocation")
+		wolf_upgrade_pickup_spawn_location.progress_ratio = randf()
 	
-		wolf_upgrade.position = wolf_upgrade_spawn_location.position
-		add_child(wolf_upgrade)
+		wolf_upgrade_pickup.position = wolf_upgrade_pickup_spawn_location.position
+		add_child(wolf_upgrade_pickup)
 		
-		active_upgrades += 1
 	
 	# Add frogs and more mob spawn
 	if "frog" not in active_mobs and current_score>20:
@@ -64,7 +67,7 @@ func end_game() -> void:
 	
 func new_game():
 	game_started.emit()
-	current_score = 0
+	current_score = 15
 	$MobTimer.wait_time = MOB_TIMER_START_TIME
 	active_mobs.append("wolf")
 	$Player.start($StartPosition.position)
@@ -122,6 +125,9 @@ func _on_mob_timer_timeout():
 
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
+
+func init_upgrades():
+	player_speed_upgrade = Upgrade.new_upgrade()
 	
 func _on_score_timer_timeout() -> void:
 	current_score+=1

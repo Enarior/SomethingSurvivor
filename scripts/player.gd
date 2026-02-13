@@ -29,18 +29,8 @@ func _ready():
 	speed = Config.player_speed	
 	hide()
 	
-	wolf_ability = Ability.new(	Config.wolf_ability_name,
-								Config.wolf_ability_cooldown_default,
-								Config.wolf_ability_duration_default,
-								Config.wolf_ability_speed_default,
-								Config.wolf_ability_hitbox_modifier_default,
-								Config.wolf_ability_color)
-	frog_ability = Ability.new(	Config.frog_ability_name,
-								Config.frog_ability_cooldown_default,
-								Config.frog_ability_duration_default,
-								Config.frog_ability_speed_default,
-								Config.frog_ability_hitbox_modifier_default,
-								Config.frog_ability_color)
+	init_abilities()
+
 
 func _process(delta):
 	velocity = Vector2.ZERO
@@ -113,7 +103,21 @@ func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
-	
+
+func init_abilities():
+	wolf_ability = Ability.new(	Config.wolf_ability_name,
+								Config.wolf_ability_cooldown_default,
+								Config.wolf_ability_duration_default,
+								Config.wolf_ability_speed_default,
+								Config.wolf_ability_hitbox_modifier_default,
+								Config.wolf_ability_color)
+	frog_ability = Ability.new(	Config.frog_ability_name,
+								Config.frog_ability_cooldown_default,
+								Config.frog_ability_duration_default,
+								Config.frog_ability_speed_default,
+								Config.frog_ability_hitbox_modifier_default,
+								Config.frog_ability_color)
+
 
 func _on_body_entered(body: Node2D) -> void:
 	#print(body.get_groups())

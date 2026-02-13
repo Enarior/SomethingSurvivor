@@ -7,7 +7,7 @@ var intro
 var game
 
 # debug
-var play_intro = true
+var play_intro = false
 
 const MAX_VOLUME = -10.0
 
