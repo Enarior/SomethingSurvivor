@@ -78,6 +78,7 @@ func get_input():
 	if Input.is_action_pressed("ability_wolf"):
 		if game_started and wolf_ability.unlocked and wolf_ability.available:
 			wolf_ability_used.emit(wolf_ability.cooldown)
+			
 			$WolfAbilityActiveTimer.start()
 			$WolfAbilityCooldownTimer.start()
 			wolf_ability.available = false
@@ -94,6 +95,7 @@ func get_input():
 		if game_started and frog_ability.unlocked and frog_ability.available:
 			print("frog ability USED")
 			frog_ability_used.emit(frog_ability.cooldown)
+		
 			$FrogAbilityActiveTimer.start()
 			$FrogAbilityCooldownTimer.start()
 			frog_ability.available = false
@@ -118,13 +120,16 @@ func init_abilities():
 								Config.wolf_ability_speed_default,
 								Config.wolf_ability_hitbox_modifier_default,
 								Config.wolf_ability_color)
+	$WolfAbilityActiveTimer.wait_time = Config.wolf_ability_duration_default
+	$WolfAbilityCooldownTimer.wait_time = Config.wolf_ability_cooldown_default
 	frog_ability = Ability.new(	Config.frog_ability_name,
 								Config.frog_ability_cooldown_default,
 								Config.frog_ability_duration_default,
 								Config.frog_ability_speed_default,
 								Config.frog_ability_hitbox_modifier_default,
 								Config.frog_ability_color)
-
+	$FrogAbilityActiveTimer.wait_time = Config.frog_ability_duration_default
+	$FrogAbilityCooldownTimer.wait_time = Config.frog_ability_cooldown_default
 
 func _on_body_entered(body: Node2D) -> void:
 	#print(body.get_groups())

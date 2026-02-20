@@ -13,9 +13,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if $WolfAbilityCooldown/WolfAbilityCooldownTimer.time_left > 0:
-		$WolfAbilityCooldown/WolfAbilityCooldownLabel.text = str(int($WolfAbilityCooldown/WolfAbilityCooldownTimer.time_left)+1)
+		$WolfAbilityCooldown/WolfAbilityCooldownLabel.text = str(int(ceil($WolfAbilityCooldown/WolfAbilityCooldownTimer.time_left)))
 	if $FrogAbilityCooldown/FrogAbilityCooldownTimer.time_left > 0:
-		$FrogAbilityCooldown/FrogAbilityCooldownLabel.text = str(int($FrogAbilityCooldown/FrogAbilityCooldownTimer.time_left)+1)
+		$FrogAbilityCooldown/FrogAbilityCooldownLabel.text = str(int(ceil($FrogAbilityCooldown/FrogAbilityCooldownTimer.time_left)))
 	
 	wolf_bar_percentage = 100 - ($WolfAbilityCooldown/WolfAbilityCooldownTimer.time_left*100) / $WolfAbilityCooldown/WolfAbilityCooldownTimer.wait_time
 	$WolfAbilityCooldown/WolfAbilityCooldownProgressBar.value = wolf_bar_percentage

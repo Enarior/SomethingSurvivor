@@ -44,9 +44,18 @@ func apply(player):
 		player.wolf_ability.speed = speed
 		player.wolf_ability.cooldown = cooldown
 		player.wolf_ability.duration = duration
+		
+		player.get_node("WolfAbilityActiveTimer").wait_time = duration
+		player.get_node("WolfAbilityCooldownTimer").wait_time = cooldown
+			
+			
 	if type == "ABILITY_FROG":
 		print(speed)
 		
 		player.frog_ability.speed = speed
 		player.frog_ability.cooldown = cooldown
 		player.frog_ability.duration = duration
+		
+		player.get_node("FrogAbilityActiveTimer").wait_time = duration
+		player.get_node("FrogAbilityCooldownTimer").wait_time = cooldown
+			
