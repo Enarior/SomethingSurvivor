@@ -15,7 +15,9 @@
 				"d1c93ee0-895c-4a2d-90f2-09851d2b372a",
 				"b9c80b27-d7a9-44d1-afb2-b04aa7fa19b8",
 				"207df404-9f7e-42cc-893b-c4e69568ebfc",
-				"5c3f7605-6dea-4d98-b614-b139815cb44d"
+				"5c3f7605-6dea-4d98-b614-b139815cb44d",
+				"1c51643f-b7e5-423f-9bda-8b0631d8ce82",
+				"fa6ad7fe-d3c8-4c05-9231-2c770a7fb2bc"
 			]
 		},
 		{
@@ -171,18 +173,30 @@
 			"steps": [
 				{
 					"details": "Upgrade Choice window",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Collectable Upgrade\n",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Different upgrades",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "balance values",
+					"done": true
+				},
+				{
+					"details": "Hitbox modifier upgrades",
+					"done": false
+				},
+				{
+					"details": "+1health upgrade ?",
+					"done": false
+				},
+				{
+					"details": "Spawn more upgrades ?",
 					"done": false
 				}
 			]
@@ -293,6 +307,20 @@
 		{
 			"uuid": "260959b3-160e-4e0c-a45a-85a2911df6af",
 			"title": "Fix cooldown and duration stuff",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		},
+		{
+			"uuid": "1c51643f-b7e5-423f-9bda-8b0631d8ce82",
+			"title": "ART : background",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		},
+		{
+			"uuid": "fa6ad7fe-d3c8-4c05-9231-2c770a7fb2bc",
+			"title": "ART : Ability collectable",
 			"description": "",
 			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
 			"steps": []
