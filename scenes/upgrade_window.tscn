@@ -30,4 +30,5 @@ offset_bottom = 36.5
 grow_vertical = 2
 text = "Right"
 
-[connection signal="pressed" from="LeftUpgradeButton" to="." method="_on_left_upgrade_button_pressed"]
+[connection signal="pressed" from="LeftUpgradeButton" to="." method="_on_upgrade_button_pressed"]
+[connection signal="pressed" from="RightUpgradeButton" to="." method="_on_upgrade_button_pressed"]

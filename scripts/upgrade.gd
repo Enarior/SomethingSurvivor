@@ -11,14 +11,36 @@ var duration
 var hitbox_modifier
 
 
-func _init(upgrade_name:String, type:String, cooldown: float=0, duration:float=0, speed:float=0,hitbox_modifier: float=0):
+func _init(upgrade_name:String, type:String, speed:float=0, cooldown: float=0, duration:float=0, hitbox_modifier: float=0):
 	self.upgrade_name = upgrade_name
 	if type in TYPES:
 		self.type = type
 	else :
-		print("Assigning incorrect type to upgrade. Must be one of " + TYPES)
-	if cooldown: self.cooldown = cooldown
-	if duration: self.duration = duration
-	if speed: self.speed = speed
-	if hitbox_modifier: self.hitbox_modifier = hitbox_modifier
+		print("Assigning incorrect type to upgrade. Must be one of " + array_to_string(TYPES))
+	if speed!=0: self.speed = speed
+	if cooldown!=0: self.cooldown = cooldown
+	if duration!=0: self.duration = duration
+	if hitbox_modifier!=0: self.hitbox_modifier = hitbox_modifier
 	
+
+func array_to_string(arr: Array) -> String:
+	var s = ""
+	for i in arr:
+		s += String(i) + " "
+	return s
+
+func apply(player):
+	print("Applying "+ upgrade_name)
+	
+	if type == "PLAYER":
+		print(speed)
+		
+		player.speed = speed
+	if type == "ABILITY_WOLF":
+		print(speed)
+		player.wolf_ability.speed = speed
+	if type == "ABILITY_FROG":
+		print(speed)
+		
+		player.frog_ability.speed = speed
+		

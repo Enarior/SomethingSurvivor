@@ -18,7 +18,10 @@ var current_score = 0
 var active_mobs = []
 signal game_started
 signal game_over
-var upgrades = []
+
+
+var player_speed_upgrade
+var wolf_speed_upgrade
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,13 +38,14 @@ func _process(_delta: float) -> void:
 		$HUD/WolfAbilityCooldown.show()
 	
 	# Spawn wolf ability upgrade
-	if current_score>=15:
+	if current_score>=15 and $Player.active_upgrades <= 0:
 		var wolf_upgrade_pickup = upgrade_pickup_scene.instantiate()
 		var wolf_upgrade_pickup_spawn_location = $UpgradeSpawn.get_node("UpgradeSpawnLocation")
 		wolf_upgrade_pickup_spawn_location.progress_ratio = randf()
 	
 		wolf_upgrade_pickup.position = wolf_upgrade_pickup_spawn_location.position
 		add_child(wolf_upgrade_pickup)
+		$Player.active_upgrades+=1
 		
 	
 	# Add frogs and more mob spawn
@@ -126,9 +130,7 @@ func _on_mob_timer_timeout():
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
 
-func init_upgrades():
-	player_speed_upgrade = Upgrade.new_upgrade()
-	
+
 func _on_score_timer_timeout() -> void:
 	current_score+=1
 	$HUD.update_score(current_score)
@@ -158,11 +160,17 @@ func player_hit_enemy(enemy_type:String) -> void:
 func _on_player_hit() -> void:
 	end_game()
 
-
+func init_upgrades():
+	player_speed_upgrade = Upgrade.new("player_speed_upgrade","PLAYER", $Player.speed+100)
+	wolf_speed_upgrade = Upgrade.new("wolf_speed_upgrade","ABILITY_WOLF", $Player.wolf_ability.speed+100, $Player.wolf_ability.cooldown,$Player.wolf_ability.duration)
+	
+	
 func _on_player_ability_picked_up() -> void:
 	# Spawn choice window
 	get_tree().paused = true
 	var upgrade_window = upgrade_window_scene.instantiate()
+	upgrade_window.get_node("LeftUpgradeButton").pressed.connect(player_speed_upgrade.apply.bind($Player))
+	upgrade_window.get_node("RightUpgradeButton").pressed.connect(wolf_speed_upgrade.apply.bind($Player))
 	add_child(upgrade_window)
 	# Update variables
 	# Remove upgrade from available upgrades

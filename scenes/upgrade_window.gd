@@ -10,7 +10,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
-func _on_left_upgrade_button_pressed() -> void:
+func _on_upgrade_button_pressed() -> void:
 	get_tree().paused = false
 	queue_free()

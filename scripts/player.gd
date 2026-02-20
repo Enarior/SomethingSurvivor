@@ -13,6 +13,7 @@ const Ability = preload("res://scripts/ability.gd")
 const Config = preload("res://scripts/config.gd")
 
 var speed
+var save_speed
 var screen_size # Size of the game window.
 var velocity = Vector2()
 
@@ -22,7 +23,7 @@ var frog_ability
 # Game state
 var game_started = false
 var ability_active = false
-
+var active_upgrades = 0
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -82,6 +83,9 @@ func get_input():
 			wolf_ability.available = false
 			wolf_ability.active = true
 			ability_active = true
+			
+			save_speed = speed
+			speed=wolf_ability.speed
 			glow_power = 2.0
 			$AnimatedSprite2D.material.set_shader_parameter("glow_color",wolf_ability.glow_color)
 	if Input.is_action_pressed("ability_frog"):
@@ -95,6 +99,9 @@ func get_input():
 			frog_ability.available = false
 			frog_ability.active = true
 			ability_active = true
+			
+			save_speed = speed
+			speed=frog_ability.speed
 			glow_power = 2.0
 			$AnimatedSprite2D.material.set_shader_parameter("glow_color",frog_ability.glow_color)
 			
@@ -147,6 +154,7 @@ func _on_wolf_ability_active_timer_timeout() -> void:
 	ability_active = false
 	
 	glow_power	= 0.0
+	speed = save_speed
 
 
 func _on_frog_ability_active_timer_timeout() -> void:
@@ -154,6 +162,7 @@ func _on_frog_ability_active_timer_timeout() -> void:
 	ability_active = false
 	
 	glow_power	= 0.0
+	speed = save_speed
 	
 	
 func _on_wolf_ability_cooldown_timer_timeout() -> void:
