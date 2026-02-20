@@ -4,6 +4,7 @@ var TYPES = ["PLAYER","ABILITY_WOLF","ABILITY_FROG"]
 
 # Ability specifications
 var upgrade_name = ""
+var desc = ""
 var type
 var speed
 var cooldown
@@ -11,8 +12,9 @@ var duration
 var hitbox_modifier
 
 
-func _init(upgrade_name:String, type:String, speed:float=0, cooldown: float=0, duration:float=0, hitbox_modifier: float=0):
+func _init(upgrade_name:String, desc:String, type:String, speed:float=0, cooldown: float=0, duration:float=0, hitbox_modifier: float=0):
 	self.upgrade_name = upgrade_name
+	self.desc = desc
 	if type in TYPES:
 		self.type = type
 	else :

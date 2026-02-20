@@ -161,8 +161,8 @@ func _on_player_hit() -> void:
 	end_game()
 
 func init_upgrades():
-	player_speed_upgrade = Upgrade.new("player_speed_upgrade","PLAYER", $Player.speed+100)
-	wolf_speed_upgrade = Upgrade.new("wolf_speed_upgrade","ABILITY_WOLF", $Player.wolf_ability.speed+100, $Player.wolf_ability.cooldown,$Player.wolf_ability.duration)
+	player_speed_upgrade = Upgrade.new("player_speed_upgrade","Increase player speed","PLAYER", $Player.speed+100)
+	wolf_speed_upgrade = Upgrade.new("wolf_speed_upgrade","Increase player speed while using wolf ability","ABILITY_WOLF", $Player.wolf_ability.speed+100, $Player.wolf_ability.cooldown,$Player.wolf_ability.duration)
 	
 	
 func _on_player_ability_picked_up() -> void:
@@ -170,7 +170,11 @@ func _on_player_ability_picked_up() -> void:
 	get_tree().paused = true
 	var upgrade_window = upgrade_window_scene.instantiate()
 	upgrade_window.get_node("LeftUpgradeButton").pressed.connect(player_speed_upgrade.apply.bind($Player))
+	upgrade_window.get_node("LeftUpgradeButton").text = player_speed_upgrade.desc
+	
 	upgrade_window.get_node("RightUpgradeButton").pressed.connect(wolf_speed_upgrade.apply.bind($Player))
+	upgrade_window.get_node("RightUpgradeButton").text = wolf_speed_upgrade.desc
+	
 	add_child(upgrade_window)
 	# Update variables
 	# Remove upgrade from available upgrades

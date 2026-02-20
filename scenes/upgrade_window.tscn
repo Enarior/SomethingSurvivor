@@ -6,15 +6,22 @@
 process_mode = 2
 script = ExtResource("1_a66l8")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 410.0
+offset_top = 230.0
+offset_right = 776.0
+offset_bottom = 418.0
+color = Color(0.23392546, 0.23392546, 0.23392543, 1)
+
 [node name="LeftUpgradeButton" type="Button" parent="."]
 process_mode = 2
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 464.0
-offset_top = -36.5
-offset_right = 560.0
-offset_bottom = 36.5
+offset_left = 408.0
+offset_top = -94.0
+offset_right = 598.0
+offset_bottom = 92.0
 grow_vertical = 2
 text = "Left"
 
@@ -23,12 +30,13 @@ process_mode = 2
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 633.0
-offset_top = -36.5
-offset_right = 729.0
-offset_bottom = 36.5
+offset_left = 597.0
+offset_top = -93.0
+offset_right = 776.0
+offset_bottom = 92.0
 grow_vertical = 2
 text = "Right"
+autowrap_mode = 2
 
 [connection signal="pressed" from="LeftUpgradeButton" to="." method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="RightUpgradeButton" to="." method="_on_upgrade_button_pressed"]
