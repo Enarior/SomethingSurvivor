@@ -20,12 +20,15 @@ signal game_started
 signal game_over
 
 
-var player_speed_upgrade
-var wolf_speed_upgrade
+var upgrades = []
+var player_upgrades = []
+var wolf_upgrades = []
+var frog_upgrades = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	init_upgrades()
+	upgrades.append_array(player_upgrades)
 	pass
 
 
@@ -36,6 +39,8 @@ func _process(_delta: float) -> void:
 		$Player.wolf_ability.unlocked = true
 		$HUD.show_hint("Press A to send wolves to sleep !")
 		$HUD/WolfAbilityCooldown.show()
+		
+		upgrades.append_array(wolf_upgrades)
 	
 	# Spawn wolf ability upgrade
 	if current_score>=15 and $Player.active_upgrades <= 0:
@@ -58,6 +63,8 @@ func _process(_delta: float) -> void:
 		$Player.frog_ability.unlocked = true
 		$HUD.show_hint("Press E to send frogs to sleep !")
 		$HUD/FrogAbilityCooldown.show()
+		upgrades.append_array(frog_upgrades)
+		
 		
 
 	
@@ -161,19 +168,33 @@ func _on_player_hit() -> void:
 	end_game()
 
 func init_upgrades():
-	player_speed_upgrade = Upgrade.new("player_speed_upgrade","Increase player speed","PLAYER", $Player.speed+100)
-	wolf_speed_upgrade = Upgrade.new("wolf_speed_upgrade","Increase player speed while using wolf ability","ABILITY_WOLF", $Player.wolf_ability.speed+100, $Player.wolf_ability.cooldown,$Player.wolf_ability.duration)
+	player_upgrades.append(Upgrade.new("player_speed_upgrade","Increase player speed","PLAYER", $Player.speed+100))
+	
+	wolf_upgrades.append(Upgrade.new("wolf_speed_upgrade","Increase player speed while using wolf ability","ABILITY_WOLF", $Player.wolf_ability.speed+100, $Player.wolf_ability.cooldown,$Player.wolf_ability.duration))
+	wolf_upgrades.append(Upgrade.new("wolf_cooldown_upgrade","Increase wolf ability duration","ABILITY_WOLF", $Player.wolf_ability.speed, $Player.wolf_ability.cooldown,$Player.wolf_ability.duration+1))
+	wolf_upgrades.append(Upgrade.new("wolf_duration_upgrade","Decrease wolf ability cooldown","ABILITY_WOLF", $Player.wolf_ability.speed+100, $Player.wolf_ability.cooldown-1,$Player.wolf_ability.duration))
+	
+	frog_upgrades.append(Upgrade.new("frog_speed_upgrade","Increase player speed while using frog ability","ABILITY_FROG", $Player.frog_ability.speed+100, $Player.wolf_ability.cooldown,$Player.wolf_ability.duration))
+	frog_upgrades.append(Upgrade.new("frog_duration_upgrade","Increase frog ability duration","ABILITY_FROG", $Player.frog_ability.speed, $Player.frog_ability.cooldown,$Player.wolf_ability.duration+1))
+	frog_upgrades.append(Upgrade.new("frog_cooldown_upgrade","Decrease frog ability cooldown","ABILITY_FROG", $Player.frog_ability.speed+100, $Player.wolf_ability.cooldown-1,$Player.wolf_ability.duration))
 	
 	
 func _on_player_ability_picked_up() -> void:
 	# Spawn choice window
 	get_tree().paused = true
 	var upgrade_window = upgrade_window_scene.instantiate()
-	upgrade_window.get_node("LeftUpgradeButton").pressed.connect(player_speed_upgrade.apply.bind($Player))
-	upgrade_window.get_node("LeftUpgradeButton").text = player_speed_upgrade.desc
 	
-	upgrade_window.get_node("RightUpgradeButton").pressed.connect(wolf_speed_upgrade.apply.bind($Player))
-	upgrade_window.get_node("RightUpgradeButton").text = wolf_speed_upgrade.desc
+	var left_upgrade = upgrades.pick_random()
+	upgrades.erase(left_upgrade)
+	
+	var right_upgrade = upgrades.pick_random()
+	upgrades.erase(right_upgrade)
+	
+	upgrade_window.get_node("LeftUpgradeButton").pressed.connect(left_upgrade.apply.bind($Player))
+	upgrade_window.get_node("LeftUpgradeButton").text = left_upgrade.desc
+	
+	upgrade_window.get_node("RightUpgradeButton").pressed.connect(right_upgrade.apply.bind($Player))
+	upgrade_window.get_node("RightUpgradeButton").text = right_upgrade.desc
 	
 	add_child(upgrade_window)
 	# Update variables

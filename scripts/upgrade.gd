@@ -40,9 +40,13 @@ func apply(player):
 		player.speed = speed
 	if type == "ABILITY_WOLF":
 		print(speed)
+		
 		player.wolf_ability.speed = speed
+		player.wolf_ability.cooldown = cooldown
+		player.wolf_ability.duration = duration
 	if type == "ABILITY_FROG":
 		print(speed)
 		
 		player.frog_ability.speed = speed
-		
+		player.frog_ability.cooldown = cooldown
+		player.frog_ability.duration = duration

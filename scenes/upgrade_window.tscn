@@ -24,6 +24,7 @@ offset_right = 598.0
 offset_bottom = 92.0
 grow_vertical = 2
 text = "Left"
+autowrap_mode = 2
 
 [node name="RightUpgradeButton" type="Button" parent="."]
 process_mode = 2
