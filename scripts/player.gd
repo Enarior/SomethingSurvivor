@@ -30,7 +30,7 @@ func _ready():
 	speed = Config.player_speed	
 	hide()
 	
-	init_abilities()
+	reset()
 
 
 func _process(delta):
@@ -113,7 +113,8 @@ func start(pos):
 	show()
 	$CollisionShape2D.disabled = false
 
-func init_abilities():
+func reset():
+	speed = Config.player_speed
 	wolf_ability = Ability.new(	Config.wolf_ability_name,
 								Config.wolf_ability_cooldown_default,
 								Config.wolf_ability_duration_default,

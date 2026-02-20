@@ -28,7 +28,6 @@ var frog_upgrades = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	init_upgrades()
-	upgrades.append_array(player_upgrades)
 	pass
 
 
@@ -82,6 +81,10 @@ func new_game():
 	$Player.start($StartPosition.position)
 	$Player.wolf_ability.unlocked = false
 	$Player.frog_ability.unlocked = false
+	upgrades = player_upgrades
+	$Player.active_upgrades=0
+	$Player.reset()
+	
 	
 	$StartTimer.start()
 	
