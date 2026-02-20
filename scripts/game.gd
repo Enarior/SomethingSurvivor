@@ -76,7 +76,7 @@ func end_game() -> void:
 	
 func new_game():
 	game_started.emit()
-	current_score = 0
+	current_score = 50
 	$MobTimer.wait_time = MOB_TIMER_START_TIME
 	active_mobs.append("wolf")
 	$Player.start($StartPosition.position)
@@ -191,18 +191,32 @@ func _on_player_ability_picked_up() -> void:
 	var upgrade_window = upgrade_window_scene.instantiate()
 	
 	var left_upgrade = upgrades.pick_random()
-	upgrades.erase(left_upgrade)
 	
+
 	var right_upgrade = upgrades.pick_random()
-	upgrades.erase(right_upgrade)
-	
+	while right_upgrade.upgrade_name == left_upgrade.upgrade_name:
+		right_upgrade = upgrades.pick_random()
+		
 	upgrade_window.get_node("LeftUpgradeButton").pressed.connect(left_upgrade.apply.bind($Player))
+	upgrade_window.get_node("LeftUpgradeButton").pressed.connect(remove_upgrade.bind(left_upgrade))
 	upgrade_window.get_node("LeftUpgradeButton").text = left_upgrade.desc
 	
 	upgrade_window.get_node("RightUpgradeButton").pressed.connect(right_upgrade.apply.bind($Player))
+	upgrade_window.get_node("RightUpgradeButton").pressed.connect(remove_upgrade.bind(right_upgrade))
+	
 	upgrade_window.get_node("RightUpgradeButton").text = right_upgrade.desc
 	
 	add_child(upgrade_window)
 	# Update variables
 	# Remove upgrade from available upgrades
 	pass # Replace with function body.
+
+func remove_upgrade(upgrade):
+	var index = 0
+	while index < upgrades.size():
+		if upgrades[index].upgrade_name == upgrade.upgrade_name:
+			upgrades.remove_at(index)
+			print("removing "+upgrade.upgrade_name)
+			for up in upgrades:
+				print(up.upgrade_name)
+		index+=1
