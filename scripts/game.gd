@@ -42,15 +42,9 @@ func _process(_delta: float) -> void:
 		
 		upgrades.append_array(wolf_upgrades)
 	
-	# Spawn wolf ability upgrade
-	if current_score>=15 and $Player.active_upgrades <= 0:
-		var wolf_upgrade_pickup = upgrade_pickup_scene.instantiate()
-		var wolf_upgrade_pickup_spawn_location = $UpgradeSpawn.get_node("UpgradeSpawnLocation")
-		wolf_upgrade_pickup_spawn_location.progress_ratio = randf()
-	
-		wolf_upgrade_pickup.position = wolf_upgrade_pickup_spawn_location.position
-		add_child(wolf_upgrade_pickup)
-		$Player.active_upgrades+=1
+	# Spawn first upgrade
+	if current_score>=10 and $Player.active_upgrades <= 0:
+		spawn_upgrade()
 		
 	
 	# Add frogs and more mob spawn
@@ -64,6 +58,10 @@ func _process(_delta: float) -> void:
 		$HUD.show_hint("Press E to send frogs to sleep !")
 		$HUD/FrogAbilityCooldown.show()
 		upgrades.append_array(frog_upgrades)
+	
+	# Spawn second upgrade
+	if current_score>=35 and $Player.active_upgrades <= 1:
+		spawn_upgrade()
 		
 		
 
@@ -78,7 +76,7 @@ func end_game() -> void:
 	
 func new_game():
 	game_started.emit()
-	current_score = 15
+	current_score = 0
 	$MobTimer.wait_time = MOB_TIMER_START_TIME
 	active_mobs.append("wolf")
 	$Player.start($StartPosition.position)
@@ -172,13 +170,21 @@ func init_upgrades():
 	
 	wolf_upgrades.append(Upgrade.new("wolf_speed_upgrade","Increase player speed while using wolf ability","ABILITY_WOLF", $Player.wolf_ability.speed+100, $Player.wolf_ability.cooldown,$Player.wolf_ability.duration))
 	wolf_upgrades.append(Upgrade.new("wolf_cooldown_upgrade","Increase wolf ability duration","ABILITY_WOLF", $Player.wolf_ability.speed, $Player.wolf_ability.cooldown,$Player.wolf_ability.duration+1))
-	wolf_upgrades.append(Upgrade.new("wolf_duration_upgrade","Decrease wolf ability cooldown","ABILITY_WOLF", $Player.wolf_ability.speed+100, $Player.wolf_ability.cooldown-1,$Player.wolf_ability.duration))
+	wolf_upgrades.append(Upgrade.new("wolf_duration_upgrade","Decrease wolf ability cooldown","ABILITY_WOLF", $Player.wolf_ability.speed, $Player.wolf_ability.cooldown-1,$Player.wolf_ability.duration))
 	
 	frog_upgrades.append(Upgrade.new("frog_speed_upgrade","Increase player speed while using frog ability","ABILITY_FROG", $Player.frog_ability.speed+100, $Player.wolf_ability.cooldown,$Player.wolf_ability.duration))
 	frog_upgrades.append(Upgrade.new("frog_duration_upgrade","Increase frog ability duration","ABILITY_FROG", $Player.frog_ability.speed, $Player.frog_ability.cooldown,$Player.wolf_ability.duration+1))
-	frog_upgrades.append(Upgrade.new("frog_cooldown_upgrade","Decrease frog ability cooldown","ABILITY_FROG", $Player.frog_ability.speed+100, $Player.wolf_ability.cooldown-1,$Player.wolf_ability.duration))
+	frog_upgrades.append(Upgrade.new("frog_cooldown_upgrade","Decrease frog ability cooldown","ABILITY_FROG", $Player.frog_ability.speed, $Player.wolf_ability.cooldown-1,$Player.wolf_ability.duration))
 	
+func spawn_upgrade():
+		var upgrade_pickup = upgrade_pickup_scene.instantiate()
+		var upgrade_pickup_spawn_location = $UpgradeSpawn.get_node("UpgradeSpawnLocation")
+		upgrade_pickup_spawn_location.progress_ratio = randf()
 	
+		upgrade_pickup.position = upgrade_pickup_spawn_location.position
+		add_child(upgrade_pickup)
+		$Player.active_upgrades+=1
+
 func _on_player_ability_picked_up() -> void:
 	# Spawn choice window
 	get_tree().paused = true
