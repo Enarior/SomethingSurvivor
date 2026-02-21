@@ -77,36 +77,21 @@ func get_input():
 		velocity.y += 1
 	if Input.is_action_pressed("ability_wolf"):
 		if game_started and wolf_ability.unlocked and wolf_ability.available:
+			print("wolf ability USED")
+			use_ability(wolf_ability)
 			wolf_ability_used.emit(wolf_ability.cooldown)
-			
 			$WolfAbilityActiveTimer.start()
 			$WolfAbilityCooldownTimer.start()
-			wolf_ability.available = false
-			wolf_ability.active = true
-			ability_active = true
-			
-			save_speed = speed
-			speed=wolf_ability.speed
-			glow_power = 2.0
-			$AnimatedSprite2D.material.set_shader_parameter("glow_color",wolf_ability.glow_color)
 	if Input.is_action_pressed("ability_frog"):
 		print("frog ability")
 
 		if game_started and frog_ability.unlocked and frog_ability.available:
 			print("frog ability USED")
+			use_ability(frog_ability)
 			frog_ability_used.emit(frog_ability.cooldown)
-		
 			$FrogAbilityActiveTimer.start()
 			$FrogAbilityCooldownTimer.start()
-			frog_ability.available = false
-			frog_ability.active = true
-			ability_active = true
-			
-			save_speed = speed
-			speed=frog_ability.speed
-			glow_power = 2.0
-			$AnimatedSprite2D.material.set_shader_parameter("glow_color",frog_ability.glow_color)
-			
+
 	
 func start(pos):
 	position = pos
@@ -132,6 +117,17 @@ func reset():
 	$FrogAbilityActiveTimer.wait_time = Config.frog_ability_duration_default
 	$FrogAbilityCooldownTimer.wait_time = Config.frog_ability_cooldown_default
 
+func use_ability(ability: Ability):
+
+	ability.available = false
+	ability.active = true
+	ability_active = true
+	
+	save_speed = speed
+	speed=ability.speed
+	glow_power = 2.0
+	$AnimatedSprite2D.material.set_shader_parameter("glow_color",ability.glow_color)
+			
 func _on_body_entered(body: Node2D) -> void:
 	#print(body.get_groups())
 	if wolf_ability.active and body.is_in_group("wolf"):
