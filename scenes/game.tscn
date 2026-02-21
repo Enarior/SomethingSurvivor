@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bbb0nefifrnmp"]
+[gd_scene format=3 uid="uid://bbb0nefifrnmp"]
 
 [ext_resource type="Script" uid="uid://c07nsgrrhy54r" path="res://scripts/game.gd" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://028p3xwhksbk" path="res://scenes/wolf.tscn" id="2_p57ef"]
@@ -41,7 +41,7 @@ _data = {
 }
 point_count = 12
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" unique_id=969029142]
 script = ExtResource("1_u5sy4")
 wolf_scene = ExtResource("2_p57ef")
 frog_scene = ExtResource("3_gee14")
@@ -50,7 +50,7 @@ plus_two_scene = ExtResource("5_vtaks")
 upgrade_pickup_scene = ExtResource("6_0tnpc")
 upgrade_window_scene = ExtResource("5_0tnpc")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1609628254]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -58,59 +58,59 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.09113214, 0.18399036, 0.4572636, 1)
 
-[node name="Player" parent="." instance=ExtResource("4_vtaks")]
+[node name="Player" parent="." unique_id=2094559001 instance=ExtResource("4_vtaks")]
 
-[node name="MobTimer" type="Timer" parent="."]
+[node name="MobTimer" type="Timer" parent="." unique_id=876797773]
 wait_time = 2.0
 
-[node name="ScoreTimer" type="Timer" parent="."]
+[node name="ScoreTimer" type="Timer" parent="." unique_id=53611205]
 wait_time = 2.0
 
-[node name="StartTimer" type="Timer" parent="."]
+[node name="StartTimer" type="Timer" parent="." unique_id=1377944445]
 wait_time = 2.0
 one_shot = true
 
-[node name="StartPosition" type="Marker2D" parent="."]
+[node name="StartPosition" type="Marker2D" parent="." unique_id=1873660643]
 position = Vector2(577, 320)
 
-[node name="HUD" parent="." instance=ExtResource("5_kvpfn")]
+[node name="HUD" parent="." unique_id=1892091688 instance=ExtResource("5_kvpfn")]
 
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=1595665476]
 stream = ExtResource("6_dinhu")
 
-[node name="MobPath" type="Node2D" parent="."]
+[node name="MobPath" type="Node2D" parent="." unique_id=167348096]
 
-[node name="MobPath1" type="Path2D" parent="MobPath"]
+[node name="MobPath1" type="Path2D" parent="MobPath" unique_id=1985833844]
 curve = SubResource("Curve2D_h2yge")
 
-[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath/MobPath1"]
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath/MobPath1" unique_id=1339642069]
 position = Vector2(153, 1)
 
-[node name="MobPath2" type="Path2D" parent="MobPath"]
+[node name="MobPath2" type="Path2D" parent="MobPath" unique_id=1835157525]
 curve = SubResource("Curve2D_0tnpc")
 
-[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath/MobPath2"]
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath/MobPath2" unique_id=688502362]
 position = Vector2(972, 644)
 rotation = 3.1403906
 
-[node name="MobPath3" type="Path2D" parent="MobPath"]
+[node name="MobPath3" type="Path2D" parent="MobPath" unique_id=1805353389]
 curve = SubResource("Curve2D_vtaks")
 
-[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath/MobPath3"]
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath/MobPath3" unique_id=1205792582]
 position = Vector2(1151, 71)
 rotation = 1.5729469
 
-[node name="MobPath4" type="Path2D" parent="MobPath"]
+[node name="MobPath4" type="Path2D" parent="MobPath" unique_id=990808760]
 curve = SubResource("Curve2D_gee14")
 
-[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath/MobPath4"]
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath/MobPath4" unique_id=1543278913]
 position = Vector2(-3, 536)
 rotation = -1.5663911
 
-[node name="UpgradeSpawn" type="Path2D" parent="."]
+[node name="UpgradeSpawn" type="Path2D" parent="." unique_id=2118580081]
 curve = SubResource("Curve2D_kvpfn")
 
-[node name="UpgradeSpawnLocation" type="PathFollow2D" parent="UpgradeSpawn"]
+[node name="UpgradeSpawnLocation" type="PathFollow2D" parent="UpgradeSpawn" unique_id=1091054455]
 position = Vector2(84, 47)
 rotation = -0.0031282485
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://028p3xwhksbk"]
+[gd_scene format=3 uid="uid://028p3xwhksbk"]
 
 [ext_resource type="Script" uid="uid://biv207pmoda8d" path="res://scripts/mob.gd" id="1_ejbti"]
 [ext_resource type="Texture2D" uid="uid://cbe5uxf8ru85a" path="res://art/loup/loup_sleep_0.png" id="2_fx5p6"]
@@ -35,23 +35,23 @@ animations = [{
 radius = 41.0
 height = 82.0
 
-[node name="Wolf" type="RigidBody2D" groups=["mobs", "wolf"]]
+[node name="Wolf" type="RigidBody2D" unique_id=1446563249 groups=["mobs", "wolf"]]
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_ejbti")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1297781123]
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_6v40e")
 animation = &"sleep"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1845599858]
 visible = false
 shape = SubResource("CapsuleShape2D_ch7wj")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1830480227]
 
-[node name="SleepTimer" type="Timer" parent="."]
+[node name="SleepTimer" type="Timer" parent="." unique_id=1516928858]
 
 [connection signal="timeout" from="SleepTimer" to="." method="_on_sleep_timer_timeout"]

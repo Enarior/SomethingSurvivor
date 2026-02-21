@@ -1,19 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://defklb2dlb2ex"]
+[gd_scene format=3 uid="uid://defklb2dlb2ex"]
 
 [ext_resource type="Script" uid="uid://bta2dmeh7bjm7" path="res://scenes/upgrade_window.gd" id="1_a66l8"]
 
-[node name="UpgradeWindow" type="CanvasLayer"]
+[node name="UpgradeWindow" type="CanvasLayer" unique_id=1455573141]
 process_mode = 2
 script = ExtResource("1_a66l8")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=240571795]
 offset_left = 410.0
 offset_top = 230.0
 offset_right = 776.0
 offset_bottom = 418.0
 color = Color(0.23392546, 0.23392546, 0.23392543, 1)
 
-[node name="LeftUpgradeButton" type="Button" parent="."]
+[node name="LeftUpgradeButton" type="Button" parent="." unique_id=1357869947]
 process_mode = 2
 anchors_preset = 4
 anchor_top = 0.5
@@ -26,7 +26,7 @@ grow_vertical = 2
 text = "Left"
 autowrap_mode = 2
 
-[node name="RightUpgradeButton" type="Button" parent="."]
+[node name="RightUpgradeButton" type="Button" parent="." unique_id=93731087]
 process_mode = 2
 anchors_preset = 4
 anchor_top = 0.5

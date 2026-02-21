@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://s8gealgs6y68"]
+[gd_scene format=3 uid="uid://s8gealgs6y68"]
 
 [ext_resource type="Script" uid="uid://csi8nsfu6865l" path="res://scripts/plus.gd" id="1_fakji"]
 [ext_resource type="Texture2D" uid="uid://bbl1us4mw5dsm" path="res://art/plus/one.png" id="2_inx1t"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" unique_id=583398196]
 z_index = 2
 scale = Vector2(0.02, 0.02)
 script = ExtResource("1_fakji")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=339105728]
 texture = ExtResource("2_inx1t")
 
-[node name="PoofTimer" type="Timer" parent="."]
+[node name="PoofTimer" type="Timer" parent="." unique_id=2073782681]
 
 [connection signal="timeout" from="PoofTimer" to="." method="_on_poof_timer_timeout"]

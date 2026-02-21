@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://fjh24a22xub6"]
+[gd_scene format=3 uid="uid://fjh24a22xub6"]
 
 [ext_resource type="Texture2D" uid="uid://dun6ktgwjm61l" path="res://art/star/star_sleep_0.png" id="1_j6vao"]
 [ext_resource type="Texture2D" uid="uid://bfj8p1khidbns" path="res://art/star/star_sleep_1.png" id="2_ef0hr"]
@@ -17,9 +17,9 @@ animations = [{
 "speed": 1.0
 }]
 
-[node name="Star" type="Node2D"]
+[node name="Star" type="Node2D" unique_id=285074154]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=446198371]
 position = Vector2(20, 20)
 sprite_frames = SubResource("SpriteFrames_8d8bx")
 autoplay = "default"

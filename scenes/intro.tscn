@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://23x56kh4p5xh"]
+[gd_scene format=3 uid="uid://23x56kh4p5xh"]
 
 [ext_resource type="Texture2D" uid="uid://k461u2fslsp5" path="res://art/maman/maman.png" id="1_ioskq"]
 [ext_resource type="Script" uid="uid://csta3lrxk4ahi" path="res://scripts/intro.gd" id="1_yjqpq"]
@@ -212,7 +212,7 @@ _data = {
 &"intro": SubResource("Animation_ioskq")
 }
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" unique_id=2113372859]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -221,13 +221,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yjqpq")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_yjqpq")
-}
-autoplay = "intro"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1593617337]
+libraries/ = SubResource("AnimationLibrary_yjqpq")
+autoplay = &"intro"
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=581259401]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -237,19 +235,19 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
-[node name="Mother" type="Sprite2D" parent="."]
+[node name="Mother" type="Sprite2D" parent="." unique_id=1442563724]
 position = Vector2(833.99994, 460.99997)
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("1_ioskq")
 
-[node name="MotherBubble" type="Sprite2D" parent="Mother"]
+[node name="MotherBubble" type="Sprite2D" parent="Mother" unique_id=1730885218]
 visible = false
 position = Vector2(-422.22238, -472.2223)
 scale = Vector2(1.381429, 1.0511612)
 texture = ExtResource("4_i2l1n")
 flip_h = true
 
-[node name="MotherBubbleText" type="Label" parent="Mother/MotherBubble"]
+[node name="MotherBubbleText" type="Label" parent="Mother/MotherBubble" unique_id=1776764953]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -269,20 +267,20 @@ autowrap_mode = 2
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="MotherAudioStreamPlayer" type="AudioStreamPlayer" parent="Mother"]
+[node name="MotherAudioStreamPlayer" type="AudioStreamPlayer" parent="Mother" unique_id=1039561678]
 
-[node name="Children" type="Sprite2D" parent="."]
+[node name="Children" type="Sprite2D" parent="." unique_id=891289400]
 position = Vector2(351, 461.99997)
 scale = Vector2(0.7814815, 0.8240741)
 texture = ExtResource("3_4bx60")
 
-[node name="ChildBubble" type="Sprite2D" parent="Children"]
+[node name="ChildBubble" type="Sprite2D" parent="Children" unique_id=1966173849]
 visible = false
 position = Vector2(58.86252, -98.29208)
 scale = Vector2(0.2457084, 0.20590109)
 texture = ExtResource("4_i2l1n")
 
-[node name="ChildBubbleText" type="Label" parent="Children/ChildBubble"]
+[node name="ChildBubbleText" type="Label" parent="Children/ChildBubble" unique_id=1163466917]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -301,6 +299,6 @@ autowrap_mode = 2
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="ChildAudioStreamPlayer" type="AudioStreamPlayer" parent="Children"]
+[node name="ChildAudioStreamPlayer" type="AudioStreamPlayer" parent="Children" unique_id=1215794485]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
