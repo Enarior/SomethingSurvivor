@@ -170,14 +170,17 @@ func _on_player_hit() -> void:
 
 func init_upgrades():
 	player_upgrades.append(Upgrade.new("player_speed_upgrade","Increase player speed","PLAYER", $Player.speed+100))
+	player_upgrades.append(Upgrade.new("player_hitbox_upgrade","Increase player size","PLAYER", $Player.speed,0,0, 1.2))
 	
-	wolf_upgrades.append(Upgrade.new("wolf_speed_upgrade","Increase player speed while using wolf ability","ABILITY_WOLF", $Player.wolf_ability.speed+100, $Player.wolf_ability.cooldown,$Player.wolf_ability.duration))
-	wolf_upgrades.append(Upgrade.new("wolf_cooldown_upgrade","Increase wolf ability duration","ABILITY_WOLF", $Player.wolf_ability.speed, $Player.wolf_ability.cooldown,$Player.wolf_ability.duration+1))
-	wolf_upgrades.append(Upgrade.new("wolf_duration_upgrade","Decrease wolf ability cooldown","ABILITY_WOLF", $Player.wolf_ability.speed, $Player.wolf_ability.cooldown-1,$Player.wolf_ability.duration))
+	#wolf_upgrades.append(Upgrade.new("wolf_speed_upgrade","Increase player speed while using wolf ability","ABILITY_WOLF", $Player.wolf_ability.speed+100, $Player.wolf_ability.cooldown,$Player.wolf_ability.duration))
+	#wolf_upgrades.append(Upgrade.new("wolf_cooldown_upgrade","Increase wolf ability duration","ABILITY_WOLF", $Player.wolf_ability.speed, $Player.wolf_ability.cooldown,$Player.wolf_ability.duration+1))
+	#wolf_upgrades.append(Upgrade.new("wolf_duration_upgrade","Decrease wolf ability cooldown","ABILITY_WOLF", $Player.wolf_ability.speed, $Player.wolf_ability.cooldown-1,$Player.wolf_ability.duration))
+	wolf_upgrades.append(Upgrade.new("wolf_hitbox_upgrade","Increase player size while using wolf ability","ABILITY_WOLF", $Player.wolf_ability.speed, $Player.wolf_ability.cooldown,$Player.wolf_ability.duration, 1.5))
 	
 	frog_upgrades.append(Upgrade.new("frog_speed_upgrade","Increase player speed while using frog ability","ABILITY_FROG", $Player.frog_ability.speed+100, $Player.wolf_ability.cooldown,$Player.wolf_ability.duration))
 	frog_upgrades.append(Upgrade.new("frog_duration_upgrade","Increase frog ability duration","ABILITY_FROG", $Player.frog_ability.speed, $Player.frog_ability.cooldown,$Player.wolf_ability.duration+1))
 	frog_upgrades.append(Upgrade.new("frog_cooldown_upgrade","Decrease frog ability cooldown","ABILITY_FROG", $Player.frog_ability.speed, $Player.wolf_ability.cooldown-1,$Player.wolf_ability.duration))
+	frog_upgrades.append(Upgrade.new("frog_hitbox_upgrade","Increase player size while using frog ability","ABILITY_FROG", $Player.frog_ability.speed, $Player.frog_ability.cooldown,$Player.frog_ability.duration, 1.5))
 	
 func spawn_upgrade():
 		var upgrade_pickup = upgrade_pickup_scene.instantiate()

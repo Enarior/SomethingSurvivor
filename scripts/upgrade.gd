@@ -38,12 +38,14 @@ func apply(player):
 		print(speed)
 		
 		player.speed = speed
+		player.scale = player.scale*hitbox_modifier
 	if type == "ABILITY_WOLF":
 		print(speed)
 		
 		player.wolf_ability.speed = speed
 		player.wolf_ability.cooldown = cooldown
 		player.wolf_ability.duration = duration
+		player.wolf_ability.hitbox_modifier = hitbox_modifier
 		
 		player.get_node("WolfAbilityActiveTimer").wait_time = duration
 		player.get_node("WolfAbilityCooldownTimer").wait_time = cooldown
@@ -55,6 +57,7 @@ func apply(player):
 		player.frog_ability.speed = speed
 		player.frog_ability.cooldown = cooldown
 		player.frog_ability.duration = duration
+		player.frog_ability.hitbox_modifier = hitbox_modifier
 		
 		player.get_node("FrogAbilityActiveTimer").wait_time = duration
 		player.get_node("FrogAbilityCooldownTimer").wait_time = cooldown

@@ -16,6 +16,7 @@ var speed
 var save_speed
 var screen_size # Size of the game window.
 var velocity = Vector2()
+var player_scale = Vector2(0.5,0.5)
 
 var wolf_ability
 var frog_ability
@@ -126,6 +127,7 @@ func use_ability(ability: Ability):
 	save_speed = speed
 	speed=ability.speed
 	glow_power = 2.0
+	$AnimatedSprite2D.scale = $AnimatedSprite2D.scale * ability.hitbox_modifier
 	$AnimatedSprite2D.material.set_shader_parameter("glow_color",ability.glow_color)
 			
 func _on_body_entered(body: Node2D) -> void:
@@ -153,18 +155,25 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_wolf_ability_active_timer_timeout() -> void:
 	wolf_ability.active = false
-	ability_active = false
+	if frog_ability.active == false:
+		ability_active = false
 	
 	glow_power	= 0.0
 	speed = save_speed
+	$AnimatedSprite2D.scale = player_scale
+	
 
 
 func _on_frog_ability_active_timer_timeout() -> void:
 	frog_ability.active = false
-	ability_active = false
+	
+	if wolf_ability.active == false:
+		ability_active = false
 	
 	glow_power	= 0.0
 	speed = save_speed
+	$AnimatedSprite2D.scale = player_scale
+	
 	
 	
 func _on_wolf_ability_cooldown_timer_timeout() -> void:
