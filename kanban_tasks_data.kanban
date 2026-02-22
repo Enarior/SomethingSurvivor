@@ -189,11 +189,11 @@
 				},
 				{
 					"details": "Hitbox modifier upgrades",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "+1health upgrade ?",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Spawn more upgrades ?",

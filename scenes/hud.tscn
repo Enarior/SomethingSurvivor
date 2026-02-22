@@ -58,7 +58,7 @@ one_shot = true
 
 [node name="WolfAbilityCooldown" type="Node2D" parent="." unique_id=22073078]
 visible = false
-position = Vector2(17, 586)
+position = Vector2(499, 586)
 
 [node name="WolfAbilityCooldownTimer" type="Timer" parent="WolfAbilityCooldown" unique_id=2039240026]
 one_shot = true
@@ -104,7 +104,7 @@ vertical_alignment = 1
 
 [node name="FrogAbilityCooldown" type="Node2D" parent="." unique_id=413849726]
 visible = false
-position = Vector2(112, 589)
+position = Vector2(594, 589)
 
 [node name="FrogAbilityCooldownTimer" type="Timer" parent="FrogAbilityCooldown" unique_id=1426560980]
 one_shot = true

@@ -12,7 +12,7 @@ var duration
 var hitbox_modifier
 
 
-func _init(upgrade_name:String, desc:String, type:String, speed:float=0, cooldown: float=0, duration:float=0, hitbox_modifier: float=0):
+func _init(upgrade_name:String, desc:String, type:String, speed:float=0, cooldown: float=0, duration:float=0, hitbox_modifier: float=1):
 	self.upgrade_name = upgrade_name
 	self.desc = desc
 	if type in TYPES:
@@ -22,7 +22,7 @@ func _init(upgrade_name:String, desc:String, type:String, speed:float=0, cooldow
 	if speed!=0: self.speed = speed
 	if cooldown!=0: self.cooldown = cooldown
 	if duration!=0: self.duration = duration
-	if hitbox_modifier!=0: self.hitbox_modifier = hitbox_modifier
+	self.hitbox_modifier = hitbox_modifier
 	
 
 func array_to_string(arr: Array) -> String:
