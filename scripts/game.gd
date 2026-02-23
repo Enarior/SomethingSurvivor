@@ -41,10 +41,6 @@ func _process(_delta: float) -> void:
 		
 		upgrades.append_array(wolf_upgrades)
 	
-	# Spawn first upgrade
-	if current_score>=10 and $Player.active_upgrades <= 0:
-		spawn_upgrade()
-		
 	
 	# Add frogs and more mob spawn
 	if "frog" not in active_mobs and current_score>20:
@@ -59,12 +55,26 @@ func _process(_delta: float) -> void:
 		upgrades.append_array(frog_upgrades)
 	
 	# Spawn second upgrade
-	if current_score>=35 and $Player.active_upgrades <= 1:
+	if 	   (current_score>=10 and $Player.active_upgrades <= 0)\
+		or (current_score>=20 and $Player.active_upgrades <= 1)\
+		or (current_score % 5 == 0 and $Player.active_upgrades <= 2)\
+		or (current_score % 5 == 0 and $Player.active_upgrades <= 3)\
+		or (current_score % 5 == 0 and $Player.active_upgrades <= 4)\
+		or (current_score % 5 == 0 and $Player.active_upgrades <= 5)\
+		or (current_score % 5 == 0 and $Player.active_upgrades <= 6)\
+		or (current_score % 5 == 0 and $Player.active_upgrades <= 7)\
+		or (current_score % 5 == 0 and $Player.active_upgrades <= 8)\
+		or (current_score % 5 == 0 and $Player.active_upgrades <= 9)\
+		or (current_score % 5 == 0 and $Player.active_upgrades <= 10)\
+		or (current_score % 5 == 0 and $Player.active_upgrades <= 11)\
+		or (current_score % 5 == 0 and $Player.active_upgrades <= 12)\
+		or (current_score % 5 == 0 and $Player.active_upgrades <= 13)\
+		or (current_score % 5 == 0 and $Player.active_upgrades <= 14)\
+		or (current_score % 5 == 0 and $Player.active_upgrades <= 15)\
+		or (current_score % 5 == 0 and $Player.active_upgrades <= 16)\
+		or (current_score % 5 == 0 and $Player.active_upgrades <= 17):
 		spawn_upgrade()
-		
-		
-
-	
+			
 
 func end_game() -> void:
 	game_over.emit()
@@ -89,6 +99,7 @@ func new_game():
 	$StartTimer.start()
 	
 	get_tree().call_group("mobs", "queue_free")
+	get_tree().call_group("upgrade", "queue_free")
 	
 	$HUD/StartButton.hide()
 	$HUD/ScoreLabel.show()
@@ -204,12 +215,11 @@ func _on_player_ability_picked_up() -> void:
 		right_upgrade = upgrades.pick_random()
 		
 	upgrade_window.get_node("LeftUpgradeButton").pressed.connect(left_upgrade.apply.bind($Player))
-	upgrade_window.get_node("LeftUpgradeButton").pressed.connect(remove_upgrade.bind(left_upgrade))
+	#upgrade_window.get_node("LeftUpgradeButton").pressed.connect(remove_upgrade.bind(left_upgrade))
 	upgrade_window.get_node("LeftUpgradeButton").text = left_upgrade.desc
 	
 	upgrade_window.get_node("RightUpgradeButton").pressed.connect(right_upgrade.apply.bind($Player))
-	upgrade_window.get_node("RightUpgradeButton").pressed.connect(remove_upgrade.bind(right_upgrade))
-	
+	#upgrade_window.get_node("RightUpgradeButton").pressed.connect(remove_upgrade.bind(right_upgrade))
 	upgrade_window.get_node("RightUpgradeButton").text = right_upgrade.desc
 	
 	add_child(upgrade_window)
