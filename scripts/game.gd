@@ -33,6 +33,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	print_info()
 	# Unlock wolf ability 
 	if not $Player.wolf_ability.unlocked and current_score>=3:
 		$Player.wolf_ability.unlocked = true
@@ -55,24 +56,24 @@ func _process(_delta: float) -> void:
 		upgrades.append_array(frog_upgrades)
 	
 	# Spawn second upgrade
-	if 	   (current_score>=10 and $Player.active_upgrades <= 0)\
-		or (current_score>=20 and $Player.active_upgrades <= 1)\
-		or (current_score % 5 == 0 and $Player.active_upgrades <= 2)\
-		or (current_score % 5 == 0 and $Player.active_upgrades <= 3)\
-		or (current_score % 5 == 0 and $Player.active_upgrades <= 4)\
-		or (current_score % 5 == 0 and $Player.active_upgrades <= 5)\
-		or (current_score % 5 == 0 and $Player.active_upgrades <= 6)\
-		or (current_score % 5 == 0 and $Player.active_upgrades <= 7)\
-		or (current_score % 5 == 0 and $Player.active_upgrades <= 8)\
-		or (current_score % 5 == 0 and $Player.active_upgrades <= 9)\
-		or (current_score % 5 == 0 and $Player.active_upgrades <= 10)\
-		or (current_score % 5 == 0 and $Player.active_upgrades <= 11)\
-		or (current_score % 5 == 0 and $Player.active_upgrades <= 12)\
-		or (current_score % 5 == 0 and $Player.active_upgrades <= 13)\
-		or (current_score % 5 == 0 and $Player.active_upgrades <= 14)\
-		or (current_score % 5 == 0 and $Player.active_upgrades <= 15)\
-		or (current_score % 5 == 0 and $Player.active_upgrades <= 16)\
-		or (current_score % 5 == 0 and $Player.active_upgrades <= 17):
+	if 	  (current_score>=10 and $Player.active_upgrades == 0)\
+		or (current_score>=20 and $Player.active_upgrades == 1)\
+		or (current_score % 5 == 0 and $Player.active_upgrades == 2)\
+		or (current_score % 5 == 0 and $Player.active_upgrades == 3)\
+		or (current_score % 5 == 0 and $Player.active_upgrades == 4)\
+		or (current_score % 5 == 0 and $Player.active_upgrades == 5)\
+		or (current_score % 5 == 0 and $Player.active_upgrades == 6)\
+		or (current_score % 5 == 0 and $Player.active_upgrades == 7)\
+		or (current_score % 5 == 0 and $Player.active_upgrades == 8)\
+		or (current_score % 5 == 0 and $Player.active_upgrades == 9)\
+		or (current_score % 5 == 0 and $Player.active_upgrades == 10)\
+		or (current_score % 5 == 0 and $Player.active_upgrades == 11)\
+		or (current_score % 5 == 0 and $Player.active_upgrades == 12)\
+		or (current_score % 5 == 0 and $Player.active_upgrades == 13)\
+		or (current_score % 5 == 0 and $Player.active_upgrades == 14)\
+		or (current_score % 5 == 0 and $Player.active_upgrades == 15)\
+		or (current_score % 5 == 0 and $Player.active_upgrades == 16)\
+		or (current_score % 5 == 0 and $Player.active_upgrades == 17):
 		spawn_upgrade()
 			
 
@@ -236,3 +237,19 @@ func remove_upgrade(upgrade):
 			for up in upgrades:
 				print(up.upgrade_name)
 		index+=1
+
+
+func print_info():
+	var label = $HUD.get_node("DebugLabel")
+	label.text = "PLAYER SPEED : " + (str($Player.speed) + "\n")
+	label.text += "PLAYER SCALE : " + (str($Player.scale) + "\n")
+
+	label.text += "WOLF SPEED : " + (str($Player.wolf_ability.speed) + "\n")
+	label.text += "WOLF SCALE : " + (str($Player.wolf_ability.hitbox_modifier) + "\n")
+	label.text += "WOLF CD : " + (str($Player.wolf_ability.cooldown) + "\n")
+	label.text += "WOLF DURATION : " + (str($Player.wolf_ability.duration) + "\n")
+
+	label.text += "FROG SPEED : " + (str($Player.frog_ability.speed) + "\n")
+	label.text += "FROG SCALE : " + (str($Player.frog_ability.hitbox_modifier) + "\n")
+	label.text += "FROG CD : " + (str($Player.frog_ability.cooldown) + "\n")
+	label.text += "FROG DURATION : " + (str($Player.frog_ability.duration) + "\n")

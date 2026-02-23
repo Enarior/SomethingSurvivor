@@ -245,6 +245,11 @@ theme_override_font_sizes/font_size = 64
 shortcut = SubResource("Shortcut_8sq4i")
 text = "Play again"
 
+[node name="DebugLabel" type="Label" parent="." unique_id=582403190]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 14
+
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
 [connection signal="timeout" from="WolfAbilityCooldown/WolfAbilityCooldownTimer" to="." method="_on_wolf_ability_cooldown_timer_timeout"]
 [connection signal="timeout" from="Hint/HintTimer" to="." method="_on_ability_unlocked_timer_timeout"]
