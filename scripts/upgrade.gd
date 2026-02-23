@@ -33,10 +33,15 @@ func apply(player):
 	print(carac)
 	
 	if type == "PLAYER":
+		var old_value = player.get(carac)
+		
 		print(carac)
 		print(value)
 		
-		player.set(carac, value)
+		if carac == "speed":
+			player.set(carac,old_value + value)
+		elif carac == "scale":
+			player.set(carac,old_value + value)
 	if type == "ABILITY_WOLF":
 		var old_value = player.wolf_ability.get(carac)
 		if carac == "speed":
@@ -52,10 +57,16 @@ func apply(player):
 
 			
 	if type == "ABILITY_FROG":
-		player.frog_ability.set("carac",value)
-		
-		if carac=="duration":
-			player.get_node("FrogAbilityActiveTimer").wait_time = value
+		var old_value = player.frog_ability.get(carac)
+		if carac == "speed":
+			player.frog_ability.set(carac,old_value + value)
+		elif carac == "scale":
+			player.frog_ability.set(carac,old_value + value)
 		elif carac == "cooldown":
-			player.get_node("FrogAbilityCooldownTimer").wait_time = value
+			player.frog_ability.set(carac,old_value - value)
+			player.get_node("FrogAbilityCooldownTimer").wait_time = old_value - value
+		elif carac=="duration":
+			player.frog_ability.set(carac,old_value + value)
+			player.get_node("FrogAbilityActiveTimer").wait_time = old_value + value
+
 		

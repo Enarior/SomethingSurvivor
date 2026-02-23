@@ -242,14 +242,18 @@ func remove_upgrade(upgrade):
 func print_info():
 	var label = $HUD.get_node("DebugLabel")
 	label.text = "PLAYER SPEED : " + (str($Player.speed) + "\n")
-	label.text += "PLAYER SCALE : " + (str($Player.scale) + "\n")
+	label.text += "PLAYER SCALE : " + (str($Player.scale) + "\n\n")
 
 	label.text += "WOLF SPEED : " + (str($Player.wolf_ability.speed) + "\n")
 	label.text += "WOLF SCALE : " + (str($Player.wolf_ability.scale) + "\n")
 	label.text += "WOLF CD : " + (str($Player.wolf_ability.cooldown) + "\n")
+	label.text += "WOLF CD TIMER : " + (str($Player/WolfAbilityCooldownTimer.wait_time) + "\n")
 	label.text += "WOLF DURATION : " + (str($Player.wolf_ability.duration) + "\n")
+	label.text += "WOLF DURATION TIMER : " + (str($Player/WolfAbilityActiveTimer.wait_time) + "\n\n")
 
 	label.text += "FROG SPEED : " + (str($Player.frog_ability.speed) + "\n")
 	label.text += "FROG SCALE : " + (str($Player.frog_ability.scale) + "\n")
 	label.text += "FROG CD : " + (str($Player.frog_ability.cooldown) + "\n")
+	label.text += "FROG CD TIMER : " + (str($Player/FrogAbilityCooldownTimer.wait_time) + "\n")
 	label.text += "FROG DURATION : " + (str($Player.frog_ability.duration) + "\n")
+	label.text += "FROG DURATION TIMER : " + (str($Player/FrogAbilityActiveTimer.wait_time) + "\n\n")
