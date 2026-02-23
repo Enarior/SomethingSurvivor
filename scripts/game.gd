@@ -57,23 +57,23 @@ func _process(_delta: float) -> void:
 	
 	# Spawn second upgrade
 	if 	  (current_score>=10 and $Player.active_upgrades == 0)\
-		or (current_score>=20 and $Player.active_upgrades == 1)\
-		or (current_score % 5 == 0 and $Player.active_upgrades == 2)\
-		or (current_score % 5 == 0 and $Player.active_upgrades == 3)\
-		or (current_score % 5 == 0 and $Player.active_upgrades == 4)\
-		or (current_score % 5 == 0 and $Player.active_upgrades == 5)\
-		or (current_score % 5 == 0 and $Player.active_upgrades == 6)\
-		or (current_score % 5 == 0 and $Player.active_upgrades == 7)\
-		or (current_score % 5 == 0 and $Player.active_upgrades == 8)\
-		or (current_score % 5 == 0 and $Player.active_upgrades == 9)\
-		or (current_score % 5 == 0 and $Player.active_upgrades == 10)\
-		or (current_score % 5 == 0 and $Player.active_upgrades == 11)\
-		or (current_score % 5 == 0 and $Player.active_upgrades == 12)\
-		or (current_score % 5 == 0 and $Player.active_upgrades == 13)\
-		or (current_score % 5 == 0 and $Player.active_upgrades == 14)\
-		or (current_score % 5 == 0 and $Player.active_upgrades == 15)\
-		or (current_score % 5 == 0 and $Player.active_upgrades == 16)\
-		or (current_score % 5 == 0 and $Player.active_upgrades == 17):
+		or (current_score >= 20 and $Player.active_upgrades == 1)\
+		or (current_score >= 25 and $Player.active_upgrades == 2)\
+		or (current_score >= 30 and $Player.active_upgrades == 3)\
+		or (current_score >= 35 and $Player.active_upgrades == 4)\
+		or (current_score >= 40 and $Player.active_upgrades == 5)\
+		or (current_score >= 45 and $Player.active_upgrades == 6)\
+		or (current_score >= 50 and $Player.active_upgrades == 7)\
+		or (current_score >= 55 and $Player.active_upgrades == 8)\
+		or (current_score >= 60 and $Player.active_upgrades == 9)\
+		or (current_score >= 65 and $Player.active_upgrades == 10)\
+		or (current_score >= 70 and $Player.active_upgrades == 11)\
+		or (current_score >= 75 and $Player.active_upgrades == 12)\
+		or (current_score >= 80 and $Player.active_upgrades == 13)\
+		or (current_score >= 85 and $Player.active_upgrades == 14)\
+		or (current_score >= 90 and $Player.active_upgrades == 15)\
+		or (current_score >= 95 and $Player.active_upgrades == 16)\
+		or (current_score >= 100 and $Player.active_upgrades == 17):
 		spawn_upgrade()
 			
 
@@ -181,18 +181,18 @@ func _on_player_hit() -> void:
 	end_game()
 
 func init_upgrades():
-	player_upgrades.append(Upgrade.new("player_speed_upgrade","Increase player speed","PLAYER", $Player.speed+100,0,0))
-	player_upgrades.append(Upgrade.new("player_hitbox_upgrade","Increase player size","PLAYER", $Player.speed,0,0, 1.2))
+	player_upgrades.append(Upgrade.new("player_speed_upgrade","Increase player speed","PLAYER", "speed",$Player.speed+100))
+	player_upgrades.append(Upgrade.new("player_hitbox_upgrade","Increase player size","PLAYER", "scale",1.2))
 	
-	wolf_upgrades.append(Upgrade.new("wolf_speed_upgrade","Increase player speed while using wolf ability","ABILITY_WOLF", $Player.wolf_ability.speed+100, $Player.wolf_ability.cooldown,$Player.wolf_ability.duration))
-	wolf_upgrades.append(Upgrade.new("wolf_cooldown_upgrade","Increase wolf ability duration","ABILITY_WOLF", $Player.wolf_ability.speed, $Player.wolf_ability.cooldown,$Player.wolf_ability.duration+1))
-	wolf_upgrades.append(Upgrade.new("wolf_duration_upgrade","Decrease wolf ability cooldown","ABILITY_WOLF", $Player.wolf_ability.speed, $Player.wolf_ability.cooldown-1,$Player.wolf_ability.duration))
-	wolf_upgrades.append(Upgrade.new("wolf_hitbox_upgrade","Increase player size while using wolf ability","ABILITY_WOLF", $Player.wolf_ability.speed, $Player.wolf_ability.cooldown,$Player.wolf_ability.duration, 1.5))
+	wolf_upgrades.append(Upgrade.new("wolf_speed_upgrade","Increase player speed while using wolf ability","ABILITY_WOLF", "speed",100))
+	wolf_upgrades.append(Upgrade.new("wolf_cooldown_upgrade","Increase wolf ability duration","ABILITY_WOLF", "duration",1))
+	wolf_upgrades.append(Upgrade.new("wolf_duration_upgrade","Decrease wolf ability cooldown","ABILITY_WOLF", "cooldown", 1))
+	wolf_upgrades.append(Upgrade.new("wolf_hitbox_upgrade","Increase player size while using wolf ability","ABILITY_WOLF", "scale",Vector2(0.5,0.5)))
 	
-	frog_upgrades.append(Upgrade.new("frog_speed_upgrade","Increase player speed while using frog ability","ABILITY_FROG", $Player.frog_ability.speed+100, $Player.wolf_ability.cooldown,$Player.wolf_ability.duration))
-	frog_upgrades.append(Upgrade.new("frog_duration_upgrade","Increase frog ability duration","ABILITY_FROG", $Player.frog_ability.speed, $Player.frog_ability.cooldown,$Player.wolf_ability.duration+1))
-	frog_upgrades.append(Upgrade.new("frog_cooldown_upgrade","Decrease frog ability cooldown","ABILITY_FROG", $Player.frog_ability.speed, $Player.wolf_ability.cooldown-1,$Player.wolf_ability.duration))
-	frog_upgrades.append(Upgrade.new("frog_hitbox_upgrade","Increase player size while using frog ability","ABILITY_FROG", $Player.frog_ability.speed, $Player.frog_ability.cooldown,$Player.frog_ability.duration, 1.5))
+	frog_upgrades.append(Upgrade.new("frog_speed_upgrade","Increase player speed while using frog ability","ABILITY_FROG", "speed",100))
+	frog_upgrades.append(Upgrade.new("frog_duration_upgrade","Increase frog ability duration","ABILITY_FROG", "duration", 1))
+	frog_upgrades.append(Upgrade.new("frog_cooldown_upgrade","Decrease frog ability cooldown","ABILITY_FROG", "cooldown", 1))
+	frog_upgrades.append(Upgrade.new("frog_hitbox_upgrade","Increase player size while using frog ability","ABILITY_FROG", "scale", Vector2(0.5,0.5)))
 	
 func spawn_upgrade():
 		var upgrade_pickup = upgrade_pickup_scene.instantiate()
@@ -245,11 +245,11 @@ func print_info():
 	label.text += "PLAYER SCALE : " + (str($Player.scale) + "\n")
 
 	label.text += "WOLF SPEED : " + (str($Player.wolf_ability.speed) + "\n")
-	label.text += "WOLF SCALE : " + (str($Player.wolf_ability.hitbox_modifier) + "\n")
+	label.text += "WOLF SCALE : " + (str($Player.wolf_ability.scale) + "\n")
 	label.text += "WOLF CD : " + (str($Player.wolf_ability.cooldown) + "\n")
 	label.text += "WOLF DURATION : " + (str($Player.wolf_ability.duration) + "\n")
 
 	label.text += "FROG SPEED : " + (str($Player.frog_ability.speed) + "\n")
-	label.text += "FROG SCALE : " + (str($Player.frog_ability.hitbox_modifier) + "\n")
+	label.text += "FROG SCALE : " + (str($Player.frog_ability.scale) + "\n")
 	label.text += "FROG CD : " + (str($Player.frog_ability.cooldown) + "\n")
 	label.text += "FROG DURATION : " + (str($Player.frog_ability.duration) + "\n")

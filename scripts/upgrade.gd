@@ -6,23 +6,20 @@ var TYPES = ["PLAYER","ABILITY_WOLF","ABILITY_FROG"]
 var upgrade_name = ""
 var desc = ""
 var type
-var speed
-var cooldown
-var duration
-var hitbox_modifier
+var carac
+var value
 
 
-func _init(upgrade_name:String, desc:String, type:String, speed:float=0, cooldown: float=0, duration:float=0, hitbox_modifier: float=1):
+func _init(upgrade_name:String, desc:String, type:String, carac:String, value):
 	self.upgrade_name = upgrade_name
 	self.desc = desc
 	if type in TYPES:
 		self.type = type
 	else :
 		print("Assigning incorrect type to upgrade. Must be one of " + array_to_string(TYPES))
-	if speed!=0: self.speed = speed
-	if cooldown!=0: self.cooldown = cooldown
-	if duration!=0: self.duration = duration
-	self.hitbox_modifier = hitbox_modifier
+		
+	self.carac = carac
+	self.value = value
 	
 
 func array_to_string(arr: Array) -> String:
@@ -33,32 +30,32 @@ func array_to_string(arr: Array) -> String:
 
 func apply(player):
 	print("Applying "+ upgrade_name)
+	print(carac)
 	
 	if type == "PLAYER":
-		print(speed)
+		print(carac)
+		print(value)
 		
-		player.speed = speed
-		player.scale = player.scale*hitbox_modifier
+		player.set(carac, value)
 	if type == "ABILITY_WOLF":
-		print(speed)
-		
-		player.wolf_ability.speed = speed
-		player.wolf_ability.cooldown = cooldown
-		player.wolf_ability.duration = duration
-		player.wolf_ability.hitbox_modifier = hitbox_modifier
-		
-		player.get_node("WolfAbilityActiveTimer").wait_time = duration
-		player.get_node("WolfAbilityCooldownTimer").wait_time = cooldown
-			
+		var old_value = player.wolf_ability.get(carac)
+		if carac == "speed":
+			player.wolf_ability.set(carac,old_value + value)
+		elif carac == "scale":
+			player.wolf_ability.set(carac,old_value + value)
+		elif carac == "cooldown":
+			player.wolf_ability.set(carac,old_value - value)
+			player.get_node("WolfAbilityCooldownTimer").wait_time = old_value - value
+		elif carac=="duration":
+			player.wolf_ability.set(carac,old_value + value)
+			player.get_node("WolfAbilityActiveTimer").wait_time = old_value + value
+
 			
 	if type == "ABILITY_FROG":
-		print(speed)
+		player.frog_ability.set("carac",value)
 		
-		player.frog_ability.speed = speed
-		player.frog_ability.cooldown = cooldown
-		player.frog_ability.duration = duration
-		player.frog_ability.hitbox_modifier = hitbox_modifier
+		if carac=="duration":
+			player.get_node("FrogAbilityActiveTimer").wait_time = value
+		elif carac == "cooldown":
+			player.get_node("FrogAbilityCooldownTimer").wait_time = value
 		
-		player.get_node("FrogAbilityActiveTimer").wait_time = duration
-		player.get_node("FrogAbilityCooldownTimer").wait_time = cooldown
-			

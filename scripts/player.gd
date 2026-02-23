@@ -105,7 +105,7 @@ func reset():
 								Config.wolf_ability_cooldown_default,
 								Config.wolf_ability_duration_default,
 								Config.wolf_ability_speed_default,
-								Config.wolf_ability_hitbox_modifier_default,
+								Config.wolf_ability_scale_default,
 								Config.wolf_ability_color)
 	$WolfAbilityActiveTimer.wait_time = Config.wolf_ability_duration_default
 	$WolfAbilityCooldownTimer.wait_time = Config.wolf_ability_cooldown_default
@@ -113,7 +113,7 @@ func reset():
 								Config.frog_ability_cooldown_default,
 								Config.frog_ability_duration_default,
 								Config.frog_ability_speed_default,
-								Config.frog_ability_hitbox_modifier_default,
+								Config.frog_ability_scale_default,
 								Config.frog_ability_color)
 	$FrogAbilityActiveTimer.wait_time = Config.frog_ability_duration_default
 	$FrogAbilityCooldownTimer.wait_time = Config.frog_ability_cooldown_default
@@ -125,9 +125,9 @@ func use_ability(ability: Ability):
 	ability_active = true
 	
 	save_speed = speed
-	speed=ability.speed
+	speed+=ability.speed
 	glow_power = 2.0
-	$AnimatedSprite2D.scale = $AnimatedSprite2D.scale * ability.hitbox_modifier
+	$AnimatedSprite2D.scale += ability.scale
 	$AnimatedSprite2D.material.set_shader_parameter("glow_color",ability.glow_color)
 			
 func _on_body_entered(body: Node2D) -> void:
