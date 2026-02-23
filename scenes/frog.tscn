@@ -37,6 +37,7 @@ radius = 47.0
 height = 94.0
 
 [node name="Frog" type="RigidBody2D" unique_id=1142079686 groups=["frog", "mobs"]]
+z_index = 1
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_ybftx")

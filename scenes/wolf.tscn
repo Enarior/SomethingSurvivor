@@ -36,6 +36,7 @@ radius = 41.0
 height = 82.0
 
 [node name="Wolf" type="RigidBody2D" unique_id=1446563249 groups=["mobs", "wolf"]]
+z_index = 1
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_ejbti")

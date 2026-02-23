@@ -11,11 +11,10 @@
 			"uuid": "a26d1348-b724-44a8-bcb0-93f295e7fe44",
 			"title": "Todo",
 			"tasks": [
+				"207df404-9f7e-42cc-893b-c4e69568ebfc",
 				"2a794313-d742-43c5-a310-2eb82b23f975",
 				"d1c93ee0-895c-4a2d-90f2-09851d2b372a",
 				"b9c80b27-d7a9-44d1-afb2-b04aa7fa19b8",
-				"207df404-9f7e-42cc-893b-c4e69568ebfc",
-				"5c3f7605-6dea-4d98-b614-b139815cb44d",
 				"1c51643f-b7e5-423f-9bda-8b0631d8ce82",
 				"fa6ad7fe-d3c8-4c05-9231-2c770a7fb2bc"
 			]
@@ -24,8 +23,7 @@
 			"uuid": "eb54cc1c-8ee5-4ff3-aa1e-49bb0815e8a7",
 			"title": "Doing",
 			"tasks": [
-				"e0f6c496-5ea4-413b-8aa9-1c7ba8611b82",
-				"adfbc981-1760-4824-804b-72e195d95799"
+				"e0f6c496-5ea4-413b-8aa9-1c7ba8611b82"
 			]
 		},
 		{
@@ -55,7 +53,8 @@
 				"f426cc7a-347c-4b06-9785-7ba98ec5bdad",
 				"f2df9dcc-cbc6-40b1-acdb-d1599af18647",
 				"e9c1e204-3f85-4c96-aaae-22613ff43bdf",
-				"260959b3-160e-4e0c-a45a-85a2911df6af"
+				"260959b3-160e-4e0c-a45a-85a2911df6af",
+				"adfbc981-1760-4824-804b-72e195d95799"
 			]
 		}
 	],
@@ -279,13 +278,6 @@
 		{
 			"uuid": "7eb6c791-c749-4295-8dd6-9d52ba0daec8",
 			"title": "Hide cooldown icons when game over",
-			"description": "",
-			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
-			"steps": []
-		},
-		{
-			"uuid": "5c3f7605-6dea-4d98-b614-b139815cb44d",
-			"title": "ART : intro background",
 			"description": "",
 			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
 			"steps": []

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b1l1dvfvu6q3m" path="res://art/plus/plus_two.png" id="2_bclty"]
 
 [node name="Node2D" type="Node2D" unique_id=1915839061]
-z_index = 2
+z_index = 3
 scale = Vector2(0.02, 0.02)
 script = ExtResource("1_dhlbj")
 

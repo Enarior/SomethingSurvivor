@@ -58,22 +58,22 @@ func _process(_delta: float) -> void:
 	# Spawn second upgrade
 	if 	  (current_score>=10 and $Player.active_upgrades == 0)\
 		or (current_score >= 20 and $Player.active_upgrades == 1)\
-		or (current_score >= 25 and $Player.active_upgrades == 2)\
-		or (current_score >= 30 and $Player.active_upgrades == 3)\
-		or (current_score >= 35 and $Player.active_upgrades == 4)\
-		or (current_score >= 40 and $Player.active_upgrades == 5)\
-		or (current_score >= 45 and $Player.active_upgrades == 6)\
-		or (current_score >= 50 and $Player.active_upgrades == 7)\
-		or (current_score >= 55 and $Player.active_upgrades == 8)\
-		or (current_score >= 60 and $Player.active_upgrades == 9)\
-		or (current_score >= 65 and $Player.active_upgrades == 10)\
-		or (current_score >= 70 and $Player.active_upgrades == 11)\
-		or (current_score >= 75 and $Player.active_upgrades == 12)\
-		or (current_score >= 80 and $Player.active_upgrades == 13)\
-		or (current_score >= 85 and $Player.active_upgrades == 14)\
-		or (current_score >= 90 and $Player.active_upgrades == 15)\
-		or (current_score >= 95 and $Player.active_upgrades == 16)\
-		or (current_score >= 100 and $Player.active_upgrades == 17):
+		or (current_score >= 30 and $Player.active_upgrades == 2)\
+		or (current_score >= 40 and $Player.active_upgrades == 3)\
+		or (current_score >= 50 and $Player.active_upgrades == 4)\
+		or (current_score >= 60 and $Player.active_upgrades == 5)\
+		or (current_score >= 70 and $Player.active_upgrades == 6)\
+		or (current_score >= 80 and $Player.active_upgrades == 7)\
+		or (current_score >= 90 and $Player.active_upgrades == 8)\
+		or (current_score >= 100 and $Player.active_upgrades == 9)\
+		or (current_score >= 120 and $Player.active_upgrades == 10)\
+		or (current_score >= 140 and $Player.active_upgrades == 11)\
+		or (current_score >= 160 and $Player.active_upgrades == 12)\
+		or (current_score >= 180 and $Player.active_upgrades == 13)\
+		or (current_score >= 200 and $Player.active_upgrades == 14)\
+		or (current_score >= 220 and $Player.active_upgrades == 15)\
+		or (current_score >= 240 and $Player.active_upgrades == 16)\
+		or (current_score >= 260 and $Player.active_upgrades == 17):
 		spawn_upgrade()
 			
 

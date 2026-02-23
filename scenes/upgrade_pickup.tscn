@@ -4,7 +4,7 @@
 size = Vector2(40, 40)
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=942689003 groups=["upgrade"]]
-z_index = -1
+z_index = 1
 collision_mask = 0
 gravity_scale = 0.0
 
