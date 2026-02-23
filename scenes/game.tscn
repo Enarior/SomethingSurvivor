@@ -58,8 +58,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.09113214, 0.18399036, 0.4572636, 1)
 
-[node name="Player" parent="." unique_id=2094559001 instance=ExtResource("4_vtaks")]
-
 [node name="MobTimer" type="Timer" parent="." unique_id=876797773]
 wait_time = 2.0
 
@@ -114,12 +112,14 @@ curve = SubResource("Curve2D_kvpfn")
 position = Vector2(84, 47)
 rotation = -0.0031282485
 
+[node name="Player" parent="." unique_id=2094559001 instance=ExtResource("4_vtaks")]
+
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="ability_picked_up" from="Player" to="." method="_on_player_ability_picked_up"]
 [connection signal="frog_ability_used" from="Player" to="HUD" method="_on_player_frog_ability_used"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="sleep_enemy" from="Player" to="." method="player_hit_enemy"]
 [connection signal="wolf_ability_used" from="Player" to="HUD" method="_on_player_wolf_ability_used"]
-[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
-[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
-[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
-[connection signal="start_game" from="HUD" to="." method="new_game"]
