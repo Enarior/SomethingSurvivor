@@ -182,7 +182,7 @@ func _on_player_hit() -> void:
 
 func init_upgrades():
 	player_upgrades.append(Upgrade.new("player_speed_upgrade","Increase player speed","PLAYER", "speed",$Player.speed+100))
-	player_upgrades.append(Upgrade.new("player_hitbox_upgrade","Increase player size","PLAYER", "scale",1.2))
+	player_upgrades.append(Upgrade.new("player_hitbox_upgrade","Increase player size","PLAYER", "scale",Vector2(0.25,0.25)))
 	
 	wolf_upgrades.append(Upgrade.new("wolf_speed_upgrade","Increase player speed while using wolf ability","ABILITY_WOLF", "speed",100))
 	wolf_upgrades.append(Upgrade.new("wolf_cooldown_upgrade","Increase wolf ability duration","ABILITY_WOLF", "duration",1))
