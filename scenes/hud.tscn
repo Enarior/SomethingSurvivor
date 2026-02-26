@@ -6,6 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://dascm5p80r5ij" path="res://art/loup/loup.png" id="4_6fi6k"]
 [ext_resource type="Texture2D" uid="uid://7jnhpalbfl2i" path="res://art/frog/frog1.png" id="5_uo2fv"]
 [ext_resource type="PackedScene" uid="uid://fjh24a22xub6" path="res://scenes/star.tscn" id="6_047uy"]
+[ext_resource type="StyleBox" uid="uid://cx8yvbho55iu4" path="res://ui/ability_button_stylebox.tres" id="7_hd3ao"]
+[ext_resource type="StyleBox" uid="uid://cr8nwwbx33je7" path="res://ui/ability_button_over_stylebox.tres" id="8_0i1j5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd3ao"]
+bg_color = Color(0.43529412, 0.43529412, 0.43529412, 0.67058825)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="InputEventAction" id="InputEventAction_64ctp"]
 action = &"start_game"
@@ -39,9 +48,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -576.0
-offset_top = -241.0
+offset_top = -258.0
 offset_right = 576.0
-offset_bottom = -82.0
+offset_bottom = -99.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -152,32 +161,29 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Hint" type="Control" parent="." unique_id=774767655]
-visible = false
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -194.5
-offset_top = -236.0
-offset_right = 194.5
-offset_bottom = -170.0
+offset_left = -210.0
+offset_top = -253.0
+offset_right = 208.0
+offset_bottom = -150.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="HintBackground" type="ColorRect" parent="Hint" unique_id=1067262151]
+[node name="HintBackground" type="Panel" parent="Hint" unique_id=2035600017]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -19.0
-offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.4627451, 0.4627451, 0.4627451, 0.63529414)
+theme_override_styles/panel = SubResource("StyleBoxFlat_hd3ao")
 
 [node name="HintLabel" type="Label" parent="Hint" unique_id=1777389315]
 layout_mode = 1
@@ -188,8 +194,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_5ysmq")
-theme_override_font_sizes/font_size = 36
-text = "aeazeazeazeazeazefz"
+theme_override_font_sizes/font_size = 34
+text = "aeazeazeazeazeazefz azeazeazeazeazeazez"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -203,13 +209,13 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Stars" type="Control" parent="." unique_id=1771944648]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -24.0
 offset_right = -129.0
-offset_bottom = -193.0
+offset_bottom = -217.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -234,14 +240,16 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -89.25
-offset_top = -150.0
-offset_right = 89.25
-offset_bottom = -46.0
+offset_left = -147.5
+offset_top = -172.0
+offset_right = 147.5
+offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_5ysmq")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = ExtResource("7_hd3ao")
+theme_override_styles/hover = ExtResource("8_0i1j5")
 shortcut = SubResource("Shortcut_8sq4i")
 text = "Play again"
 
