@@ -6,10 +6,11 @@ extends Control
 var intro
 var game
 
-# debug
-var play_intro = true
-
 const MAX_VOLUME = -10.0
+
+# debug
+var play_intro = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -1,43 +1,76 @@
 [gd_scene format=3 uid="uid://defklb2dlb2ex"]
 
 [ext_resource type="Script" uid="uid://bta2dmeh7bjm7" path="res://scenes/upgrade_window.gd" id="1_a66l8"]
+[ext_resource type="FontFile" uid="uid://bixi67mwwgn6m" path="res://fonts/LoveDays-2v7Oe.ttf" id="2_056ga"]
+[ext_resource type="StyleBox" uid="uid://cx8yvbho55iu4" path="res://ui/ability_button_stylebox.tres" id="2_vpahg"]
+[ext_resource type="StyleBox" uid="uid://cr8nwwbx33je7" path="res://ui/ability_button_over_stylebox.tres" id="4_oq1ci"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a66l8"]
+bg_color = Color(0.90533507, 0.9053352, 0.90533507, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [node name="UpgradeWindow" type="CanvasLayer" unique_id=1455573141]
 process_mode = 2
 script = ExtResource("1_a66l8")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=240571795]
-offset_left = 410.0
-offset_top = 230.0
-offset_right = 776.0
-offset_bottom = 418.0
-color = Color(0.23392546, 0.23392546, 0.23392543, 1)
+[node name="Panel" type="Panel" parent="." unique_id=1244945022]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -82.0
+offset_right = 163.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a66l8")
 
-[node name="LeftUpgradeButton" type="Button" parent="." unique_id=1357869947]
+[node name="LeftUpgradeButton" type="Button" parent="Panel" unique_id=1357869947]
 process_mode = 2
+layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 408.0
-offset_top = -94.0
-offset_right = 598.0
-offset_bottom = 92.0
+offset_left = 13.0
+offset_top = -75.0
+offset_right = 163.0
+offset_bottom = 75.0
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.096204735, 0.09620475, 0.096204735, 1)
+theme_override_fonts/font = ExtResource("2_056ga")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = ExtResource("2_vpahg")
+theme_override_styles/hover = ExtResource("4_oq1ci")
 text = "Left"
 autowrap_mode = 2
 
-[node name="RightUpgradeButton" type="Button" parent="." unique_id=93731087]
+[node name="RightUpgradeButton" type="Button" parent="Panel" unique_id=93731087]
 process_mode = 2
-anchors_preset = 4
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 597.0
-offset_top = -93.0
-offset_right = 776.0
-offset_bottom = 92.0
+offset_left = -161.0
+offset_top = -75.0
+offset_right = -11.0
+offset_bottom = 75.0
+grow_horizontal = 0
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.09803922, 0.09803922, 0.09803922, 1)
+theme_override_colors/icon_hover_color = Color(0.6392157, 0.41960785, 0.20392157, 1)
+theme_override_fonts/font = ExtResource("2_056ga")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = ExtResource("2_vpahg")
+theme_override_styles/hover = ExtResource("4_oq1ci")
 text = "Right"
 autowrap_mode = 2
 
-[connection signal="pressed" from="LeftUpgradeButton" to="." method="_on_upgrade_button_pressed"]
-[connection signal="pressed" from="RightUpgradeButton" to="." method="_on_upgrade_button_pressed"]
+[connection signal="pressed" from="Panel/LeftUpgradeButton" to="." method="_on_upgrade_button_pressed"]
+[connection signal="pressed" from="Panel/RightUpgradeButton" to="." method="_on_upgrade_button_pressed"]

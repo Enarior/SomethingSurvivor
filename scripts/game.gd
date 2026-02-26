@@ -86,7 +86,7 @@ func end_game() -> void:
 	
 func new_game():
 	game_started.emit()
-	current_score = 0
+	current_score = 10
 	$MobTimer.wait_time = MOB_TIMER_START_TIME
 	active_mobs.append("wolf")
 	$Player.start($StartPosition.position)
@@ -207,6 +207,7 @@ func _on_player_ability_picked_up() -> void:
 	# Spawn choice window
 	get_tree().paused = true
 	var upgrade_window = upgrade_window_scene.instantiate()
+	var upgrade_panel = upgrade_window.get_node("Panel")
 	
 	var left_upgrade = upgrades.pick_random()
 	
@@ -215,13 +216,13 @@ func _on_player_ability_picked_up() -> void:
 	while right_upgrade.upgrade_name == left_upgrade.upgrade_name:
 		right_upgrade = upgrades.pick_random()
 		
-	upgrade_window.get_node("LeftUpgradeButton").pressed.connect(left_upgrade.apply.bind($Player))
+	upgrade_panel.get_node("LeftUpgradeButton").pressed.connect(left_upgrade.apply.bind($Player))
 	#upgrade_window.get_node("LeftUpgradeButton").pressed.connect(remove_upgrade.bind(left_upgrade))
-	upgrade_window.get_node("LeftUpgradeButton").text = left_upgrade.desc
+	upgrade_panel.get_node("LeftUpgradeButton").text = left_upgrade.desc
 	
-	upgrade_window.get_node("RightUpgradeButton").pressed.connect(right_upgrade.apply.bind($Player))
+	upgrade_panel.get_node("RightUpgradeButton").pressed.connect(right_upgrade.apply.bind($Player))
 	#upgrade_window.get_node("RightUpgradeButton").pressed.connect(remove_upgrade.bind(right_upgrade))
-	upgrade_window.get_node("RightUpgradeButton").text = right_upgrade.desc
+	upgrade_panel.get_node("RightUpgradeButton").text = right_upgrade.desc
 	
 	add_child(upgrade_window)
 	# Update variables
