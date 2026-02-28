@@ -44,7 +44,7 @@ script = ExtResource("1_ybftx")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1297787179]
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.14, 0.14)
 sprite_frames = SubResource("SpriteFrames_6v40e")
 animation = &"sleep"
 

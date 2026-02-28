@@ -251,13 +251,16 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Star1" parent="Stars" unique_id=496501690 instance=ExtResource("6_047uy")]
+visible = false
 position = Vector2(-200, 0)
 scale = Vector2(0.3, 0.3)
 
 [node name="Star2" parent="Stars" unique_id=1034704260 instance=ExtResource("6_047uy")]
+visible = false
 scale = Vector2(0.3, 0.3)
 
 [node name="Star3" parent="Stars" unique_id=1422936060 instance=ExtResource("6_047uy")]
+visible = false
 position = Vector2(200, 0)
 scale = Vector2(0.3, 0.3)
 
