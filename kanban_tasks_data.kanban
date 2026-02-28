@@ -13,15 +13,15 @@
 			"tasks": [
 				"2a794313-d742-43c5-a310-2eb82b23f975",
 				"d1c93ee0-895c-4a2d-90f2-09851d2b372a",
-				"b9c80b27-d7a9-44d1-afb2-b04aa7fa19b8",
-				"1c51643f-b7e5-423f-9bda-8b0631d8ce82"
+				"b9c80b27-d7a9-44d1-afb2-b04aa7fa19b8"
 			]
 		},
 		{
 			"uuid": "eb54cc1c-8ee5-4ff3-aa1e-49bb0815e8a7",
 			"title": "Doing",
 			"tasks": [
-				"e0f6c496-5ea4-413b-8aa9-1c7ba8611b82"
+				"e0f6c496-5ea4-413b-8aa9-1c7ba8611b82",
+				"1c51643f-b7e5-423f-9bda-8b0631d8ce82"
 			]
 		},
 		{

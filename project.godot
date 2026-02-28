@@ -17,6 +17,8 @@ config/icon="uid://b2g5bfulwmxo6"
 
 [display]
 
+window/size/viewport_width=960
+window/size/viewport_height=540
 window/size/resizable=false
 
 [editor]

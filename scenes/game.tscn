@@ -13,31 +13,31 @@
 
 [sub_resource type="Curve2D" id="Curve2D_h2yge"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 153, 1, 0, 0, 0, 0, 965, 1)
+"points": PackedVector2Array(0, 0, 0, 0, 153, 1, 0, 0, 0, 0, 833, 0)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_0tnpc"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 972, 644, 0, 0, 0, 0, 140, 645)
+"points": PackedVector2Array(0, 0, 0, 0, 813, 537, 0, 0, 0, 0, 84, 538)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_vtaks"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1151, 71, 0, 0, 0, 0, 1150, 536)
+"points": PackedVector2Array(0, 0, 0, 0, 958, 41, 0, 0, 0, 0, 960, 497)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_gee14"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -3, 536, 0, 0, 0, 0, -1, 82)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 472, 0, 0, 0, 0, 1, 74)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_kvpfn"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 84, 47, 0, 0, 0, 0, 1043, 44, 0, 0, 0, 0, 91, 123, 0, 0, 0, 0, 1034, 157, 0, 0, 0, 0, 88, 236, 0, 0, 0, 0, 1032, 272, 0, 0, 0, 0, 91, 346, 0, 0, 0, 0, 1032, 384, 0, 0, 0, 0, 90, 438, 0, 0, 0, 0, 1029, 482, 0, 0, 0, 0, 95, 531, 0, 0, 0, 0, 1031, 567)
+"points": PackedVector2Array(0, 0, 0, 0, 84, 47, 0, 0, 0, 0, 833, 38, 0, 0, 0, 0, 83, 102, 0, 0, 0, 0, 833, 143, 0, 0, 0, 0, 86, 194, 0, 0, 0, 0, 830, 242, 0, 0, 0, 0, 91, 299, 0, 0, 0, 0, 842, 342, 0, 0, 0, 0, 89, 381, 0, 0, 0, 0, 820, 425, 0, 0, 0, 0, 84, 458, 0, 0, 0, 0, 831, 503)
 }
 point_count = 12
 
@@ -69,7 +69,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="StartPosition" type="Marker2D" parent="." unique_id=1873660643]
-position = Vector2(577, 320)
+position = Vector2(480, 270)
 
 [node name="HUD" parent="." unique_id=1892091688 instance=ExtResource("5_kvpfn")]
 
@@ -83,34 +83,36 @@ curve = SubResource("Curve2D_h2yge")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath/MobPath1" unique_id=1339642069]
 position = Vector2(153, 1)
+rotation = -0.0014705871
 
 [node name="MobPath2" type="Path2D" parent="MobPath" unique_id=1835157525]
 curve = SubResource("Curve2D_0tnpc")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath/MobPath2" unique_id=688502362]
-position = Vector2(972, 644)
-rotation = 3.1403906
+position = Vector2(813, 537)
+rotation = 3.1402209
 
 [node name="MobPath3" type="Path2D" parent="MobPath" unique_id=1805353389]
+position = Vector2(0, 6)
 curve = SubResource("Curve2D_vtaks")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath/MobPath3" unique_id=1205792582]
-position = Vector2(1151, 71)
-rotation = 1.5729469
+position = Vector2(958, 41)
+rotation = 1.5664104
 
 [node name="MobPath4" type="Path2D" parent="MobPath" unique_id=990808760]
 curve = SubResource("Curve2D_gee14")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath/MobPath4" unique_id=1543278913]
-position = Vector2(-3, 536)
-rotation = -1.5663911
+position = Vector2(0, 472)
+rotation = -1.5682838
 
 [node name="UpgradeSpawn" type="Path2D" parent="." unique_id=2118580081]
 curve = SubResource("Curve2D_kvpfn")
 
 [node name="UpgradeSpawnLocation" type="PathFollow2D" parent="UpgradeSpawn" unique_id=1091054455]
 position = Vector2(84, 47)
-rotation = -0.0031282485
+rotation = -0.012015442
 
 [node name="Player" parent="." unique_id=2094559001 instance=ExtResource("4_vtaks")]
 

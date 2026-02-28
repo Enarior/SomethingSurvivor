@@ -54,13 +54,13 @@ events = [SubResource("InputEventAction_64ctp")]
 script = ExtResource("1_64ctp")
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=1468777554]
-visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -22.5
+offset_top = 2.0
 offset_right = 22.5
-offset_bottom = 78.0
+offset_bottom = 98.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_5ysmq")
@@ -76,9 +76,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -576.0
-offset_top = -258.0
+offset_top = -203.0
 offset_right = 576.0
-offset_bottom = -99.0
+offset_bottom = -44.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -94,7 +94,8 @@ wait_time = 1.5
 one_shot = true
 
 [node name="WolfAbilityCooldown" type="Node2D" parent="." unique_id=22073078]
-position = Vector2(499, 572)
+visible = false
+position = Vector2(407, 477)
 
 [node name="WolfAbilityCooldownTimer" type="Timer" parent="WolfAbilityCooldown" unique_id=2039240026]
 one_shot = true
@@ -139,10 +140,11 @@ theme_override_fonts/font = ExtResource("1_37p78")
 theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="FrogAbilityCooldown" type="Node2D" parent="." unique_id=413849726]
 visible = false
-position = Vector2(594, 575)
+position = Vector2(502, 480)
 
 [node name="FrogAbilityCooldownTimer" type="Timer" parent="FrogAbilityCooldown" unique_id=1426560980]
 one_shot = true
@@ -196,10 +198,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -210.0
-offset_top = -253.0
-offset_right = 208.0
-offset_bottom = -150.0
+offset_left = -203.0
+offset_top = -202.0
+offset_right = 200.0
+offset_bottom = -107.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -223,7 +225,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_5ysmq")
-theme_override_font_sizes/font_size = 34
+theme_override_font_sizes/font_size = 30
 text = "aeazeazeazeazeazefz azeazeazeazeazeazez"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -239,28 +241,26 @@ offset_bottom = 40.0
 
 [node name="Stars" type="Control" parent="." unique_id=1771944648]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -24.0
-offset_right = -129.0
-offset_bottom = -217.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Star1" parent="Stars" unique_id=496501690 instance=ExtResource("6_047uy")]
 visible = false
-position = Vector2(320, 352)
+position = Vector2(-200, 0)
 scale = Vector2(0.3, 0.3)
 
 [node name="Star2" parent="Stars" unique_id=1034704260 instance=ExtResource("6_047uy")]
 visible = false
-position = Vector2(570, 352)
 scale = Vector2(0.3, 0.3)
 
 [node name="Star3" parent="Stars" unique_id=1422936060 instance=ExtResource("6_047uy")]
 visible = false
-position = Vector2(820, 352)
+position = Vector2(200, 0)
 scale = Vector2(0.3, 0.3)
 
 [node name="StartButton" type="Button" parent="." unique_id=1612099308]
@@ -269,14 +269,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -147.5
-offset_top = -172.0
-offset_right = 147.5
-offset_bottom = -80.0
+offset_left = -137.0
+offset_top = -155.0
+offset_right = 136.0
+offset_bottom = -75.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_5ysmq")
-theme_override_font_sizes/font_size = 56
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("7_hd3ao")
 theme_override_styles/hover = ExtResource("8_0i1j5")
 shortcut = SubResource("Shortcut_8sq4i")
