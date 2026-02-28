@@ -105,7 +105,8 @@ func new_game():
 	$HUD/StartButton.hide()
 	$HUD/ScoreLabel.show()
 	$HUD.update_score(current_score)
-	$HUD.show_ready_message()
+	#$HUD.show_ready_message()
+	$HUD/Message.hide()
 	await get_tree().create_timer(1.0).timeout
 
 	$HUD.show_hint("Use arrow keys to move !")

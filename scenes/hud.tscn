@@ -76,9 +76,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -576.0
-offset_top = -203.0
+offset_top = -266.0
 offset_right = 576.0
-offset_bottom = -44.0
+offset_bottom = -107.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -94,8 +94,7 @@ wait_time = 1.5
 one_shot = true
 
 [node name="WolfAbilityCooldown" type="Node2D" parent="." unique_id=22073078]
-visible = false
-position = Vector2(407, 477)
+position = Vector2(407, 465)
 
 [node name="WolfAbilityCooldownTimer" type="Timer" parent="WolfAbilityCooldown" unique_id=2039240026]
 one_shot = true
@@ -144,7 +143,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="FrogAbilityCooldown" type="Node2D" parent="." unique_id=413849726]
 visible = false
-position = Vector2(502, 480)
+position = Vector2(502, 468)
 
 [node name="FrogAbilityCooldownTimer" type="Timer" parent="FrogAbilityCooldown" unique_id=1426560980]
 one_shot = true
@@ -199,9 +198,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -203.0
-offset_top = -202.0
+offset_top = -206.0
 offset_right = 200.0
-offset_bottom = -107.0
+offset_bottom = -111.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -246,20 +245,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_top = -22.0
+offset_bottom = -22.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Star1" parent="Stars" unique_id=496501690 instance=ExtResource("6_047uy")]
-visible = false
 position = Vector2(-200, 0)
 scale = Vector2(0.3, 0.3)
 
 [node name="Star2" parent="Stars" unique_id=1034704260 instance=ExtResource("6_047uy")]
-visible = false
 scale = Vector2(0.3, 0.3)
 
 [node name="Star3" parent="Stars" unique_id=1422936060 instance=ExtResource("6_047uy")]
-visible = false
 position = Vector2(200, 0)
 scale = Vector2(0.3, 0.3)
 
