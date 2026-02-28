@@ -58,6 +58,7 @@ offset_bottom = 40.0
 texture = ExtResource("8_kvpfn")
 
 [node name="Stars" type="TextureRect" parent="." unique_id=951403647]
+modulate = Color(1, 1, 1, 0)
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("9_dinhu")

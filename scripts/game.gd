@@ -79,14 +79,18 @@ func _process(_delta: float) -> void:
 
 func end_game() -> void:
 	game_over.emit()
+	var tween = create_tween()
+	tween.tween_property($Stars, "modulate:a", 0,2)
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over(current_score)
 	$DeathSound.play()
+
+	
 	
 func new_game():
 	game_started.emit()
-	current_score = 50
+	current_score = 0
 	$MobTimer.wait_time = MOB_TIMER_START_TIME
 	active_mobs.append("wolf")
 	$Player.start($StartPosition.position)
@@ -102,12 +106,16 @@ func new_game():
 	get_tree().call_group("mobs", "queue_free")
 	get_tree().call_group("upgrade", "queue_free")
 	
+	var tween = create_tween()
+	tween.tween_property($Stars, "modulate:a", 1,2)
+	
 	$HUD/StartButton.hide()
 	$HUD/ScoreLabel.show()
 	$HUD.update_score(current_score)
 	#$HUD.show_ready_message()
 	$HUD/Message.hide()
 	await get_tree().create_timer(1.0).timeout
+	
 
 	$HUD.show_hint("Use arrow keys to move !")
 	
