@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://cmajorh85pcri" path="res://scenes/plus_two.tscn" id="5_vtaks"]
 [ext_resource type="PackedScene" uid="uid://ihbx3jfw818q" path="res://scenes/upgrade_pickup.tscn" id="6_0tnpc"]
 [ext_resource type="AudioStream" uid="uid://bvewx4drb1jfa" path="res://art/tuto/gameover.wav" id="6_dinhu"]
+[ext_resource type="Texture2D" uid="uid://b0glnyuyc6nh1" path="res://art/background/background.png" id="8_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://kjoctejmgq65" path="res://art/background/stars.png" id="9_dinhu"]
 
 [sub_resource type="Curve2D" id="Curve2D_h2yge"]
 _data = {
@@ -50,13 +52,15 @@ plus_two_scene = ExtResource("5_vtaks")
 upgrade_pickup_scene = ExtResource("6_0tnpc")
 upgrade_window_scene = ExtResource("5_0tnpc")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1609628254]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.09113214, 0.18399036, 0.4572636, 1)
+[node name="Background" type="TextureRect" parent="." unique_id=1768477250]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_kvpfn")
+
+[node name="Stars" type="TextureRect" parent="." unique_id=951403647]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_dinhu")
 
 [node name="MobTimer" type="Timer" parent="." unique_id=876797773]
 wait_time = 2.0
