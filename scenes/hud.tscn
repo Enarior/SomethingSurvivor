@@ -192,6 +192,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Hint" type="Control" parent="." unique_id=774767655]
+visible = false
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5

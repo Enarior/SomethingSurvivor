@@ -9,7 +9,7 @@ var game
 const MAX_VOLUME = -10.0
 
 # debug
-var play_intro = false
+var play_intro = true
 
 
 # Called when the node enters the scene tree for the first time.
