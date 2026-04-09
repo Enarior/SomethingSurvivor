@@ -55,6 +55,14 @@ func _process(delta):
 	else:
 		$AnimatedSprite2D.stop()
 	
+	if velocity != Vector2.ZERO:
+		if (Input.is_action_just_pressed("move_left") or \
+		Input.is_action_just_pressed("move_right") or \
+		Input.is_action_just_pressed("move_up") or \
+		Input.is_action_just_pressed("move_down")) and \
+		not $PlayerPlayer.playing:
+			$PlayerPlayer.play()
+		
 	if velocity.x != 0:
 		$AnimatedSprite2D.animation = "walk"
 		$AnimatedSprite2D.flip_v = false

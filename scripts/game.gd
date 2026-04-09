@@ -129,8 +129,18 @@ func _on_mob_timer_timeout():
 	
 	if mob_name == "wolf":
 			mob = wolf_scene.instantiate()
+			if $Audio/WolfSpawnPlayer/LastPlayedTimer.time_left == 0:
+				$Audio/WolfSpawnPlayer.play()
+				$Audio/WolfSpawnPlayer/LastPlayedTimer.start()
+
+
 	elif mob_name == "frog":
 			mob = frog_scene.instantiate()
+			if $Audio/FrogSpawnPlayer/LastPlayedTimer.time_left == 0:
+				$Audio/FrogSpawnPlayer.play()
+				$Audio/FrogSpawnPlayer/LastPlayedTimer.start()
+
+
 
 
 	# Choose a random Path2D
@@ -177,11 +187,13 @@ func player_hit_enemy(enemy_type:String) -> void:
 		var plus_one = plus_one_scene.instantiate()
 		plus_one.position=$Player.position
 		add_child(plus_one)
+		$Audio/WolfSleepPlayer.play()
 	if enemy_type == "frog":
 		current_score+=2	
 		var plus_two = plus_two_scene.instantiate()
 		plus_two.position=$Player.position
 		add_child(plus_two)
+		$Audio/FrogSleepPlayer.play()
 	$HUD.update_score(current_score)
 
 

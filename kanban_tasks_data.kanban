@@ -11,9 +11,7 @@
 			"uuid": "a26d1348-b724-44a8-bcb0-93f295e7fe44",
 			"title": "Todo",
 			"tasks": [
-				"2a794313-d742-43c5-a310-2eb82b23f975",
-				"d1c93ee0-895c-4a2d-90f2-09851d2b372a",
-				"b9c80b27-d7a9-44d1-afb2-b04aa7fa19b8"
+				"274311a6-7751-4bc2-af74-c12351a91050"
 			]
 		},
 		{
@@ -30,6 +28,9 @@
 				"a5b5e443-fcbe-4a72-a5a4-c16404f97aae",
 				"88e1f822-722c-4ed6-9aeb-c3657b8706d5",
 				"50c01251-93d1-4ba0-973b-f18b493e8d32",
+				"2a794313-d742-43c5-a310-2eb82b23f975",
+				"d1c93ee0-895c-4a2d-90f2-09851d2b372a",
+				"b9c80b27-d7a9-44d1-afb2-b04aa7fa19b8",
 				"1c51643f-b7e5-423f-9bda-8b0631d8ce82",
 				"5a7c99ab-2b33-43ff-a1de-ddcab16a7d13",
 				"c00cbd7e-ee7c-4ab0-8205-6f30c99717b7",
@@ -313,6 +314,13 @@
 		{
 			"uuid": "fa6ad7fe-d3c8-4c05-9231-2c770a7fb2bc",
 			"title": "ART : Ability collectable",
+			"description": "",
+			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
+			"steps": []
+		},
+		{
+			"uuid": "274311a6-7751-4bc2-af74-c12351a91050",
+			"title": "ability sound",
 			"description": "",
 			"category": "726309f4-8e4d-4a6d-84f3-c7b8e08621ab",
 			"steps": []

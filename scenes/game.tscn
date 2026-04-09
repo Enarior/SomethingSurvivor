@@ -12,6 +12,20 @@
 [ext_resource type="AudioStream" uid="uid://bvewx4drb1jfa" path="res://art/tuto/gameover.wav" id="6_dinhu"]
 [ext_resource type="Texture2D" uid="uid://b0glnyuyc6nh1" path="res://art/background/background.png" id="8_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://kjoctejmgq65" path="res://art/background/stars.png" id="9_dinhu"]
+[ext_resource type="AudioStream" uid="uid://csj12alo76hln" path="res://sound/effect/wolf/wolf_spawn1.ogg" id="13_bhx41"]
+[ext_resource type="AudioStream" uid="uid://cs21uuk1g4n3j" path="res://sound/effect/wolf/wolf_spawn2.ogg" id="14_qnb83"]
+[ext_resource type="AudioStream" uid="uid://bijkhtthauadx" path="res://sound/effect/wolf/wolf_spawn3.ogg" id="15_sww3w"]
+[ext_resource type="AudioStream" uid="uid://cajwdg5da0pkj" path="res://sound/effect/wolf/wolf_ronfl1.ogg" id="16_suyxu"]
+[ext_resource type="AudioStream" uid="uid://crn272lfhh1h1" path="res://sound/effect/wolf/wolf_ronfl2.ogg" id="17_sgl2t"]
+[ext_resource type="AudioStream" uid="uid://ccvv3dg3vfdmh" path="res://sound/effect/wolf/wolf_ronfl3.ogg" id="18_qouja"]
+[ext_resource type="AudioStream" uid="uid://dobsl5ws0ndsd" path="res://sound/effect/wolf/wolf_ronfl4.ogg" id="19_wljb1"]
+[ext_resource type="AudioStream" uid="uid://ehj2ct0m6shm" path="res://sound/effect/frog/croa1.ogg" id="20_v2yb1"]
+[ext_resource type="AudioStream" uid="uid://cpx0if0247niq" path="res://sound/effect/frog/croa2.ogg" id="21_js0lu"]
+[ext_resource type="AudioStream" uid="uid://koebysalmaqn" path="res://sound/effect/frog/croa3.ogg" id="22_gxtfn"]
+[ext_resource type="AudioStream" uid="uid://dbpvc8pb2h4iv" path="res://sound/effect/frog/frog_ronfl1.ogg" id="23_twgab"]
+[ext_resource type="AudioStream" uid="uid://o4e50a4lxmb1" path="res://sound/effect/frog/frog_ronfl2.ogg" id="24_02fa5"]
+[ext_resource type="AudioStream" uid="uid://bwoawn6mlns6t" path="res://sound/effect/frog/frog_ronfl3.ogg" id="25_nepv3"]
+[ext_resource type="AudioStream" uid="uid://bi4c1kvbhibl5" path="res://sound/effect/frog/frog_ronfl4.ogg" id="26_7025r"]
 
 [sub_resource type="Curve2D" id="Curve2D_h2yge"]
 _data = {
@@ -42,6 +56,32 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 84, 47, 0, 0, 0, 0, 833, 38, 0, 0, 0, 0, 83, 102, 0, 0, 0, 0, 833, 143, 0, 0, 0, 0, 86, 194, 0, 0, 0, 0, 830, 242, 0, 0, 0, 0, 91, 299, 0, 0, 0, 0, 842, 342, 0, 0, 0, 0, 89, 381, 0, 0, 0, 0, 820, 425, 0, 0, 0, 0, 84, 458, 0, 0, 0, 0, 831, 503)
 }
 point_count = 12
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_m4url"]
+streams_count = 3
+stream_0/stream = ExtResource("13_bhx41")
+stream_1/stream = ExtResource("14_qnb83")
+stream_2/stream = ExtResource("15_sww3w")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bhx41"]
+streams_count = 4
+stream_0/stream = ExtResource("16_suyxu")
+stream_1/stream = ExtResource("17_sgl2t")
+stream_2/stream = ExtResource("18_qouja")
+stream_3/stream = ExtResource("19_wljb1")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_05nbr"]
+streams_count = 3
+stream_0/stream = ExtResource("20_v2yb1")
+stream_1/stream = ExtResource("21_js0lu")
+stream_2/stream = ExtResource("22_gxtfn")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qnb83"]
+streams_count = 4
+stream_0/stream = ExtResource("23_twgab")
+stream_1/stream = ExtResource("24_02fa5")
+stream_2/stream = ExtResource("25_nepv3")
+stream_3/stream = ExtResource("26_7025r")
 
 [node name="Game" type="Node" unique_id=969029142]
 script = ExtResource("1_u5sy4")
@@ -120,6 +160,31 @@ position = Vector2(84, 47)
 rotation = -0.012015442
 
 [node name="Player" parent="." unique_id=2094559001 instance=ExtResource("4_vtaks")]
+
+[node name="Audio" type="Node2D" parent="." unique_id=2039387755]
+
+[node name="WolfSpawnPlayer" type="AudioStreamPlayer2D" parent="Audio" unique_id=2032547637]
+stream = SubResource("AudioStreamRandomizer_m4url")
+bus = &"Wolf"
+
+[node name="LastPlayedTimer" type="Timer" parent="Audio/WolfSpawnPlayer" unique_id=1366105035]
+wait_time = 5.0
+one_shot = true
+
+[node name="WolfSleepPlayer" type="AudioStreamPlayer2D" parent="Audio" unique_id=663164368]
+stream = SubResource("AudioStreamRandomizer_bhx41")
+
+[node name="FrogSpawnPlayer" type="AudioStreamPlayer2D" parent="Audio" unique_id=1574763647]
+stream = SubResource("AudioStreamRandomizer_05nbr")
+bus = &"Frog"
+
+[node name="LastPlayedTimer" type="Timer" parent="Audio/FrogSpawnPlayer" unique_id=1758143091]
+wait_time = 5.0
+one_shot = true
+
+[node name="FrogSleepPlayer" type="AudioStreamPlayer2D" parent="Audio" unique_id=1892234096]
+stream = SubResource("AudioStreamRandomizer_qnb83")
+bus = &"Frog"
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

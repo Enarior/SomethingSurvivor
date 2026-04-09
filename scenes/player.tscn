@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://b67dnppl2rdf2" path="res://scripts/player.gd" id="1_sweqy"]
 [ext_resource type="Texture2D" uid="uid://b2g5bfulwmxo6" path="res://art/mouton/sheep_walk.png" id="3_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://b4h4xmcymkmwq" path="res://art/mouton/sheep_up.png" id="3_sweqy"]
+[ext_resource type="AudioStream" uid="uid://q3fod1ytuflj" path="res://sound/effect/sheep/poutioup1.ogg" id="5_fjrip"]
+[ext_resource type="AudioStream" uid="uid://cx6tduumjw8u4" path="res://sound/effect/sheep/poutioup2.ogg" id="6_smehm"]
+[ext_resource type="AudioStream" uid="uid://da0ix3syht3x1" path="res://sound/effect/sheep/poutioup3.ogg" id="7_ur7pv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hqtel"]
 shader = ExtResource("1_hqtel")
@@ -35,6 +38,12 @@ animations = [{
 radius = 27.0
 height = 68.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_y4r1p"]
+streams_count = 3
+stream_0/stream = ExtResource("5_fjrip")
+stream_1/stream = ExtResource("6_smehm")
+stream_2/stream = ExtResource("7_ur7pv")
+
 [node name="Player" type="Area2D" unique_id=135842090]
 z_index = 2
 script = ExtResource("1_sweqy")
@@ -65,6 +74,10 @@ one_shot = true
 [node name="FrogAbilityCooldownTimer" type="Timer" parent="." unique_id=1971029483]
 wait_time = 5.0
 one_shot = true
+
+[node name="PlayerPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1364758589]
+stream = SubResource("AudioStreamRandomizer_y4r1p")
+bus = &"Player"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="WolfAbilityActiveTimer" to="." method="_on_wolf_ability_active_timer_timeout"]
